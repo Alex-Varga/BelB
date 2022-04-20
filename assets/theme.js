@@ -1382,7 +1382,6 @@ theme.BundleCustomizer = (function ($) {
 		// }
 	};
 
-
 	BundleCustomizer.prototype.getAddToCartItems = function () {
 		const ingredientsKeys = Object.keys(this.ingredients);
 		const hashString = ingredientsKeys.sort().reduce((hashString, key) => {
@@ -1441,121 +1440,6 @@ theme.BundleCustomizer = (function ($) {
 					}
 				},
 			}));
-
-			setTimeout(() => {
-				$.ajax({
-					type: 'GET',
-					url: '/cart.js',
-					dataType: 'json',
-					success: (cart) => {
-						let htmlItems = '';
-						let productsCount = 0;
-						let itemsHTML = $('#cartItems .cart-wrapping');
-						let countProductsHTML = $('.cart__header .cart-indicator');
-						let countMiniCart = $('.header__secondary-menu-cart-count');
-						let cartTotalHTML = $('.cart__totalcost-amout');
-
-						cart.items.forEach((el, index) => {
-							let addictedProducts = '';
-
-							if (el.product_title.includes('Bundle') && el.properties != null && el.properties.hasOwnProperty('_bundle-hash')) {
-								cart.items.forEach((adds, idx) => {
-									if (!adds.product_title.includes('Bundle') && adds.properties != null && adds.properties.hasOwnProperty('_for-bundle-hash')) {
-										if (adds.properties['_for-bundle-hash'] == el.properties['_bundle-hash']) {
-											addictedProducts += `
-												<li data-line="${idx}" data-qty="${parseInt(adds.properties['_bundle-quantity'])}">${adds.product_title} (${adds.properties['_bundle-quantity']})</li>
-											`;
-										}
-									}
-								});
-							}
-
-							if (el.product_title.includes('Bundle') && el.properties != null && el.properties.hasOwnProperty('_bundle-hash')) {
-								productsCount += el.quantity;
-
-								htmlItems += `
-									<div class="cart__item" data-variant="${el.variant_id}" data-hash="${el.properties['_bundle-hash']}" data-line="${index + 1}">
-										<img src="${el.featured_image.url}" alt="item 1" class="cart__item-img">
-										
-										<div class="cart__item-options">
-											<h3 class="cart__item-title">${el.title}</h3>
-											
-											<div class="cart__item-qty">
-												<span>qty</span>
-												<button type="button" class="cart__item-qty-minus">-</button>
-												<input class="cart__item-input-qty" type="number" name="cart-input-qty" value="${el.quantity}" data-price="100" id="input-id2">
-												<button type="button" class="cart__item-qty-plus">+</button>
-												<div class="cart__item-price">$${el.price.toString().substring(0, el.price.toString().length - 2) * el.quantity}</div>
-											</div>
-											<div class="cart__item-descr">
-												<ul class="cart__item-descr-par">
-													${addictedProducts}
-												</ul>
-											</div>
-										</div>
-										
-										<button type="button" class="btn__cart-close btn__cart-item-close" data-cart-remove-variant="${el.variant_id}"></button>
-									</div>
-								`;
-							} else if (el.properties == null || !el.properties.hasOwnProperty('_bundle-hash') && !el.properties.hasOwnProperty('_for-bundle-hash')) {
-								productsCount += el.quantity;
-
-								htmlItems += `
-									<div class="cart__item" data-variant="${el.variant_id}" data-line="${index + 1}">
-										<img src="${el.featured_image.url}" alt="item 1" class="cart__item-img">
-										
-										<div class="cart__item-options">
-											<h3 class="cart__item-title">${el.title}</h3>
-											
-											<div class="cart__item-qty">
-												<span>qty</span>
-												<button type="button" class="cart__item-qty-minus">-</button>
-												<input class="cart__item-input-qty" type="number" name="cart-input-qty" value="${el.quantity}" data-price="100" id="input-id2">
-												<button type="button" class="cart__item-qty-plus">+</button>
-												<div class="cart__item-price">$${el.price.toString().substring(0, el.price.toString().length - 2) * el.quantity}</div>
-											</div>
-										</div>
-										
-										<button type="button" class="btn__cart-close btn__cart-item-close" data-cart-remove-variant="${el.variant_id}"></button>
-									</div>
-								`;
-							}
-						});
-
-						cartTotalHTML.text(cart.total_price.toString().substring(0, cart.total_price.toString().length - 2));
-						countProductsHTML.text(' (' + productsCount + ')');
-						countMiniCart.text(productsCount);
-						itemsHTML.html(htmlItems);
-
-						if (productsCount == 0) {
-							$('.cart__items-empty-img').removeClass('hidden');
-							$('.cart__empty-wrapper').removeClass('hidden');
-
-							if (!$('.cart__checkout-total').hasClass('hidden')) {
-								$('.cart__checkout-total').addClass('hidden')
-							}
-							if (!$('.cart-ajax .cart__header').hasClass('hidden')) {
-								$('.cart-ajax .cart__header').addClass('hidden');
-							}
-						} else {
-							if (!$('.cart__items-empty-img').hasClass('hidden')) {
-								$('.cart__items-empty-img').addClass('hidden');
-							}
-
-							if (!$('.cart__empty-wrapper').hasClass('hidden')) {
-								$('.cart__empty-wrapper').addClass('hidden');
-							}
-
-							$('.cart__checkout-total').removeClass('hidden');
-							$('.cart-ajax .cart__header').removeClass('hidden');
-						}
-					}
-				});
-
-				$('.btn-cart')[0].click();
-			}, 1500);
-
-			return false;
 		});
 	};
 
@@ -1779,5 +1663,4 @@ $(document).ready(function() {
   if (slate.cart.cookiesEnabled()) {
     document.documentElement.className = document.documentElement.className.replace('supports-no-cookies', 'supports-cookies');
   }
-
 });
