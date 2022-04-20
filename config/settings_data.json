@@ -301,16 +301,16 @@
       "1599143225289": {
         "type": "home-banner",
         "settings": {
-          "background_color": "#ffeddc",
-          "image": "shopify:\/\/shop_images\/Spring_Banner_2022.jpg",
-          "image_mobile": "shopify:\/\/shop_images\/Spring_Banner_2022_Mobile.jpg",
+          "background_color": "#9ee0ec",
+          "image": "shopify:\/\/shop_images\/Hero_Banner_1_8cc57321-b841-47d6-8b1c-83c9cb3f9fbc.jpg",
+          "image_mobile": "shopify:\/\/shop_images\/Hero_Banner_Mobile_33ba5640-6627-4fed-81e0-b9705f191fa3.jpg",
           "text_align": "center",
-          "title": "YOUR NEW FAVORITE BREAKFAST",
-          "title_color": "#111c4e",
-          "subtitle": "Sweeten up your Spring with our quick-and-easy breakfast favorites",
-          "subtitle_color": "#111c4e",
+          "title": "THE FRENCH (TOAST) REVOLUTION",
+          "title_color": "#ffffff",
+          "subtitle": "Quick & easy French Toast, available at Target",
+          "subtitle_color": "#ffffff",
           "button_text": "GET YOURS NOW",
-          "button_link": "shopify:\/\/collections\/breakfast",
+          "button_link": "shopify:\/\/pages\/brioche-french-toast",
           "button_background_color": "#111c4e",
           "button_hover_background_color": "#ffffff",
           "button_text_color": "#ffffff",
@@ -493,10 +493,10 @@
       "promobar": {
         "type": "promobar",
         "settings": {
-          "enable_promobar": true,
+          "enable_promobar": false,
           "bg_color": "#111c4e",
           "text_color": "#ffffff",
-          "text": "FREE SHIPPING OVER $50",
+          "text": "FREE SHIPPING ON ALL $50+ ORDERS",
           "url": "https:\/\/www.belgianboys.com\/discount\/ONYOURTABLE20?redirect=\/products"
         }
       },
