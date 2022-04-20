@@ -1,0 +1,252 @@
+{% assign bg_color = section.settings.bg_color %}
+{% assign cart_item_count = 0 %}
+
+{% for item in cart.items %}
+	{% if item.properties["_for-bundle-hash"] == blank %}
+		{% assign cart_item_count = cart_item_count | plus: item.quantity %}
+	{% endif %}
+{% endfor %}
+
+<header
+	class="header"
+	data-section-id="{{ section.id }}" data-section-type="header"
+	style="--bg-color: {{ bg_color }};"
+>
+	<div class="header__container">
+		<div class="header__menu-button js-mobile-menu-button">
+			<span></span><span></span><span></span>
+		</div>
+
+		{% assign logo = section.settings.logo %}
+
+		{% if logo != blank %}
+			<a href="{{ routes.root_url }}" class="header__logo">
+				<img class="header__logo-image"
+					 src="{{ logo | img_url: 'x60' }}"
+					 srcset="{{ logo | img_url: 'x60' }} 1x, {{ logo | img_url: 'x120' }} 2x"
+					 alt="{{ shop.name }}"
+				>
+			</a>
+		{% endif %}
+
+		{% assign main_menu = section.settings.main_menu %}
+
+		{% if main_menu != blank %}
+			{% assign linklist 		= linklists[main_menu] %}
+			{% assign linklist_size = linklist.size %}
+
+			{% if linklist_size > 0 %}
+				<div class="header__main-menu header-main-menu">
+					{% for link in linklist.links %}
+						{% assign has_dropdown = false %}
+
+						{% if link.links.size != 0 %}
+							{% assign has_dropdown = true %}
+						{% endif %}
+
+						{% if has_dropdown == true %}
+							{% capture dropdown %}
+								<ul class="header-main-menu__dropdown">
+									{% for childlink in link.links %}
+										<li class="header-main-menu__dropdown-item">
+											<a href="{{ childlink.url }}" class="header-main-menu__dropdown-link">
+												{{ childlink.title }}
+											</a>
+										</li>
+									{% endfor %}
+								</ul>
+							{% endcapture %}
+						{% endif %}
+
+						<div class="header-main-menu__item">
+							<a href="{{ link.url }}" class="header-main-menu__link">
+								{{- link.title -}}
+
+								{% if has_dropdown %}
+									<span class="header-main-menu__link-chevron">
+										{% render 'icon-chevron' %}
+									</span>
+								{% endif %}
+							</a>
+
+							{% if has_dropdown == true %}
+								{{- dropdown | strip -}}
+							{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+
+				<div class="header-mobile-menu js-mobile-menu">
+					<div class="header-mobile-menu__wrapper js-mobile-menu-wrapper">
+						{% for link in linklist.links %}
+							{% if link.links.size > 0 %}
+								{% assign has_dropdown = true | default: false %}
+							{% endif %}
+
+							{% if has_dropdown == true %}
+								{% capture dropdown %}
+									<ul class="header-mobile-menu__dropdown">
+										{% for childlink in link.links %}
+											<li class="header-mobile-menu__dropdown-item">
+												<a href="{{ childlink.url }}" class="header-mobile-menu__dropdown-link">
+													{{- childlink.title -}}
+												</a>
+											</li>
+										{% endfor %}
+									</ul>
+								{% endcapture %}
+							{% endif %}
+
+							<div class="header-mobile-menu__item">
+								<a href="{{ link.url }}" class="header-mobile-menu__link">
+									{{- link.title -}}
+								</a>
+
+								{% if dropdown != '' %}
+									{{- dropdown | strip -}}
+								{% endif %}
+							</div>
+						{% endfor %}
+
+						<div class="header-mobile-menu__secondary">
+							{% assign store_locator_url = section.settings.store_locator_url %}
+							{% assign instagram_url 	= section.settings.instagram_url %}
+
+							{% if store_locator_url != blank %}
+								<a href="{{ store_locator_url }}" class="header-mobile-menu__secondary-menu-link" target="_blank" rel="noopener noreferrer">
+									{% render 'icon-location' %}
+								</a>
+							{% endif %}
+
+							{% if instagram_url != blank %}
+								<a href="{{ instagram_url }}" class="header-mobile-menu__secondary-menu-link" target="_blank" rel="noopener noreferrer">
+									{% render 'icon-instagram' %}
+								</a>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		{% endif %}
+
+		<div class="header__secondary-menu">
+			{% assign store_locator_url = section.settings.store_locator_url %}
+			{% assign instagram_url 	= section.settings.instagram_url %}
+
+			{% if store_locator_url != blank %}
+				<div class="header__secondary-menu-item">
+					<a href="{{ store_locator_url }}" class="header__secondary-menu-link">
+						{% render 'icon-store-locator' %}
+					</a>
+				</div>
+			{% endif %}
+
+			<div class="header__secondary-menu-item">
+				<a href="{{ routes.cart_url }}" class="header__secondary-menu-link header__secondary-menu-cart btn-cart">
+					{% render 'icon-cart' %}
+
+					<span class="header__secondary-menu-cart-count" data-cart-items-count>
+						{%- if cart_item_count > 99 -%}
+							99+
+							{%- elsif cart_item_count > 0 -%}
+							{{- cart_item_count -}}
+						{%- else -%}
+							0
+						{%- endif -%}
+					</span>
+				</a>
+			</div>
+		</div>
+
+		<a href="{{ routes.cart_url }}" class="header__mobile-cart">
+			{% render 'icon-cart' %}
+
+			<span class="header__mobile-cart-count" data-cart-items-count>
+				{%- if cart_item_count > 99 -%}
+					99+
+					{%- elsif cart_item_count > 0 -%}
+					{{- cart_item_count -}}
+				{%- else -%}
+					0
+				{%- endif -%}
+			</span>
+		</a>
+	</div>
+</header>
+
+<div class="ajax-cart-wrapper">
+	<section class="cart-ajax">
+		<div class="cart__header" style="padding: 10px 0;">
+			<h2 class="cart__header-title">cart</h2>
+			<span class="cart-indicator"></span>
+		</div>
+		<button id="close-ajax-cart-btn" class="btn__cart-close"></button>
+		<div class="cart__shipping-unlock" style="display: none !important;">
+			<div class="cart__shipping-unlock-ico">
+				<svg width="15" height="22" viewBox="0 0 15 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11.5794 8.33425L1.58865 10.3028C0.710854 10.4762 0.134722 11.3553 0.301987 12.2661L1.62777 19.5035C1.79484 20.4143 2.64203 21.0122 3.51979 20.8386L13.4104 18.8845C14.2882 18.7111 14.8643 17.832 14.6971 16.9212L13.3713 9.68377C13.2105 8.80748 12.4205 8.22335 11.5794 8.33425ZM7.98646 14.7926L8.36254 16.8424L7.64251 16.9846L7.26643 14.9349C6.84274 14.8606 6.4873 14.5248 6.40227 14.0611C6.2929 13.4656 6.66977 12.8907 7.24368 12.7775C7.81756 12.664 8.37159 13.055 8.48076 13.6506C8.56576 14.114 8.35417 14.562 7.98646 14.7926Z" fill="#00A7E1"/>
+					<path d="M3.48947 4.46031C3.6722 4.76655 4.05982 4.86101 4.35484 4.67123L5.23261 4.10608C6.62662 3.20949 8.46399 3.6569 9.32803 5.10344C10.1921 6.54997 9.76089 8.45656 8.36688 9.35315L7.48565 9.92052C7.19106 10.1103 7.10005 10.5118 7.28268 10.8178L7.53516 11.241C7.71799 11.5474 8.10551 11.6417 8.40053 11.4519L9.28176 10.8845C11.4895 9.46393 12.1723 6.44486 10.8037 4.15391C9.43512 1.86297 6.52582 1.15437 4.31789 2.57461L3.43979 3.13997C3.1452 3.32972 3.0542 3.73122 3.23682 4.03729L3.48947 4.46031Z" fill="#00A7E1"/>
+				</svg>
+			</div>
+			<p>free shipping unlocked</p>
+		</div>
+		<div class="cart__items" id="cartItems">
+			<div class="cart-wrapping">
+
+			</div>
+			<img src="https://cdn.shopify.com/s/files/1/0276/3748/1545/files/cart-empty-img.png?v=1621499205s" alt="empty-cart" class="cart__items-empty-img">
+		</div>
+		<div class="neutrl-cart-container"></div>
+		<div class="cart__empty-wrapper">
+			<p class="cart__text-empty">Oh no, your cart is empty!<br>This would look much better filled with treats!</p>
+			<a href="/collections/shop" class="btn__cart btn__cart-empty">continue shopping</a>
+		</div>
+		<div class="cart__checkout-total">
+			<div class="cart__totalcost">
+				<h3>Total (excluding tax)</h3>
+				<span class="cart__totalcost-dol">$</span>
+				<p class="cart__totalcost-amout"></p>
+			</div>
+			<a href="/checkout" class="btn__cart-cht">CHECKOUT</a>
+			<p class="cart__manifest-checkout">Shipping, taxes and discounts calculated at checkout</p>
+		</div>
+	</section>
+	<div class="cart-overlay"></div>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "header",
+      "content": "Main menu"
+    },
+    {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "Menu"
+    },
+    {
+      "type": "header",
+      "content": "Secondary menu"
+    },
+    {
+      "type": "url",
+      "id": "store_locator_url",
+      "label": "Store locator link"
+    }
+  ]
+}
+{% endschema %}

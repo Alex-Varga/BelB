@@ -1,0 +1,63 @@
+{% assign title       = section.settings.title %}
+{% assign description = section.settings.description %}
+{% assign bg_img      = section.settings.bg_img %}
+{% assign image       = section.settings.image %}
+
+<style>
+	#lp-six--content-and-media {
+		background: url("{{ bg_img | img_url: 'master' }}") center / cover no-repeat
+	}
+
+	@media(max-width: 992px) {
+		#lp-six--content-and-media {
+			background-position: 57% 50%;
+		}
+	}
+</style>
+
+<section id="lp-six--content-and-media">
+	<div class="lp-six--content-and-media__container">
+		<div class="lp-six--content-and-media__content">
+			<h2 class="lp-six--content-and-media__title">{{ title }}</h2>
+			<div class="lp-six--content-and-media__desription">{{ description }}</div>
+		</div>
+
+		<div class="lp-six--content-and-media__image">
+			<img src="{{ image | img_url: 'master' }}" alt="">
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "LP #6 cactus",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_img",
+      "label": "Background image for desktop"
+    }
+  ],
+  "presets": [
+    {
+      "category": "LP media and content",
+      "name":"LP media and content"
+    }
+  ]
+}
+{% endschema %}

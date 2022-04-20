@@ -1,0 +1,42 @@
+{% assign desktop_image  	= section.settings.desktop_image | img_url: 'master' %}
+{% assign tablet_image  	= section.settings.tablet_image | img_url: 'master' %}
+{% assign mobile_image  	= section.settings.mobile_image | img_url: 'master' %}
+
+<div id="lemon-hero" style="background-color: #74CFDF;">
+	<div class="lemon-hero-container">
+		<div class="desktop">
+			<img src="{{ desktop_image }}" alt="desktop image">
+		</div>
+
+		<div class="tablet">
+			<img src="{{ tablet_image }}" alt="tablet image">
+		</div>
+
+		<div class="mobile">
+			<img src="{{ mobile_image }}" alt="mobile image">
+		</div>
+	</div>
+</div>
+
+{% schema %}
+{
+  "name": "Lemon hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "tablet_image",
+      "label": "Tablet image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image"
+    }
+  ]
+}
+{% endschema %}

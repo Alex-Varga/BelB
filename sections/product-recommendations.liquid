@@ -1,0 +1,69 @@
+{% assign title 					= section.settings.title %}
+{% assign subtitle 					= section.settings.subtitle %}
+{% assign recommendations_limit		= 10 %}
+{% assign products_limit 			= 4 %}
+
+<div class="product-recommendations js-product-recommendations" data-base-url="{{ routes.product_recommendations_url }}" data-product-id="{{ product.id }}" data-limit="{{ recommendations_limit }}">
+	{%- if recommendations.products_count > 0 -%}
+		<div class="recommended-product">
+			<div class="recommended-product__container">
+				{% if title != blank %}
+					<h2 class="title recommended-product__title">
+						{{- title -}}
+					</h2>
+				{% endif %}
+
+				{% if subtitle != blank %}
+					<h3 class="recommended-product__subtitle">
+						{{- subtitle -}}
+					</h3>
+				{% endif %}
+
+				<div class="recommended-product__wrapper">
+					{% assign recommendations_products = recommendations.products | sort: 'price' %}
+
+					{% assign recommendations = '' %}
+
+					{%- for product in recommendations_products -%}
+						{% unless product.tags contains 'hidden' %}
+							{% unless product.title contains 'Carbon Neutral Offset' %}
+								{% assign recommendations = recommendations | append: product.handle | append: '||' %}
+							{% endunless %}
+						{% endunless %}
+					{%- endfor -%}
+
+					{% assign recommendations = recommendations | split: '||' %}
+
+					{% for product_handle in recommendations limit: products_limit %}
+						<div class="recommended-product__card">
+							{% assign product = all_products[product_handle] %}
+
+							{% render 'product-card-featured' product: product %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	{%- endif -%}
+</div>
+
+{% schema %}
+{
+	"name": "Product Recommendation",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Featured products"
+		},
+		{
+			"type": "text",
+			"id": "subtitle",
+			"label": "Subheading",
+			"default": "FREE SHIPPING ON ORDERS OVER 50$"
+		}
+	]
+}
+{% endschema %}
+

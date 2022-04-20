@@ -1,0 +1,97 @@
+{% comment %}
+	@params
+	bundle - 			product object *required
+	custom_image -		bundle image
+{% endcomment %}
+
+{% if bundle != blank %}
+	<div class="bundle-card">
+		{% capture image %}
+			{% if custom_image != blank %}
+				<a href="{{ bundle.url }}">
+					<div class="bundle-card__image-wrapper">
+						<picture>
+							<source srcset="{{ custom_image.cloudinary_src | append: 'w_480' }} 1x, {{ custom_image.cloudinary_src | append: 'w_960' }} 2x" media="(max-width: 480px)">
+							<source srcset="{{ custom_image.cloudinary_src | append: 'w_575' }} 1x, {{ custom_image.cloudinary_src | append: 'w_1150' }} 2x" media="(max-width: 575px)">
+							<source srcset="{{ custom_image.cloudinary_src | append: 'w_767' }} 1x, {{ custom_image.cloudinary_src | append: 'w_1534' }} 2x" media="(max-width: 767px)">
+
+							<img class="bundle-card__image"
+								 srcset="{{ custom_image.cloudinary_src | append: 'w_400' }} 1x, {{ custom_image.cloudinary_src | append: 'w_800' }} 2x"
+								 src="{{ custom_image.cloudinary_src | append: 'w_400' }}"
+								 alt="{{ custom_image.alt }}"
+							>
+						</picture>
+
+						<div class="bundle-card__price">
+							<span class="bundle-card__price-value">
+								{{- bundle.price | money -}}
+							</span>
+						</div>
+					</div>
+				</a>
+			{% else %}
+				{% assign custom_image = bundle.featured_image %}
+
+				<a href="{{ bundle.url }}">
+					<div class="bundle-card__image-wrapper">
+						<picture>
+							<source srcset="{{ custom_image | img_url: '480x' }} 1x, {{ custom_image | img_url: '960x' }} 2x" media="(max-width: 480px)">
+							<source srcset="{{ custom_image | img_url: '575x' }} 1x, {{ custom_image | img_url: '1150x' }} 2x" media="(max-width: 575px)">
+							<source srcset="{{ custom_image | img_url: '767x' }} 1x, {{ custom_image | img_url: '1534x' }} 2x" media="(max-width: 767px)">
+
+							<img class="bundle-card__image"
+								 srcset="{{ custom_image | img_url: '400x' }} 1x, {{ custom_image | img_url: '800x' }} 2x"
+								 src="{{ custom_image | url: '400x' }}"
+								 alt="{{ custom_image.alt }}"
+							>
+						</picture>
+
+						<div class="bundle-card__price">
+							<span class="bundle-card__price-value">
+								{{- bundle.price | money -}}
+							</span>
+						</div>
+					</div>
+				</a>
+			{% endif %}
+		{% endcapture %}
+
+		{{- image | strip -}}
+
+		{%- assign tags = bundle.tags -%}
+
+		{%- for tag in tags -%}
+			{%- assign current_tag = tag | downcase | replace: ' ', '-' | strip -%}
+
+			{%- if tag contains 'badge-' -%}
+				{%- capture badge -%}
+					{%- assign image_file = tag | append: '.png' -%}
+
+					<div class="bundle-card__badge">
+						<picture>
+							<img class="bundle-card__badge-image"
+								 srcset="{{ image_file | file_img_url: 'master' }} 1x, {{ image_file | file_img_url: 'master' }} 2x"
+								 src="{{ image_file | file_img_url: 'master' }}"
+								 alt="{{ image_file.alt }}"
+							>
+						</picture>
+					</div>
+				{%- endcapture -%}
+			{%- endif -%}
+		{%- endfor -%}
+
+		{% if badge != '' %}
+			{{- badge -}}
+		{% endif %}
+
+		<div class="bundle-card__info">
+			<a class="bundle-card__title" href="{{ bundle.url }}">
+				{{- bundle.title -}}
+			</a>
+
+			<a class="bundle-card__more-info" href="{{ bundle.url }}">
+				{{ 'products.bundle_card.more_info' | t }}
+			</a>
+		</div>
+	</div>
+{% endif %}

@@ -1,0 +1,19 @@
+<div class="ingredients-popup js-ingredients-popup">
+	<div class="ingredients-popup__overlay js-ingredients-popup-close"></div>
+
+	<div class="ingredients-popup__content">
+		<div class="ingredients-popup__content-wrapper">
+			<div class="ingredients-popup__close js-ingredients-popup-close">
+				{% render 'icon-close' %}
+			</div>
+
+			<h3 class="ingredients-popup__title">
+				{{ 'products.product.ingredients' | t }}
+			</h3>
+
+			<div class="ingredients-popup__text">
+				{{ product.metafields.accentuate.ingredients_popup.html }}
+			</div>
+		</div>
+	</div>
+</div>

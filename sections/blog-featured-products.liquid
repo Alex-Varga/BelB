@@ -1,0 +1,76 @@
+{% assign title 	= section.settings.title %}
+{% assign subtitle 	= section.settings.subtitle %}
+{% assign blocks 	= section.blocks %}
+
+{% if blocks.size > 0 %}
+	<section class="featured-products">
+		<div class="featured-products__container">
+			{% if title != blank %}
+				<h2 class="title featured-products__title">
+					{{- title -}}
+				</h2>
+			{% endif %}
+
+			{% if subtitle != blank %}
+				<h3 class="featured-products__subtitle">
+					{{- subtitle -}}
+				</h3>
+			{% endif %}
+
+			<div class="featured-products__wrapper">
+				<div class="featured-products__slider js-featured-products-slider">
+					{% for block in blocks %}
+						{% assign product = all_products[block.settings.product] %}
+
+						<div class="featured-products__product">
+							{% render 'product-card-featured', product: product %}
+						</div>
+					{% endfor %}
+				</div>
+
+				<div class="featured-products__arrow featured-products__arrow--left js-featured-products-slider-prev">
+					{% include 'icon-arrow-left' %}
+				</div>
+
+				<div class="featured-products__arrow featured-products__arrow--right js-featured-products-slider-next">
+					{% include 'icon-arrow-right' %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}
+
+
+{% schema %}
+{
+	"name": "Featured Products",
+	"max_blocks": 47,
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Featured Products"
+		},
+		{
+			"type": "text",
+			"id": "subtitle",
+			"label": "Subheading",
+			"default": "FREE SHIPPING ON ORDERS OVER 50$"
+		}
+	],
+	"blocks": [
+		{
+			"type": "product",
+			"name": "Product",
+			"settings": [
+				{
+					"type": "product",
+					"id": "product",
+					"label": "Product"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

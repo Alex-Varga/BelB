@@ -1,0 +1,192 @@
+{% assign bg_color				= section.settings.bg_color %}
+{% assign quotes_bg_color 		= section.settings.bg_color_quotes %}
+{% assign quotes_title_color	= section.settings.color_title %}
+{% assign quotes_text_color		= section.settings.color_text %}
+
+{% assign show_rating_stars 	= section.settings.show_rating_stars %}
+
+<section class="featured-in"
+		 style="--bg-color: {{ bg_color }}; --quote-bg-color: {{ quotes_bg_color }}; --quote-title-color: {{ quotes_title_color }}; --quote-text-color: {{ quotes_text_color }};"
+>
+	<div class="featured-in__container">
+		{% assign title = section.settings.title %}
+
+		{% if title != blank %}
+			<h2 class="title title--small featured-in__title">
+				{{- title -}}
+			</h2>
+		{% endif %}
+
+		{% assign blocks = section.blocks %}
+
+		{% if blocks.size > 0 %}
+			<div class="featured-in__quotes">
+				{% for block in blocks %}
+					{% assign title  		= block.settings.title %}
+					{% assign text  		= block.settings.text %}
+					{% assign link 			= block.settings.url %}
+					{% assign logo 			= block.settings.logo %}
+					{% assign author 		= block.settings.author %}
+					{% assign rating_stars	= block.settings.rating_stars %}
+
+					{% if text != blank or logo != blank %}
+						{% if show_rating_stars %}
+							{% capture quotes_rating %}
+								{%- for index in (0..4) -%}
+									<div class="featured-in__rating-icon">
+										{%- if index < rating_stars -%}
+											{%- render 'icon-filled-star' -%}
+										{%- else -%}
+											{%- render 'icon-empty-star' -%}
+										{%- endif -%}
+									</div>
+								{%- endfor -%}
+							{% endcapture %}
+						{% endif %}
+
+						{% capture quotes_item %}
+							<div class="featured-in__quotes-item">
+								{% if title != blank %}
+									<h4 class="featured-in__quotes-title">
+										{{- title -}}
+									</h4>
+								{% endif %}
+
+								{% if text != blank %}
+									<div class="featured-in__quotes-text">
+										{{- text -}}
+									</div>
+								{% endif %}
+
+								{% if author != blank %}
+									<p class="featured-in__author">
+										{{- author -}}
+									</p>
+								{% endif %}
+
+								{% if logo != blank %}
+									<img class="featured-in__quotes-image"
+										 src="{{ logo | img_url: 'x30' }}"
+										 alt="{{ logo.alt }}"
+									>
+								{% endif %}
+
+								{% if show_rating_stars %}
+									<div class="featured-in__rating">
+										{{- quotes_rating | strip -}}
+									</div>
+								{% endif %}
+							</div>
+						{% endcapture %}
+
+						{% if link != blank %}
+							<a class="featured-in__quotes-item-wrapper"
+							   href="{{ link }}" target="_blank" rel="noopener noreferrer"
+							>
+								{{- quotes_item | strip -}}
+							</a>
+						{% else %}
+							<div class="featured-in__quotes-item-wrapper">
+								{{- quotes_item | strip -}}
+							</div>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Featured In",
+	"max_blocks": 3,
+	"settings": [
+		{
+			"type": "color",
+			"id": "bg_color",
+			"label": "Background color",
+			"default": "#F9F9F9"
+		},
+		{
+			"type": "color",
+			"id": "bg_color_quotes",
+			"label": "Quotes background color",
+			"default": "#1DC1DD"
+		},
+		{
+			"type": "color",
+			"id": "color_title",
+			"label": "Quotes title color",
+			"default": "#FFFFFF"
+		},
+		{
+			"type": "color",
+			"id": "color_text",
+			"label": "Quotes text color",
+			"default": "#111C4E"
+		},
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Featured In"
+		},
+		{
+			"type": "checkbox",
+			"id": "show_rating_stars",
+			"label": "Show rating",
+			"default": false
+		}
+	],
+	"blocks": [
+		{
+			"type": "quote",
+			"name": "Quote",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
+					"type": "richtext",
+					"id": "text",
+					"label": "Text"
+				},
+				{
+					"type": "url",
+					"id": "url",
+					"label": "Link",
+					"info": "Leave empty if no link is needed"
+				},
+				{
+					"type": "text",
+					"id": "author",
+					"label": "Author"
+				},
+				{
+					"type": "image_picker",
+					"id": "logo",
+					"label": "Logo"
+				},
+				{
+					"type": "range",
+					"id": "rating_stars",
+					"min": 0,
+					"max": 5,
+					"step": 1,
+					"default": 0,
+					"label": "Rating"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Featured In",
+			"category": "Home"
+		}
+	]
+}
+{% endschema %}

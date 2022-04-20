@@ -1,0 +1,99 @@
+{% assign bg_color = section.settings.bg_color %}
+{% assign title    = section.settings.title %}
+{% assign btn_text = section.settings.btn_text %}
+{% assign btn_link = section.settings.btn_link %}
+
+{% if section.blocks.size > 0 %}
+	<div id="fun-facts" style="--bg-color: {{ bg_color }};">
+		<div class="collection-promo__container">
+			{% if title != blank %}
+				<h2>
+					{{- title -}}
+				</h2>
+			{% endif %}
+
+			<div class="collection-promo__items">
+				{% for block in section.blocks %}
+					{% assign image = block.settings.image %}
+					{% assign title = block.settings.title %}
+					{% assign text = block.settings.text %}
+
+					<div class="collection-promo__item-wrapper">
+						<div class="collection-promo-item">
+							{% if image != blank %}
+								<div
+									class="collection-promo-item__image-wrapper">
+									<picture>
+										<img
+											srcset="{{ image | img_url: '300x' }} 1x, {{ image | img_url: '600x' }} 2x"
+											src="{{ image | img_url: '300x' }}"
+											class="collection-promo-item__image"
+											alt="{{ shop.name }}">
+									</picture>
+								</div>
+							{% endif %}
+
+							{% if title != blank %}
+								<h4 class="collection-promo-item__title">
+									{{- title -}}
+								</h4>
+							{% endif %}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+			<a href="{{ btn_link }}">
+				{{ btn_text }}
+			</a>
+		</div>
+	</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Lemon fun facts",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "label": "Background color",
+      "id": "bg_color",
+      "type": "color",
+      "default": "#FFEDDB"
+    },
+    {
+      "label": "Title",
+      "id": "title",
+      "type": "text"
+    },
+    {
+      "label": "Button text",
+      "id": "btn_text",
+      "type": "text"
+    },
+    {
+      "label": "Button link",
+      "id": "btn_link",
+      "type": "url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "label": "Image",
+          "id": "image",
+          "type": "image_picker"
+        },
+        {
+          "label": "Title",
+          "id": "title",
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,59 @@
+{% assign section_title   = section.settings.section_title %}
+{% assign text 	          = section.settings.text %}
+{% assign second_text	  = section.settings.second_text %}
+
+<section id="wafel-ingrediens">
+	<div class="wafel-ingrediens__container">
+		<h3 class="wafel-ingrediens__title">{{ section_title }}</h3>
+		<div class="wafel-ingrediens__text">
+			{{ text }}
+		</div>
+		<div class="wafel-ingrediens__text-two">
+			{{ second_text }}
+		</div>
+		<div class="wafel-ingrediens__icon-list">
+			{% for block in section.blocks %}
+				{% assign icon = block.settings.icon | img_url: 'master' %}
+				<div class="wafel-ingrediens__icon">
+					<img src="{{ icon }}" alt="">
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Wafel Ingredients",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Title of Section"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text of Section"
+    },
+    {
+      "type": "textarea",
+      "id": "second_text",
+      "label": "Second Text of Section"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

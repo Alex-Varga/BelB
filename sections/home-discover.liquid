@@ -1,0 +1,222 @@
+{% assign bg_color          = section.settings.bg_color %}
+{% assign title             = section.settings.title %}
+{% assign tabs_color        = section.settings.tabs_color %}
+{% assign tabs_hover_color  = section.settings.tabs_hover_color %}
+
+<section class="home-discover"
+		 style="--bg-color:{{ bg_color }}; --tabs-color: {{ tabs_color }}; --tabs-hover-color: {{ tabs_hover_color }};">
+	<div class="home-discover__container">
+		{% if title != blank %}
+			<h2 class="title">
+				{{- title -}}
+			</h2>
+		{% endif %}
+
+		{% assign blocks = section.blocks %}
+
+		{% if blocks.size > 0 %}
+			<ul class="card-tabs home-discover__tabs js-card-tabs">
+				{% for block in blocks %}
+					{% if block.type == 'tab' %}
+						{% assign tab_title = block.settings.title %}
+						{% assign tab_icon  = block.settings.icon %}
+
+						<li class="card-tabs__tab{% if forloop.first %} card-tabs__tab--active{% endif %} js-card-tab"
+							data-collection="{{ tab_title | handleize }}"
+						>
+							{% if tab_icon != blank %}
+								<img class="card-tabs__icon"
+									 src="{{ tab_icon | img_url: '100x' }}"
+									 alt="{{ tab_title }}"
+								>
+							{% endif %}
+
+							{% if tab_title != blank %}
+								<span class="card-tabs__title">
+                                    {{- tab_title -}}
+                                </span>
+							{% endif %}
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+
+			<div class="home-discover__slider-wrapper">
+				<div class="discover-slider js-discover-slider">
+					<div class="discover-slider__arrow discover-slider__arrow--left js-discover-slider-prev">
+						{%- include 'icon-arrow-left' -%}
+					</div>
+
+					<div class="discover-slider__slides js-discover-slider-slides">
+						{% for block in blocks %}
+							{% if block.type == 'product' %}
+								{% assign tab               = block.settings.tab %}
+								{% assign product           = all_products[block.settings.product] %}
+								{% assign product_image     = product.featured_image %}
+								{% assign features_images   = product.metafields.accentuate.short_features_images %}
+								{% assign button_text       = block.settings.button_text %}
+								{% assign button_link       = block.settings.button_link | default: product.url %}
+								{% assign metafield_image   = product.metafields.accentuate.custom_product_image | first %}
+
+								{% if product != blank %}
+									<div class="discover-slider__slide"
+										 data-collection="{{ tab | handleize }}"
+									>
+										<div class="discover-slider__slide-container">
+											{% if metafield_image != blank %}
+												<div class="discover-slider__slide-image-wrapper">
+													<picture>
+														<img class="discover-slider__slide-image"
+															 srcset="{{ metafield_image.cloudinary_src | append: 'w_400' }} 1x, {{ metafield_image.cloudinary_src | append: 'w_800' }} 2x"
+															 src="{{ metafield_image.cloudinary_src | append: 'w_400' }}"
+															 alt="{{ metafield_image.alt }}"
+														>
+													</picture>
+												</div>
+											{% else %}
+												<div class="discover-slider__slide-image-wrapper">
+													<picture>
+														<img srcset="{{ product_image | img_url: '400x' }} 1x, {{ product_image | img_url: '800x' }} 2x"
+															 src="{{ product_image | img_url: '400x' }}"
+															 class="discover-slider__slide-image"
+															 alt="{{ product_image.alt }}"
+														>
+													</picture>
+												</div>
+											{% endif %}
+
+											<div class="discover-slider__slide-content">
+												<h3 class="title discover-slider__slide-title">
+													{{- product.title -}}
+												</h3>
+
+												{% if product.description != blank %}
+													<div class="discover-slider__slide-text">
+														{{- product.description -}}
+													</div>
+												{% endif %}
+
+												<div class="discover-slider__actions">
+													{% if features_images.size > 0 %}
+														<div class="discover-slider__images">
+															{% for images in features_images %}
+																{% for feature_image in images %}
+																	<div class="discover-slider__image">
+																		<img src="{{ feature_image.src }}"
+																			 alt="{{ feature_image.alt }}">
+																	</div>
+																{% endfor %}
+															{% endfor %}
+														</div>
+													{% endif %}
+
+													{% if button_text != blank %}
+														<div class="discover-slider__button-wrapper">
+															<a href="{{ button_link }}"
+															   class="button button--secondary">
+																{{- button_text -}}
+															</a>
+														</div>
+													{% endif %}
+												</div>
+											</div>
+										</div>
+									</div>
+								{% endif %}
+							{% endif %}
+						{% endfor %}
+					</div>
+
+					<div class="discover-slider__arrow discover-slider__arrow--right js-discover-slider-next">
+						{%- include 'icon-arrow-left' -%}
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Discover",
+	"settings": [
+		{
+			"type": "color",
+			"id": "bg_color",
+			"label": "Section background color",
+			"default": "#FFEDDB"
+		},
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Discover"
+		},
+		{
+			"type": "color",
+			"id": "tabs_color",
+			"label": "Tabs color",
+			"default": "#FFEDDB"
+		},
+		{
+			"type": "color",
+			"id": "tabs_hover_color",
+			"label": "Tabs hover color",
+			"default": "#E81F76"
+		}
+	],
+	"blocks": [
+		{
+			"type": "tab",
+			"name": "Tab",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
+					"type": "image_picker",
+					"id": "icon",
+					"label": "Icon"
+				}
+			]
+		},
+		{
+			"type": "product",
+			"name": "Product",
+			"settings": [
+				{
+					"type": "text",
+					"id": "tab",
+					"label": "Tab title",
+					"info": "Needs to be the exactly same as the desired tab title"
+				},
+				{
+					"type": "product",
+					"id": "product",
+					"label": "Product"
+				},
+				{
+					"type": "text",
+					"id": "button_text",
+					"label": "Button text",
+					"default": "Shop now"
+				},
+				{
+					"type": "url",
+					"id": "button_link",
+					"label": "Button link",
+					"info": "By default button leads to the corresponding product page"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Discover",
+			"category": "Home"
+		}
+	]
+}
+{% endschema %}

@@ -1,0 +1,109 @@
+{% assign image  			= section.settings.image | img_url: 'master' %}
+{% assign image_tablet  	= section.settings.image_tablet | img_url: 'master' %}
+{% assign image_mobile  	= section.settings.image_mobile | img_url: 'master' %}
+{% assign stars 			= section.settings.stars %}
+{% assign review  			= section.settings.review %}
+{% assign author    		= section.settings.author %}
+
+<div id="lemon-review" style="background-color: #EFEADD; ">
+	<div class="lemon-review-container">
+		<div class="review-content">
+			<div>
+				{% for i in (1..stars) %}
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 2px;">
+						<path d="M19.7986 8.2934C20.1895 7.88317 19.9811 7.19946 19.4338 7.11742L13.6484 6.24227C13.4399 6.21492 13.2575 6.07818 13.1533 5.85939L10.5733 0.389714C10.3388 -0.129905 9.63516 -0.129905 9.40062 0.389714L6.82066 5.85939C6.71641 6.05083 6.53399 6.21492 6.32551 6.24227L0.566206 7.11742C0.018942 7.19946 -0.18954 7.88317 0.201363 8.2934L4.371 12.5597C4.52736 12.7238 4.60554 12.9426 4.55342 13.1614L3.56313 19.1781C3.45889 19.7524 4.03221 20.1626 4.52736 19.9165L9.68728 17.0722C9.8697 16.9628 10.1042 16.9628 10.2867 17.0722L15.4726 19.9165C15.9417 20.1899 16.5151 19.7524 16.4369 19.1781L15.4466 13.1614C15.4205 12.9426 15.4726 12.7238 15.629 12.5597L19.7986 8.2934Z" fill="#111C4E"/>
+					</svg>
+				{% endfor %}
+			</div>
+
+			<p>
+				{{ review }}
+			</p>
+
+			<h4>
+				{{ author }}
+			</h4>
+		</div>
+	</div>
+
+	<div class="mobile-image">
+		<img src="{{ image_mobile }}" alt="cookies" style="display: block;">
+	</div>
+</div>
+
+<style>
+	#lemon-review {
+		background-image: url({{ image }});
+	}
+	.mobile-image {
+		display: none;
+	}
+
+	@media (max-width: 1024px) {
+		#lemon-review {
+			background-image: url({{ image_tablet }});
+			background-size: contain;
+		}
+	}
+
+	@media (max-width: 568px) {
+		#lemon-review {
+			background-image: none;
+		}
+	}
+
+	@media (max-width: 568px) {
+		.mobile-image {
+			display: block;
+		}
+
+		.mobile-image img {
+			width: 100%;
+		}
+	}
+</style>
+
+{% schema %}
+{
+  "name": "Lemon review",
+  "settings": [
+    {
+      "label": "Image desktop",
+      "id": "image",
+      "type": "image_picker"
+    },
+    {
+      "label": "Image tablet",
+      "id": "image_tablet",
+      "type": "image_picker"
+    },
+    {
+      "label": "Image mobile",
+      "id": "image_mobile",
+      "type": "image_picker"
+    },
+    {
+      "label": "Start count",
+      "id": "stars",
+      "type": "select",
+      "options": [
+        { "value": "1", "label": "1 star" },
+        { "value": "2", "label": "2 stars" },
+        { "value": "3", "label": "3 stars" },
+        { "value": "4", "label": "4 stars" },
+        { "value": "5", "label": "5 stars" }
+      ]
+    },
+    {
+      "label": "Review",
+      "id": "review",
+      "type": "textarea"
+    },
+    {
+      "label": "Author",
+      "id": "author",
+      "type": "text"
+    }
+  ]
+}
+{% endschema %}

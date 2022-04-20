@@ -1,0 +1,60 @@
+{% assign section_title   = section.settings.section_title %}
+{% assign section_title_mob   = section.settings.section_title_mob %}
+{% assign text 	          = section.settings.text %}
+
+<section id="lp8-ingredients">
+	<div class="wafel-ingrediens__container">
+		<h3 class="wafel-ingrediens__title">{{ section_title }}</h3>
+		<h3 class="wafel-ingrediens__title-mob">{{ section_title_mob }}</h3>
+		<div class="wafel-ingrediens__text">
+			{{ text }}
+		</div>
+		<!-- <div class="wafel-ingrediens__text-two">
+			{{ second_text }}
+		</div> -->
+		<div class="wafel-ingrediens__icon-list">
+			{% for block in section.blocks %}
+				{% assign icon = block.settings.icon | img_url: 'master' %}
+				<div class="wafel-ingrediens__icon">
+					<img src="{{ icon }}" alt="">
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Wafel Ingredients",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Title of Section"
+    },
+		{
+      "type": "text",
+      "id": "section_title_mob",
+      "label": "Title of Section mobile"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text of Section"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

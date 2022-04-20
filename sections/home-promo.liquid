@@ -1,0 +1,83 @@
+{% assign background_image = section.settings.background_image %}
+{% assign heading = section.settings.heading %}
+{% assign hint = section.settings.hint %}
+
+<section class="home-promo" style="{% if background_image != blank %}background-image: url({{ background_image | img_url: '1800x' }})"{% endif %}>
+	<div class="home-promo__container">
+		{% if heading != blank %}
+			<h2 class="title home-promo__title">
+				{{- heading -}}
+			</h2>
+		{% endif %}
+
+		{% if section.blocks.size > 0 %}
+			<ul class="home-promo__items">
+				{% for block in section.blocks %}
+					{% assign image = block.settings.image %}
+
+					<li class="home-promo__item">
+						<div class="home-promo__item-content">
+							<picture>
+								<img srcset="{{ image | img_url: '110x' }} 1x, {{ image | img_url: '220x' }} 2x"
+									 src="{{ image | img_url: '110x' }}" alt="{{ image.alt }}"
+									 class="home-promo__item-image"
+								>
+							</picture>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+		{% if hint != blank %}
+			<p class="home-promo__hint">
+				{{- hint -}}
+			</p>
+		{% endif %}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Promo",
+	"max_blocks": 6,
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "background_image",
+			"label": "Background Image"
+		},
+		{
+			"type": "text",
+			"id": "heading",
+			"label": "Title",
+			"default": "WHEN INDULGING,<br> INDULGE WELL!"
+		},
+		{
+			"type": "text",
+			"id": "hint",
+			"label": "Hint",
+			"default": "*select products only - not all product assortment."
+		}
+	],
+	"blocks": [
+		{
+			"type": "item",
+			"name": "Item",
+			"settings": [
+				{
+					"label": "Image",
+					"id": "image",
+					"type": "image_picker"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Promo",
+			"category": "Home"
+		}
+	]
+}
+{% endschema %}

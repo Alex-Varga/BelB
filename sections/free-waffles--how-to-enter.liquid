@@ -1,0 +1,79 @@
+{% assign title 		= section.settings.title %}
+{% assign button_text 	= section.settings.btn_text %}
+{% assign button_link 	= section.settings.btn_url %}
+{% assign blocks 		= section.blocks %}
+
+<section id="free-waffles--how-to-enter">
+	<div class="free-waffles--how-to-enter--container">
+		<div class="free-waffles--how-to-enter__title">
+            {{ title }}
+		</div>
+		<div class="free-waffles--how-to-enter__blocks">
+			{% for block in blocks %}
+				<div class="blocks__block">
+					<div class="block__image">
+						<img src="{{ block.settings.image | img_url: "master" }}" alt="">
+					</div>
+					<div class="block__title">
+						{{ block.settings.title }}
+					</div>
+					<div class="block__text">
+						{{ block.settings.text }}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<a href="{{ button_link }}" class="free-waffles--how-to-enter__button">
+            {{ button_text }}
+		</a>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "How to enter",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Title"
+		},
+		{
+			"type": "text",
+			"id": "btn_text",
+			"label": "Button text"
+		},
+		{
+			"type": "url",
+			"id": "btn_url",
+			"label": "Button link"
+		}
+	],
+	"blocks": [
+		{
+			"type": "Block",
+			"name": "Block",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
+					"type": "richtext",
+					"id": "text",
+					"label": "Text"
+				}
+			]
+		}
+	]
+}
+{% endschema %}
+
+
+

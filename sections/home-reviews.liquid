@@ -1,0 +1,26 @@
+{% assign reviews_code = section.settings.reviews_code %}
+
+{% if reviews_code != blank %}
+	<section class="home-reviews">
+		{{ reviews_code }}
+	</section>
+{% endif %}
+
+{% schema %}
+{
+	"name": "Reviews",
+	"settings": [
+		{
+			"type": "textarea",
+			"id": "reviews_code",
+			"label": "Code for reviews from Yotpo app"
+		}
+	],
+	"presets": [
+		{
+			"name": "Reviews",
+			"category": "Home"
+		}
+	]
+}
+{% endschema %}

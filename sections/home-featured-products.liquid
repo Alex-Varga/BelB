@@ -1,0 +1,74 @@
+{%- assign title 		= section.settings.title -%}
+{%- assign subtitle 	= section.settings.subtitle -%}
+{%- assign collection	= collections[section.settings.collection] -%}
+
+{%- capture slides -%}
+	{%- for product in collection.products limit: 50 -%}
+		<div class="featured-products__product">
+			{%- render 'product-card-featured', product: product -%}
+		</div>
+	{%- endfor -%}
+{%- endcapture -%}
+
+{%- if slides != blank -%}
+	<section class="featured-products">
+		<div class="featured-products__container">
+			{%- if title != blank -%}
+				<h2 class="title featured-products__title">
+					{{- title -}}
+				</h2>
+			{%- endif -%}
+
+			{%- if subtitle != blank -%}
+				<h3 class="featured-products__subtitle">
+					{{- subtitle -}}
+				</h3>
+			{%- endif -%}
+
+			<div class="featured-products__wrapper">
+				<div class="featured-products__slider js-featured-products-slider">
+					{{- slides -}}
+				</div>
+
+				<div class="featured-products__arrow featured-products__arrow--left js-featured-products-slider-prev">
+					{% include 'icon-arrow-left' %}
+				</div>
+
+				<div class="featured-products__arrow featured-products__arrow--right js-featured-products-slider-next">
+					{% include 'icon-arrow-right' %}
+				</div>
+			</div>
+		</div>
+	</section>
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Featured Products",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Featured Products"
+		},
+		{
+			"type": "text",
+			"id": "subtitle",
+			"label": "Subheading",
+			"default": "FREE SHIPPING ON ORDERS OVER 50$"
+		},
+		{
+			"type": "collection",
+			"id": "collection",
+			"label": "Collection"
+		}
+	],
+	"presets": [
+		{
+			"name": "Featured Products",
+			"category": "Home"
+		}
+	]
+}
+{% endschema %}

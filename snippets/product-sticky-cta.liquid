@@ -1,0 +1,101 @@
+{% comment %}
+	@params
+	product - 	product object *required
+{% endcomment %}
+
+{% assign current_variant 	= product.selected_or_first_available_variant %}
+{% assign featured_image 	= product.featured_image %}
+
+<div class="product-sticky-cta" data-product-sticky-cta>
+	<div class="product-sticky-cta__container">
+		{% if featured_image != blank %}
+			<div class="product-sticky-cta__image-container">
+				<div class="product-sticky-cta__image-wrapper">
+					<img class="product-sticky-cta__image"
+						 src="{{ featured_image | img_url: '80x' }} 1x, {{ featured_image | img_url: '160x' }} 2x"
+						 alt="{{ featured_image.alt }}"
+					>
+				</div>
+			</div>
+		{% endif %}
+
+		<div class="product-sticky-cta__variants-wrapper">
+			{% unless product.has_only_default_variant %}
+				<div class="product-swatcher product-section__mobile">
+					{% for variant in product.variants %}
+						<div class="product-swatcher__option ">
+							<label for="variant-{{ product.id }}-{{ variant.id }}"
+								   data-product-label-id="{{ variant.id }}"
+								   data-product-label
+								   class="{% if variant == current_variant %}checked{% endif %}">
+								{{ variant.title }}
+							</label>
+						</div>
+
+						{% if variant == current_variant %}
+							{% assign current_variant_number = forloop.index %}
+						{% endif %}
+					{% endfor %}
+
+					<div class="product-swatcher__swatch">
+						<label for="option-{{ product.id }}-{{ name | handleize }}-{{ value | handleize }}-{{ section.id }}-2"
+							   class="{% if current_variant_number == 2 %}checked{% endif %}"
+							   data-product-switch-label>
+							<span class="product-swatcher__swatch-button"></span>
+						</label>
+					</div>
+				</div>
+			{% endunless %}
+
+			<div class="product-section__price" data-price-wrapper>
+				<span class="product-section__label">
+					{{- 'products.product.price_label' | t -}}:
+				</span>
+
+				{% if product.compare_at_price_max > product.price %}
+					<span class="visually-hidden" data-compare-text>
+						{{- 'products.product.regular_price' | t -}}
+					</span>
+
+					<span class="product-section__price-value" data-product-price>
+						{{- current_variant.price | money_without_trailing_zeros -}}
+					</span>
+
+					<span class="product-section__price-value product-section__price-value--old" data-compare-price>
+						{% if current_variant.compare_at_price > current_variant.price %}
+							{{- current_variant.compare_at_price | money_without_trailing_zeros -}}
+						{% endif %}
+					</span>
+				{% else %}
+					<span class="product-section__price-value" data-product-price>
+						{{- current_variant.price | money_without_trailing_zeros -}}
+					</span>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+	<div class="product-sticky-cta__actions">
+		<button
+				class="button button--secondary product-section__button"
+				type="submit"
+				name="add"
+				data-add-to-cart
+				{% unless current_variant.available %}disabled="disabled"{% endunless %}
+		>
+			{%- render 'icon-cart' -%}
+
+			<span data-add-to-cart-text>
+				{% if current_variant %}
+					{% if current_variant.available %}
+						{{- 'products.product.add_to_cart' | t -}}
+					{% else %}
+						{{- 'products.product.sold_out' | t -}}
+					{% endif %}
+				{% else %}
+					{{- 'products.product.unavailable' | t -}}
+				{% endif %}
+			</span>
+		</button>
+	</div>
+</div>

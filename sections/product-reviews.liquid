@@ -1,0 +1,33 @@
+{% assign title = section.settings.title %}
+
+<section class="product-reviews">
+	<div class="product-reviews__container">
+		{% if title != blank %}
+			<h2 class="title product-reviews__title">
+				{{ title }}
+			</h2>
+		{% endif %}
+
+		<div class="yotpo yotpo-main-widget product-reviews__content"
+			 data-product-id="{{ product.id }}"
+			 data-name="{{ product.title | escape }}"
+			 data-url="{{ shop.url }}{{ product.url }}"
+			 data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+			 data-description="{{ product.description | escape }}">
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Product Reviews",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Reviews"
+		}
+	]
+}
+{% endschema %}

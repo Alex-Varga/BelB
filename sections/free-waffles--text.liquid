@@ -1,0 +1,35 @@
+{% assign title 	= section.settings.title %}
+{% assign text 		= section.settings.text %}
+
+<section id="free-waffles--text">
+	<div class="free-waffles--text--container">
+		<div class="free-waffles--text__title">
+			{{ title }}
+		</div>
+		<div class="free-waffles--text__text-block">
+			{{ text }}
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Text",
+  "settings": [
+	{
+		"type": "text",
+		"id": "title",
+		"label": "Title",
+		"default": "CONTEST DETAILS"
+	},
+	{
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    }
+  ]
+}
+{% endschema %}
+
+
+

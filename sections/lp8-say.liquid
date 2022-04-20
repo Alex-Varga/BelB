@@ -1,0 +1,85 @@
+{% assign bg_color 	= section.settings.bg_color %}
+{% assign image 	= section.settings.image | img_url: 'master' %}
+{% assign image_mob 	= section.settings.image_mob | img_url: 'master' %}
+{% assign title 	= section.settings.title %}
+{% assign text 		= section.settings.text %}
+{% assign btn_text 	= section.settings.btn_text %}
+{% assign button_link = section.settings.button_link %}
+
+<style>
+	#lp8-say {
+		background: {{ bg_color }};
+	}
+	@media (min-width: 767px) {
+		#lp8-say {
+			background-image: url('{{ image }}');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
+</style>
+
+<section id="lp8-say">
+	<div class="lp-hero__container">
+		<div class="lp-hero__right">
+			<!-- <img class="desc" src="{{ image }}" alt="toaster"> -->
+			<img class="mob" src="{{ image_mob }}" alt="toaster">
+		</div>
+
+		<div class="lp-hero__left">
+			<h2>{{ title }}</h2>
+			<p>{{ text }}</p>
+
+			{% if btn_text != blank %}
+				<a href="{{ button_link }}">{{ btn_text }}</a>
+			{% endif %}
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Section #2",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+		{
+      "type": "image_picker",
+      "id": "image_mob",
+      "label": "Image mob"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button text"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ]
+}
+{% endschema %}
+
+
+

@@ -1,0 +1,9 @@
+{% include 'article-content' %}
+
+{% assign hide_promo = article.metafields.article.hide_promo_section %}
+
+{% unless hide_promo %}
+	{% section 'blog-promo' %}
+{% endunless %}
+
+{% section 'blog-featured-products' %}

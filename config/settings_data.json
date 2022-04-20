@@ -1,0 +1,2397 @@
+{
+  "current": {
+    "social_twitter_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/belgianboys\/",
+    "social_facebook_link": "https:\/\/www.facebook.com\/Belgianboys\/",
+    "social_tiktok_link": "https:\/\/www.tiktok.com\/@belgianboys?lang=en",
+    "social_linkedin_link": "https:\/\/www.linkedin.com\/company\/5199441",
+    "social_pinterest_link": "https:\/\/www.pinterest.com\/BelgianBoys\/_shop\/",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "cart_notes_enable": true,
+    "image_404": "shopify:\/\/shop_images\/404_image.png",
+    "text_404": "<p>Guess we lost a page! Don&#x27;t worry, we&#x27;ll keep looking but, you can click <a title=\"All products\" href=\"\/collections\/shop\">here<\/a> to get back to more treats! <\/p>",
+    "favicon": "shopify:\/\/shop_images\/favicon-32x32.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#e81f76",
+    "checkout_button_color": "#00a7e1",
+    "checkout_error_color": "#111c4e",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "color_text": "#3a3a3a",
+    "color_body_text": "#333232",
+    "color_sale_text": "#fa4545",
+    "color_button": "#3a3a3a",
+    "color_button_text": "#ffffff",
+    "color_small_button_text_border": "#3a3a3a",
+    "color_text_field_text": "#000000",
+    "color_text_field_border": "#cccccc",
+    "color_text_field": "#ffffff",
+    "color_image_overlay_text": "#ffffff",
+    "color_image_overlay": "#685858",
+    "image_overlay_opacity": 40,
+    "color_borders": "#ebebeb",
+    "color_body_bg": "#ffffff",
+    "type_header_font": "helvetica_n7",
+    "type_header_base_size": 26,
+    "type_base_font": "helvetica_n4",
+    "type_base_size": 15,
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "share_image": "",
+    "enable_ajax": true,
+    "sections": {
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "background_color": "#e81f76",
+          "logo": "shopify:\/\/shop_images\/WomenOwned_Icon-01_1.png",
+          "footer_menu": "footer",
+          "newsletter_button_text": "Subscribe",
+          "newsletter_text": "For questions, feedback, and fan mail for skinny & chubby, please reach out to us at",
+          "newsletter_email": "hello@belgianboys.com",
+          "klaviyo_list_id": "",
+          "klaviyo_form_code": "<div class=\"klaviyo-form-TyBAiV\"><\/div>",
+          "address": "240 Kent Ave, Brooklyn, NY 11249",
+          "address_url": "https:\/\/www.google.com.ua\/maps\/place\/%D0%91%D1%80%D1%83%D0%BA%D0%BB%D1%96%D0%BD,+%D0%9D%D1%8C%D1%8E-%D0%99%D0%BE%D1%80%D0%BA+11249,+%D0%A1%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D1%96+%D0%A8%D1%82%D0%B0%D1%82%D0%B8+%D0%90%D0%BC%D0%B5%D1%80%D0%B8%D0%BA%D0%B8\/@40.7121649,-73.9739297,15z\/data=!3m1!4b1!4m5!3m4!1s0x89c25a48dd25a11d:0xefd74f11b35e08db!8m2!3d40.7119031!4d-73.9660683",
+          "copyright": "B Boys LLC DBA Belgian Boys. All rights reserved."
+        }
+      },
+      "1599129878257": {
+        "type": "home-discover",
+        "blocks": {
+          "1602574898444": {
+            "type": "tab",
+            "settings": {
+              "title": "Breakfast",
+              "icon": "shopify:\/\/shop_images\/discover_breakfast.png"
+            }
+          },
+          "1602574908181": {
+            "type": "tab",
+            "settings": {
+              "title": "Cookies",
+              "icon": "shopify:\/\/shop_images\/discover_cookies.png"
+            }
+          },
+          "1602574917554": {
+            "type": "tab",
+            "settings": {
+              "title": "Desserts",
+              "icon": "shopify:\/\/shop_images\/discover_desserts.png"
+            }
+          },
+          "1602590521822": {
+            "type": "product",
+            "settings": {
+              "tab": "Breakfast",
+              "product": "bite-sized-pancakes",
+              "button_text": "Shop now",
+              "button_link": "shopify:\/\/products\/frozen-breakfast"
+            }
+          },
+          "1602590543871": {
+            "type": "product",
+            "settings": {
+              "tab": "Breakfast",
+              "product": "chocolate-coated-belgian-waffle",
+              "button_text": "Shop now",
+              "button_link": ""
+            }
+          },
+          "1602590567918": {
+            "type": "product",
+            "settings": {
+              "tab": "Breakfast",
+              "product": "original-belgian-waffle",
+              "button_text": "Shop now",
+              "button_link": ""
+            }
+          },
+          "1602590593446": {
+            "type": "product",
+            "settings": {
+              "tab": "Breakfast",
+              "product": "original-crepes",
+              "button_text": "Shop now",
+              "button_link": "shopify:\/\/products\/frozen-breakfast"
+            }
+          },
+          "1602590649573": {
+            "type": "product",
+            "settings": {
+              "tab": "Cookies",
+              "product": "almond-butter-cakes",
+              "button_text": "Shop now",
+              "button_link": ""
+            }
+          },
+          "1602590668816": {
+            "type": "product",
+            "settings": {
+              "tab": "Cookies",
+              "product": "choco-caramel-cookie-tarts",
+              "button_text": "Shop now",
+              "button_link": ""
+            }
+          },
+          "1602590683335": {
+            "type": "product",
+            "settings": {
+              "tab": "Cookies",
+              "product": "belgian-chocolate-cookie-bars",
+              "button_text": "Shop now",
+              "button_link": ""
+            }
+          },
+          "1602590744216": {
+            "type": "product",
+            "settings": {
+              "tab": "Cookies",
+              "product": "raspberry-cookie-tarts",
+              "button_text": "Shop now",
+              "button_link": ""
+            }
+          },
+          "1602590699070": {
+            "type": "product",
+            "settings": {
+              "tab": "Cookies",
+              "product": "chocolate-chip-mini-cookie-stash-1",
+              "button_text": "Shop now",
+              "button_link": "shopify:\/\/products\/chocolate-chip-mini-cookie-stash"
+            }
+          },
+          "1602590725503": {
+            "type": "product",
+            "settings": {
+              "tab": "Cookies",
+              "product": "speculoos-mini-cookie-stash-1",
+              "button_text": "Shop now",
+              "button_link": "shopify:\/\/products\/speculoos-mini-cookie-stash"
+            }
+          },
+          "1602590778511": {
+            "type": "product",
+            "settings": {
+              "tab": "Desserts",
+              "product": "cheesecake-cookies-cream",
+              "button_text": "Shop now",
+              "button_link": "shopify:\/\/products\/frozen-desserts"
+            }
+          },
+          "1602590803616": {
+            "type": "product",
+            "settings": {
+              "tab": "Desserts",
+              "product": "cheescake-cookie-butter",
+              "button_text": "Shop now",
+              "button_link": "shopify:\/\/products\/frozen-desserts"
+            }
+          },
+          "1602590827317": {
+            "type": "product",
+            "settings": {
+              "tab": "Desserts",
+              "product": "cheesecake-key-lime",
+              "button_text": "Shop now",
+              "button_link": "shopify:\/\/products\/frozen-desserts"
+            }
+          },
+          "1602590847591": {
+            "type": "product",
+            "settings": {
+              "tab": "Desserts",
+              "product": "cheesecake-new-yrok",
+              "button_text": "Shop now",
+              "button_link": "shopify:\/\/products\/frozen-desserts"
+            }
+          },
+          "1602590864901": {
+            "type": "product",
+            "settings": {
+              "tab": "Desserts",
+              "product": "cheesecake-raspberry",
+              "button_text": "Shop now",
+              "button_link": "shopify:\/\/products\/frozen-desserts"
+            }
+          },
+          "1602590882070": {
+            "type": "product",
+            "settings": {
+              "tab": "Desserts",
+              "product": "lava-cake-dark-chocolate",
+              "button_text": "Shop now",
+              "button_link": "shopify:\/\/products\/frozen-desserts"
+            }
+          },
+          "1602590901391": {
+            "type": "product",
+            "settings": {
+              "tab": "Desserts",
+              "product": "lava-cake-salted-caramel",
+              "button_text": "Shop now",
+              "button_link": "shopify:\/\/products\/frozen-desserts"
+            }
+          },
+          "29fe9a7b-b329-4be3-8ae3-2b8091a8227e": {
+            "type": "product",
+            "settings": {
+              "tab": "COOKIES",
+              "product": "single-stroopwafel",
+              "button_text": "Shop now",
+              "button_link": "shopify:\/\/products\/single-stroopwafel"
+            }
+          }
+        },
+        "block_order": [
+          "1602574898444",
+          "1602574908181",
+          "1602574917554",
+          "1602590521822",
+          "1602590543871",
+          "1602590567918",
+          "1602590593446",
+          "1602590649573",
+          "1602590668816",
+          "1602590683335",
+          "1602590744216",
+          "1602590699070",
+          "1602590725503",
+          "1602590778511",
+          "1602590803616",
+          "1602590827317",
+          "1602590847591",
+          "1602590864901",
+          "1602590882070",
+          "1602590901391",
+          "29fe9a7b-b329-4be3-8ae3-2b8091a8227e"
+        ],
+        "settings": {
+          "bg_color": "#ffebd8",
+          "title": "Discover",
+          "tabs_color": "#ffffff",
+          "tabs_hover_color": "#e81f76"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "bg_color": "#ffffff",
+          "logo": "shopify:\/\/shop_images\/logo_02a58132-7710-4617-9c72-aa39173d89c7.png",
+          "main_menu": "main-menu",
+          "store_locator_url": "shopify:\/\/pages\/store-locator"
+        }
+      },
+      "1599143225289": {
+        "type": "home-banner",
+        "settings": {
+          "background_color": "#ffeddc",
+          "image": "shopify:\/\/shop_images\/Spring_Banner_2022.jpg",
+          "image_mobile": "shopify:\/\/shop_images\/Spring_Banner_2022_Mobile.jpg",
+          "text_align": "center",
+          "title": "YOUR NEW FAVORITE BREAKFAST",
+          "title_color": "#111c4e",
+          "subtitle": "Sweeten up your Spring with our quick-and-easy breakfast favorites",
+          "subtitle_color": "#111c4e",
+          "button_text": "GET YOURS NOW",
+          "button_link": "shopify:\/\/collections\/breakfast",
+          "button_background_color": "#111c4e",
+          "button_hover_background_color": "#ffffff",
+          "button_text_color": "#ffffff",
+          "button_hover_text_color": "#111c4e"
+        }
+      },
+      "1599143243357": {
+        "type": "home-story",
+        "blocks": {
+          "1599143247162": {
+            "type": "story",
+            "settings": {
+              "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0276\/3748\/1545\/files\/BB_Gif_1.mp4?v=1617201395",
+              "text": "<p>Our story begins with Skinny & Chubby, two childhood friends who grew up in Belgium with delicious European treats and plenty of mischief.<\/p>",
+              "text_uppercase": false
+            }
+          },
+          "1599143255386": {
+            "type": "story",
+            "settings": {
+              "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0276\/3748\/1545\/files\/BB_Gif_2.mp4?v=1617201395",
+              "text": "<p>As adults, they moved to New York City, where the world was at their fingertips—but the stroopwafels, cookie tarts, French crepes and other delights of their youth were nowhere to be found.<\/p>",
+              "text_uppercase": false
+            }
+          },
+          "1599143260730": {
+            "type": "story",
+            "settings": {
+              "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0276\/3748\/1545\/files\/BB_Gif_3.mp4?v=1617201395",
+              "text": "<p>And from this snack nostalgia, Belgian Boys was born! Skinny and Chubby now produce delights for every time of day, from breakfast to dessert, all made in Europe for sharing worldwide.<\/p>",
+              "text_uppercase": false
+            }
+          }
+        },
+        "block_order": [
+          "1599143247162",
+          "1599143255386",
+          "1599143260730"
+        ],
+        "settings": {
+          "background_color": "#ffeddc",
+          "heading": "THE BELGIAN BOYS STORY",
+          "link": "shopify:\/\/pages\/about-us"
+        }
+      },
+      "1599214042260": {
+        "type": "home-reviews",
+        "settings": {
+          "reviews_code": "<div class=\"yotpo yotpo-reviews-carousel\" data-background-color=\"transparent\" data-mode=\"manual\" data-type=\"both\" data-review-ids=\"195307879,179851919,193774707,179851886,193774684,192674759,193774678,193774683\" data-show-bottomline=\"1\" data-show-navigation=\"1\"> <\/div>"
+        }
+      },
+      "1599228076175": {
+        "type": "home-instagram",
+        "blocks": {
+          "1599228094632": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DUTCH_CARAMEL_STROOPWAFLE.jpg"
+            }
+          },
+          "1599228100344": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Raspberry_Cookie_Tarts.jpg"
+            }
+          },
+          "1599228128239": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Bite-sized_Pancakes.jpg"
+            }
+          },
+          "1599228133016": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Belgian_Waffle.jpg"
+            }
+          },
+          "1599228138623": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/COOKIE_BARS.jpg"
+            }
+          },
+          "1599228106775": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/FROZEN_DESSERTS_BUNDLE.jpg"
+            }
+          },
+          "1599228121192": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Choco_MCS.jpg"
+            }
+          },
+          "1599228141775": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Chocolate_Belgian_Waffle_2.jpg"
+            }
+          },
+          "1599228145543": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/08.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1599228094632",
+          "1599228100344",
+          "1599228128239",
+          "1599228133016",
+          "1599228138623",
+          "1599228106775",
+          "1599228121192",
+          "1599228141775",
+          "1599228145543"
+        ],
+        "settings": {
+          "instagram_text": "JOIN US ON INSTAGRAM FOR NEW PRODUCTS, GREAT GIVEAWAYS AND MORE!",
+          "instagram_link": "https:\/\/www.instagram.com\/belgianboys\/"
+        }
+      },
+      "1599462958506": {
+        "type": "home-promo",
+        "blocks": {
+          "1599462970732": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/1-NON-GMO-01-2c0014806b710e5f9c6942d8d6697336_1_1.png"
+            }
+          },
+          "1599462974628": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/2-NON-ARTIFICIAL-1290cb8ed63837895944216fc888b015_1_1.png"
+            }
+          },
+          "1599462978556": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3-SUITABLE-FOR-VEGETARIANS-53877e6de26ec563c1cbb948d797aad2_1_1.png"
+            }
+          },
+          "1599462982819": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4-NO-CORN-SYRUP-20d73e86cf21827f997e77886c73b32b_1_1.png"
+            }
+          },
+          "1599462987349": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/5-KOSHER-CERTIFIED-c06e1067188ae161a5ed48a0edeab340_1_1.png"
+            }
+          },
+          "1599462991780": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/6-NUT-FREE-300808b578f29a5adddf7d2ae56d9013_1_1.png"
+            }
+          }
+        },
+        "block_order": [
+          "1599462970732",
+          "1599462974628",
+          "1599462978556",
+          "1599462982819",
+          "1599462987349",
+          "1599462991780"
+        ],
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/BELGIANBOYS_46253_2397x874_WEBSITE.jpg",
+          "heading": "WHEN INDULGING,<br> INDULGE WELL!",
+          "hint": "*select products only - not all product assortment."
+        }
+      },
+      "promobar": {
+        "type": "promobar",
+        "settings": {
+          "enable_promobar": true,
+          "bg_color": "#111c4e",
+          "text_color": "#ffffff",
+          "text": "FREE SHIPPING OVER $50",
+          "url": "https:\/\/www.belgianboys.com\/discount\/ONYOURTABLE20?redirect=\/products"
+        }
+      },
+      "1599465188663": {
+        "type": "home-featured-in",
+        "blocks": {
+          "1599465198490": {
+            "type": "quote",
+            "settings": {
+              "title": "Must-have during pandemic times",
+              "text": "<p>The only salvation on this earth comes from waffles. Belgian Boys are the kingpins of the waffle world.<\/p>",
+              "url": "",
+              "author": "- Oliver J",
+              "rating_stars": 5
+            }
+          },
+          "1599465204334": {
+            "type": "quote",
+            "settings": {
+              "title": "Best thing on the Internet",
+              "text": "<p>Out of all the things I have ordered on the Internet, this is by far the best.<\/p>",
+              "url": "",
+              "author": "- Allie T.",
+              "rating_stars": 5
+            }
+          },
+          "1599465208629": {
+            "type": "quote",
+            "settings": {
+              "title": "Sometimes marriage is 50\/50",
+              "text": "<p>My husband and I loved these cookies so much. We had to draw a line by each of us having our own bag. Fabulous cookies!<\/p>",
+              "url": "",
+              "author": "- Jeanette H.",
+              "rating_stars": 5
+            }
+          }
+        },
+        "block_order": [
+          "1599465198490",
+          "1599465204334",
+          "1599465208629"
+        ],
+        "settings": {
+          "bg_color": "#f9f9f9",
+          "bg_color_quotes": "#1dc1dd",
+          "color_title": "#ffffff",
+          "color_text": "#111c4e",
+          "title": "What the fans are saying",
+          "show_rating_stars": true
+        }
+      },
+      "newsletter-popup": {
+        "type": "newsletter-popup",
+        "settings": {
+          "enable": false,
+          "background_color": "#00a7e1",
+          "text_color": "#ffffff",
+          "heading": "First timer?",
+          "subheading": "20% off",
+          "text": "<p>&amp; free shipping in your first order*<\/p>",
+          "list_id": "",
+          "button_text": "Get the offer",
+          "hint": "<p>* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ullamco laboris nisi.<\/p>"
+        }
+      },
+      "1599473592263": {
+        "type": "home-featured-bundles",
+        "settings": {
+          "title": "Best Selling Bundles",
+          "collection": "featured-bundles"
+        }
+      },
+      "1599575735716": {
+        "type": "home-featured-products",
+        "settings": {
+          "title": "Featured Products",
+          "subtitle": "FREE SHIPPING ON ORDERS OVER $50",
+          "collection": "featured-products"
+        }
+      },
+      "collection-banner": {
+        "type": "collection-banner",
+        "settings": {}
+      },
+      "collection-content": {
+        "type": "collection-content",
+        "settings": {
+          "menu": "collection-menu"
+        }
+      },
+      "collection-promo": {
+        "type": "collection-promo",
+        "blocks": {
+          "1599820146778": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Shop-Page-Banner-Illustration-1-abf6fd57b115ef191b02f6d1e281144f_1_1.png",
+              "title": "ORDER GOODIES WHENEVER",
+              "text": "<p>What could be better than Belgian Boys delivered to your doorstep? Order goodies from whenever and we’ll get them to you ASAP!<\/p>"
+            }
+          },
+          "1599820198931": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Shop-Page-Banner-Illustration-2-7f835218ba3d5e6c06afa4d8f7a0be0a_1_1.png",
+              "title": "WHEN INDULGING, INDULGE WELL",
+              "text": "<p>All Belgian Boys products are made in Europe from high quality, non-GMO ingredients. Treat yourself with the best!<\/p>"
+            }
+          },
+          "1599820202674": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Shop-Page-Banner-Illustration-3-aee28be9426dc79fff9312b9d3477c9e_1_1.png",
+              "title": "THE MORE THE MERRIER",
+              "text": "<p>Our bundles are a great way to save on your faves and keep your pantry stocked with goodies for any snacking occasion!<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1599820146778",
+          "1599820198931",
+          "1599820202674"
+        ],
+        "settings": {
+          "bg_color": "#ffeddb"
+        }
+      },
+      "collection-reviews": {
+        "type": "collection-reviews",
+        "settings": {
+          "reviews_code": "<div class=\"yotpo yotpo-reviews-carousel\" data-background-color=\"transparent\" data-mode=\"manual\" data-type=\"both\" data-review-ids=\"195307879,179851919,193774707,179851886,193774684,192194076,192674759,193774678,193774683\" data-show-bottomline=\"1\" data-show-navigation=\"1\"> <\/div>"
+        }
+      },
+      "faq-page": {
+        "type": "faq-page",
+        "blocks": {
+          "1600068574921": {
+            "type": "question",
+            "settings": {
+              "title": "I just placed an order! When will it ship?",
+              "answer": "<p>Woohoo! Orders may take between 1-4 business days to process, depending on product availability. Note that we do not ship on Fridays or weekends.<\/p>",
+              "category": "SHIPPING"
+            }
+          },
+          "1600068746476": {
+            "type": "question",
+            "settings": {
+              "title": "How long after leaving your warehouse will my order take to arrive?",
+              "answer": "<p>If your order includes <em>frozen <\/em>items, it will ship via FedEx to arrive in one or two business days. All non-frozen orders ship via UPS Ground, originating in Illinois. <\/p>",
+              "category": "SHIPPING"
+            }
+          },
+          "1600068749177": {
+            "type": "question",
+            "settings": {
+              "title": "What shipping service do you use?",
+              "answer": "<p>All frozen orders ship with FedEx; all non-frozen orders ship with UPS.<\/p>",
+              "category": "SHIPPING"
+            }
+          },
+          "1600068751044": {
+            "type": "question",
+            "settings": {
+              "title": "Where can I find my tracking number?",
+              "answer": "<p>A tracking number will be sent automatically via email (or text, if selected) when your order is shipped, and when it is delivered.<\/p>",
+              "category": "SHIPPING"
+            }
+          },
+          "1600069004035": {
+            "type": "question",
+            "settings": {
+              "title": "I didn't receive a tracking number. What now?",
+              "answer": "<p>Usually a good dig through your Spam folder will turn up a missing tracking number! But if that doesn’t work, email us at <a href=\"mailto:hello@belgianboys.com\" title=\"mailto:hello@belgianboys.com\">hello@belgianboys.com<\/a> with your order number in the subject line, and we will happily send it over.<\/p>",
+              "category": "SHIPPING"
+            }
+          },
+          "1600069009992": {
+            "type": "question",
+            "settings": {
+              "title": "My tracking number shows my order has been delivered, but I did not receive it.",
+              "answer": "<p>Uh oh! Please contact <a href=\"mailto:hello@belgianboys.com\" title=\"mailto:hello@belgianboys.com\">hello@belgianboys.com<\/a> with your order number and tracking number and we’ll look into it.<\/p>",
+              "category": "SHIPPING"
+            }
+          },
+          "1600069026395": {
+            "type": "question",
+            "settings": {
+              "title": "Do you ship to Canada?",
+              "answer": "<p>We’re in the process of looking for a Canadian home! Join our mailing list or follow us on social media for news on when we expand Northward.<\/p>",
+              "category": "SHIPPING"
+            }
+          },
+          "1600069046544": {
+            "type": "question",
+            "settings": {
+              "title": "Where can I find my order status?",
+              "answer": "<p>After placing your order, you will receive an order confirmation email. You can click on the button “View My Order” at any time for your current order status.<\/p>",
+              "category": "ORDERS"
+            }
+          },
+          "1602490427100": {
+            "type": "question",
+            "settings": {
+              "title": "Can I cancel or edit an order?",
+              "answer": "<p>If the order has not yet been shipped, please email us at <a href=\"mailto:hello@belgianboys.com\" title=\"mailto:hello@belgianboys.com\">hello@belgianboys.com<\/a> with the order number in the subject line, and we will do our best!<\/p>",
+              "category": "ORDERS"
+            }
+          },
+          "1602490461380": {
+            "type": "question",
+            "settings": {
+              "title": "Why did my order arrive in two separate shipments?",
+              "answer": "<p>We have partnered with the fulfillment centers best aligned with the specific needs of our perishable products. For that reason, we ship frozen items from one location and dry items from another.<\/p>",
+              "category": "ORDERS"
+            }
+          },
+          "1602490482094": {
+            "type": "question",
+            "settings": {
+              "title": "I have received my order, but there is a missing or incorrect item in my shipment. What should I do?",
+              "answer": "<p>We’re on the case! Please email <a href=\"mailto:hello@belgianboys.com\" title=\"mailto:hello@belgianboys.com\">hello@belgianboys.com<\/a> with your order number and the products that are missing or incorrect.<\/p>",
+              "category": "ORDERS"
+            }
+          },
+          "1602490497572": {
+            "type": "question",
+            "settings": {
+              "title": "My frozen order arrived melted. Is it ok to eat?",
+              "answer": "<p>If your frozen bundle was unfrozen on arrival, please discard the product and contact us at <a href=\"mailto:hello@belgianboys.com\" title=\"mailto:hello@belgianboys.com\">hello@belgianboys.com <\/a>with your order number in the subject line. Have no fear, we’ll make things right!<\/p>",
+              "category": "ORDERS"
+            }
+          },
+          "37509586-0f4b-4fe7-93b6-d8e22080c94e": {
+            "type": "question",
+            "settings": {
+              "title": "My waffles did not arrive frozen. Is this normal?",
+              "answer": "<p>Absolutely! While our waffles ship from our frozen warehouse, they do not need to be shipped frozen, so you should not expect any dry ice on arrival. Once they reach you, feel free to freeze them, refrigerate them, put them in your cupboard or store them however you like. <\/p>",
+              "category": "ORDERS"
+            }
+          },
+          "1602490519850": {
+            "type": "question",
+            "settings": {
+              "title": "How do I apply a discount code to my order?",
+              "answer": "<p>During the checkout process, click on “Add a discount code or gift card” to enter any discounts or credits.<\/p>",
+              "category": "ORDERS"
+            }
+          },
+          "c0d1338b-9b61-4c5e-b8a7-900a8e440f2b": {
+            "type": "question",
+            "settings": {
+              "title": "What if I have an unlisted issue with my order?",
+              "answer": "<p>We’re for you. Email us at <a href=\"mailto:hello@belgianboys.com\"><span style=\"text-decoration:underline\">hello@belgianboys.com<\/span><\/a> and we’ll get back to you within 48 business hours. (Don’t forget: A little kindness goes a long way!)<\/p>",
+              "category": "ORDERS"
+            }
+          },
+          "001b4207-7b38-4b7f-87a9-5d5a1e165dd0": {
+            "type": "question",
+            "settings": {
+              "title": "What is your return policy?",
+              "answer": "<p>All of our cookies and treats come with a 100% happiness guarantee. Should you be dissatisfied with your order, contact us at <a href=\"mailto:hello@belgianboys.com\"><span style=\"text-decoration:underline\">hello@belgianboys.com<\/span><\/a> and we’ll gladly return the items.<\/p>",
+              "category": "ORDERS"
+            }
+          },
+          "1602490531941": {
+            "type": "question",
+            "settings": {
+              "title": "Why are Belgian Boys products made in Europe?",
+              "answer": "<p>Belgian Boys was born out of nostalgia for European treats, so we make real European treats, simple as that! EU ingredient standards also make it easier to source the premium, clean ingredients that go into the snacks we love.<\/p>",
+              "category": "PRODUCT"
+            }
+          },
+          "1602490561621": {
+            "type": "question",
+            "settings": {
+              "title": "Is it all made in Belgium?",
+              "answer": "<p>Nope! Our founders are Belgian, but they’ve snacked their way across Europe to find the tastiest treats from Belgium’s neighboring countries.<\/p>",
+              "category": "PRODUCT"
+            }
+          },
+          "1602490573973": {
+            "type": "question",
+            "settings": {
+              "title": "Are Belgian Boys products gluten-free, dairy-free or vegan?",
+              "answer": "<p>At the moment, many of our treats are made with traditional recipes that still rely on wheat and dairy ingredients, but our Original Belgian Waffle, Chocolate Coated Belgian Waffle and Original Crêpes are all dairy-free.<\/p>",
+              "category": "PRODUCT"
+            }
+          },
+          "1602490590770": {
+            "type": "question",
+            "settings": {
+              "title": "Do Belgian Boys products contain GMOs?",
+              "answer": "<p>All of our products are certified non-GMO.<\/p>",
+              "category": "PRODUCT"
+            }
+          },
+          "1602490604156": {
+            "type": "question",
+            "settings": {
+              "title": "Are Belgian Boys products Kosher?",
+              "answer": "<p>All of our products are <a href=\"https:\/\/www.belgianboys.com\/blogs\/home\/kosher-diet-hacks\" title=\"Kosher Diet Hacks\">Kosher certified<\/a> by Triangle K.<\/p>",
+              "category": "PRODUCT"
+            }
+          },
+          "1602490618211": {
+            "type": "question",
+            "settings": {
+              "title": "What does it mean “may contain” or “made in a facility” with allergens?",
+              "answer": "<p>This indicates that while the product does not contain the allergen as an ingredient, it is produced in a facility where this ingredient is used. Such products may contain trace amounts of allergens that can still be harmful to those who are allergic.<\/p>",
+              "category": "PRODUCT"
+            }
+          },
+          "1602490634669": {
+            "type": "question",
+            "settings": {
+              "title": "Are Belgian Boys products nut-free?",
+              "answer": "<p>We do have several products that are nut-free: The Original Crêpes, Bite-Sized Pancakes, Original Belgian Waffles, Choco Belgian Waffles and both flavors of our Mini Cookie Stashes are all nut-free and are produced in nut-free facilities; an icon indicating such is listed on the product pages. Other products without the nut-free indicator may not contain nuts as an ingredient, but may be produced at facilities that process nuts.<\/p>",
+              "category": "PRODUCT"
+            }
+          },
+          "1602490652735": {
+            "type": "question",
+            "settings": {
+              "title": "Where do you get your chocolate?",
+              "answer": "<p>The chocolate in all of our products comes from the renowned Belgian chocolate supplier <a href=\"https:\/\/www.callebaut.com\/en-US\" title=\"https:\/\/www.callebaut.com\/en-US\">Callebaut®<\/a>. They make traceable chocolate, with the goal that all of their chocolate and ingredients will be 100% sustainable by 2025. You can read more about their <a href=\"https:\/\/www.barry-callebaut.com\/en\/group\/media\/news-stories\/forever-chocolate-barry-callebaut-targets-100-sustainable-chocolate-2025\" title=\"https:\/\/www.barry-callebaut.com\/en\/group\/media\/news-stories\/forever-chocolate-barry-callebaut-targets-100-sustainable-chocolate-2025\">Forever Chocolate initiative here<\/a>.<\/p>",
+              "category": "PRODUCT"
+            }
+          },
+          "1602490669667": {
+            "type": "question",
+            "settings": {
+              "title": "How do you eat a stroopwafel?",
+              "answer": "<p>However it tastes best to you! But traditionally, a stroopwafel is placed over a piping hot cup of coffee until the caramel melts to the perfect ooey-gooey consistency, and then enjoyed.<\/p>",
+              "category": "PRODUCT"
+            }
+          },
+          "1602491044955": {
+            "type": "question",
+            "settings": {
+              "title": "I am an independent store. Can I buy your products?",
+              "answer": "<p>Absolutely! We are happy to get you onto our wholesale platform. Please email us at <a href=\"mailto:info@belgianboys.com\"><span style=\"text-decoration:underline\">info@belgianboys.com<\/span><\/a> for more info.<\/p>",
+              "category": "WHOLESALE ORDERS"
+            }
+          },
+          "1602491056113": {
+            "type": "question",
+            "settings": {
+              "title": "I am a buyer at a grocery chain. Do you sell to retail stores?",
+              "answer": "<p>Yes! We would love to chat. Please email us at <a href=\"mailto:info@belgianboys.com\" title=\"mailto:info@belgianboys.com\">info@belgianboys.com<\/a> and we’ll have our sales team reach out.<\/p>",
+              "category": "WHOLESALE ORDERS"
+            }
+          },
+          "1602491071076": {
+            "type": "question",
+            "settings": {
+              "title": "What stores carry Belgian Boys products?",
+              "answer": "<p>The best and easiest way to find stores near you is to enter an address or zip code into our <a href=\"\/pages\/store-locator\" title=\"Store Locator\">store locator<\/a>. You will be shown the Belgian Boys stockists nearest to you, along with the products they carry.<\/p>",
+              "category": "STORES"
+            }
+          },
+          "1602491086971": {
+            "type": "question",
+            "settings": {
+              "title": "There is a store near me, but it doesn’t carry the product I want. What can I do?",
+              "answer": "<p>As we continue expanding our product offerings, we love to hear what products are needed (and where) from our customers. You can use our store locator to fill out a form requesting that a stockist near you carry additional Belgian Boys products, or email us at <a href=\"mailto:hello@belgianboys.com\" title=\"mailto:hello@belgianboys.com\">hello@belgianboys.com<\/a>.<\/p>",
+              "category": "STORES"
+            }
+          },
+          "1602491107762": {
+            "type": "question",
+            "settings": {
+              "title": "Do you sell gift cards?",
+              "answer": "<p>Not yet, but they’re coming soon!<\/p>",
+              "category": "EVERYTHING ELSE"
+            }
+          },
+          "1602491121870": {
+            "type": "question",
+            "settings": {
+              "title": "I am an influencer. How can I collaborate with Belgian Boys?",
+              "answer": "<p>We love to work with stand-out personalities and voices in the industry! We accept influencer requests directly via <a href=\"https:\/\/www.instagram.com\/belgianboys\/?hl=en\" title=\"https:\/\/www.instagram.com\/belgianboys\/?hl=en\">Instagram DM<\/a>, and proposals are reviewed on a weekly basis. <\/p>",
+              "category": "EVERYTHING ELSE"
+            }
+          },
+          "1602491135853": {
+            "type": "question",
+            "settings": {
+              "title": "What is #rockthatstash?",
+              "answer": "<p>Rock that Stash is our way of giving back! You can <a href=\"\/pages\/about-us\" title=\"About Us\">read all about it here<\/a>, but in short: To win money for the charity of your choice, just snap a pic with one of our Mini Cookie Stashes, post it to social media with the hashtag #rockthatstash, and we’ll notify you if you’ve won!<\/p>",
+              "category": "EVERYTHING ELSE"
+            }
+          },
+          "1602491151985": {
+            "type": "question",
+            "settings": {
+              "title": "Where can I get a discount code?",
+              "answer": "<p>We offer periodic sales discounts to our customers; join our email list or <a href=\"https:\/\/www.facebook.com\/Belgianboys\/\" title=\"https:\/\/www.facebook.com\/Belgianboys\/\">follow us on social media<\/a> to stay up-to-date on the latest promos. If you are an existing customer, you can also earn a discount on your next purchase by reviewing the products you received.<\/p>",
+              "category": "EVERYTHING ELSE"
+            }
+          },
+          "1602491175198": {
+            "type": "question",
+            "settings": {
+              "title": "How do I review a product?",
+              "answer": "<p>You will automatically receive an email inviting you to leave a review 14 days after your purchase!<\/p>",
+              "category": "EVERYTHING ELSE"
+            }
+          },
+          "1602491194355": {
+            "type": "question",
+            "settings": {
+              "title": "How do I sign up for your newsletter?",
+              "answer": "<p>Our newsletter signup is at the bottom of our homepage.<\/p>",
+              "category": ""
+            }
+          }
+        },
+        "block_order": [
+          "1600068574921",
+          "1600068746476",
+          "1600068749177",
+          "1600068751044",
+          "1600069004035",
+          "1600069009992",
+          "1600069026395",
+          "1600069046544",
+          "1602490427100",
+          "1602490461380",
+          "1602490482094",
+          "1602490497572",
+          "37509586-0f4b-4fe7-93b6-d8e22080c94e",
+          "1602490519850",
+          "c0d1338b-9b61-4c5e-b8a7-900a8e440f2b",
+          "001b4207-7b38-4b7f-87a9-5d5a1e165dd0",
+          "1602490531941",
+          "1602490561621",
+          "1602490573973",
+          "1602490590770",
+          "1602490604156",
+          "1602490618211",
+          "1602490634669",
+          "1602490652735",
+          "1602490669667",
+          "1602491044955",
+          "1602491056113",
+          "1602491071076",
+          "1602491086971",
+          "1602491107762",
+          "1602491121870",
+          "1602491135853",
+          "1602491151985",
+          "1602491175198",
+          "1602491194355"
+        ],
+        "settings": {
+          "background_color": "#ffeddb"
+        }
+      },
+      "featured-products": {
+        "type": "featured-products",
+        "blocks": {
+          "1602010939015": {
+            "type": "product",
+            "settings": {
+              "product": "choco-caramel-cookie-tarts"
+            }
+          },
+          "1602010908619": {
+            "type": "product",
+            "settings": {
+              "product": "almond-butter-cakes"
+            }
+          },
+          "1602010946180": {
+            "type": "product",
+            "settings": {
+              "product": "raspberry-cookie-tarts"
+            }
+          },
+          "1602010888354": {
+            "type": "product",
+            "settings": {
+              "product": "belgian-chocolate-cookie-bars"
+            }
+          }
+        },
+        "block_order": [
+          "1602010939015",
+          "1602010908619",
+          "1602010946180",
+          "1602010888354"
+        ],
+        "settings": {
+          "bg_color": "#ffeddb",
+          "heading": "People Also Bought"
+        }
+      },
+      "recommended-products": {
+        "type": "recommended-products",
+        "blocks": {
+          "1600266164976": {
+            "type": "product",
+            "settings": {
+              "product": "belgian-chocolate-cookie-bars-1"
+            }
+          },
+          "1600266168280": {
+            "type": "product",
+            "settings": {
+              "product": "almond-butter-cakes"
+            }
+          },
+          "1600266171440": {
+            "type": "product",
+            "settings": {
+              "product": "chocolate-chip-mini-cookie-stash-1"
+            }
+          },
+          "1600266174438": {
+            "type": "product",
+            "settings": {
+              "product": "chocolate-coated-belgian-waffle-1"
+            }
+          }
+        },
+        "block_order": [
+          "1600266164976",
+          "1600266168280",
+          "1600266171440",
+          "1600266174438"
+        ],
+        "settings": {
+          "bg_color": "#ffeddb",
+          "heading": "People also bought"
+        }
+      },
+      "product-reviews": {
+        "type": "product-reviews",
+        "settings": {
+          "title": "Reviews"
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "title": "You may also like...",
+          "subtitle": "FREE SHIPPING ON ORDERS OVER $50"
+        }
+      },
+      "page-about-story": {
+        "type": "page-about-story",
+        "blocks": {
+          "1600352840303": {
+            "type": "story",
+            "settings": {
+              "title": "<p>Our story begins with Skinny &amp; Chubby, two childhood friends who grew up in Belgium with delicious European treats and plenty of mischief.<\/p>",
+              "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0276\/3748\/1545\/files\/BB_Gif_1.mp4?v=1617201395",
+              "text_uppercase": false
+            }
+          },
+          "1600352854308": {
+            "type": "story",
+            "settings": {
+              "title": "<p>As adults, they moved to New York City, where the world was at their fingertips—but the <strong>stroopwafels, cookie tarts, French crepes<\/strong> and other delights of their youth were nowhere to be found. They dreamed of introducing America to treats made from <strong>premium, non-GMO ingredients<\/strong>, with just the right touch of sweetness and the feeling of home.<\/p>",
+              "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0276\/3748\/1545\/files\/BB_Gif_2.mp4?v=1617201395",
+              "text_uppercase": false
+            }
+          },
+          "1600352865971": {
+            "type": "story",
+            "settings": {
+              "title": "<p>From this snack nostalgia, Belgian Boys was born! Skinny and Chubby now produce delights for every time of day, from breakfast to dessert, all <strong>made in Europe<\/strong> for sharing worldwide.<\/p>",
+              "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0276\/3748\/1545\/files\/BB_Gif_3.mp4?v=1617201395",
+              "text_uppercase": false
+            }
+          }
+        },
+        "block_order": [
+          "1600352840303",
+          "1600352854308",
+          "1600352865971"
+        ],
+        "settings": {
+          "title": "Our Story"
+        }
+      },
+      "page-about-today": {
+        "type": "page-about-today",
+        "blocks": {
+          "1600352899803": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/belgian-boys-today-1.png",
+              "title": "<p>Skinny and Chubby are still around, but today <a href=\"https:\/\/www.womenownedlogo.com\/women-owned-business\/belgian-boys\" title=\"https:\/\/www.womenownedlogo.com\/women-owned-business\/belgian-boys\">our company is Woman Owned<\/a>, with a majority female workforce!<\/p>"
+            }
+          },
+          "1600352908756": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/belgian-boys-today-2.png",
+              "title": "<p>We are driven by our mission to make the world a sweeter place, one snack at a time. We give away a portion of Mini Cookie Stash proceeds to charity via our <a href=\"https:\/\/www.instagram.com\/explore\/tags\/rockthatstash\/\" title=\"https:\/\/www.instagram.com\/explore\/tags\/rockthatstash\/\">#rockthatstash<\/a> campaign.<\/p>"
+            }
+          },
+          "1600352915578": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/belgian-boys-today-3.png",
+              "title": "<p>All of our chocolate is sourced from <a href=\"https:\/\/www.callebaut.com\/en-US\/homepage\" title=\"https:\/\/www.callebaut.com\/en-US\/homepage\">Callebaut<\/a>, the Belgian maker of traceable chocolate. Their goal is that all of their chocolate and ingredients will be 100% sustainable by 2025.<\/p>"
+            }
+          },
+          "1600352921915": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/belgian-boys-today-4.png",
+              "title": "<p>In 2020, we were named to the <a href=\"https:\/\/www.inc.com\/profile\/belgian-boys\" title=\"https:\/\/www.inc.com\/profile\/belgian-boys\">Inc. 5000 list of Fastest Growing Private Companies in America<\/a>, in the top 50 of all food and beverage companies.<\/p>"
+            }
+          },
+          "1600352928899": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/belgian-boys-today-5.png",
+              "title": "<p>All our treats are produced in Europe, but we are New Yorkers! Belgian Boys is a US company headquartered in Brooklyn, NY.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1600352899803",
+          "1600352908756",
+          "1600352915578",
+          "1600352921915",
+          "1600352928899"
+        ],
+        "settings": {
+          "title": "Belgian Boys Today",
+          "subtitle": "WE'VE COME A LONG WAY SINCE THE BEGINNING!\nHERE ARE SOME HIGHLIGHTS OF THE BELGIAN BOYS WORLD TODAY."
+        }
+      },
+      "social-mission-intro": {
+        "type": "social-mission-intro",
+        "settings": {
+          "title": "The Treat Making The World Sweeter",
+          "subtitle": "We are on a mission to make the world sweeter, one treat at a time! Here’s how we are giving back to our communities and our customers’ favorite causes — and how you can get involved!",
+          "highlight": "#ROCKTHATSTASH",
+          "text": "<p>Each month since the launch of our <a href=\"\/products\/speculoos-mini-cookie-stash\">Speculoos Mini Cookie Stash<\/a> and <a href=\"\/products\/chocolate-chip-mini-cookie-stash\">Chocolate Chip Mini Cookie Stash<\/a>, we’ve donated a portion of proceeds from those products to a customer’s favorite charity. We have supported small local non-profits and some of the largest in the world working on a diverse range of social causes, all thanks to our customers’ nominations using #RockThatStash. <\/p>",
+          "image_01": "shopify:\/\/shop_images\/RTS-Chubby.png",
+          "image_02": "shopify:\/\/shop_images\/RTS-Skinny.png",
+          "separator": "shopify:\/\/shop_images\/How_We_Give_Back_Assets-06-10_f5a3b967-38ae-46dc-ad80-65e0ad32a2ec.png"
+        }
+      },
+      "social-mission-steps": {
+        "type": "social-mission-steps",
+        "blocks": {
+          "1600434567641": {
+            "type": "step",
+            "settings": {
+              "title": "Unwrap a Belgian Boys Mini Cookie Stash;",
+              "image": "shopify:\/\/shop_images\/social-mission-step-1.png"
+            }
+          },
+          "1600434573252": {
+            "type": "step",
+            "settings": {
+              "title": "Snap a picture rocking your mini cookie stash and post your photo to social media;",
+              "image": "shopify:\/\/shop_images\/social-mission-step-2.png"
+            }
+          },
+          "1600434578643": {
+            "type": "step",
+            "settings": {
+              "title": "Tag us @belgianboys, tag your favorite charity, and use the hashtag #rockthatstash.<br>Your favorite charity could be next!",
+              "image": "shopify:\/\/shop_images\/social-mission-step-3.png"
+            }
+          }
+        },
+        "block_order": [
+          "1600434567641",
+          "1600434573252",
+          "1600434578643"
+        ],
+        "settings": {
+          "title": "HERE’S HOW YOU CAN #ROCKTHATSTASH AND WIN A DONATION TO YOUR FAVORITE CHARITY!"
+        }
+      },
+      "social-mission-gallery": {
+        "type": "social-mission-gallery",
+        "blocks": {
+          "1600434587380": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2021-09-21_at_10.54.04_AM.png"
+            }
+          },
+          "1600434590980": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2021-09-21_at_10.56.29_AM.png"
+            }
+          },
+          "1600434595619": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2021-09-21_at_10.55.59_AM.png"
+            }
+          },
+          "1600434599780": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2021-09-21_at_10.52.33_AM.png"
+            }
+          }
+        },
+        "block_order": [
+          "1600434587380",
+          "1600434590980",
+          "1600434595619",
+          "1600434599780"
+        ],
+        "settings": {}
+      },
+      "social-mission-charities": {
+        "type": "social-mission-charities",
+        "blocks": {
+          "1600434612443": {
+            "type": "charity",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/1_2_df74101c-3f8e-408a-bdc7-d08d86f1aa6c.png"
+            }
+          },
+          "1600434616506": {
+            "type": "charity",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/2_2_c02043d7-3ebb-4519-9d2c-df21af0a8f30.png"
+            }
+          },
+          "1600434619970": {
+            "type": "charity",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/3_2_e090c587-3e1a-4b2e-b03e-e7df5192e765.png"
+            }
+          },
+          "1600434623078": {
+            "type": "charity",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/6_5639b4df-c2c8-4dd7-b364-bfc2210422ff.png"
+            }
+          },
+          "1600434626833": {
+            "type": "charity",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/10.png"
+            }
+          }
+        },
+        "block_order": [
+          "1600434612443",
+          "1600434616506",
+          "1600434619970",
+          "1600434623078",
+          "1600434626833"
+        ],
+        "settings": {
+          "title": "Our Donations Have Gone to...",
+          "title_bottom": "And dozens of others!",
+          "button_text": "Nominate now",
+          "button_link": "https:\/\/www.instagram.com\/explore\/tags\/rockthatstash\/"
+        }
+      },
+      "social-mission-party": {
+        "type": "social-mission-party",
+        "blocks": {
+          "1600437002373": {
+            "type": "button",
+            "settings": {
+              "title": "Get Involved",
+              "link": "https:\/\/www.thebirthdaypartyproject.org\/get-involved\/",
+              "is_target_blank": true
+            }
+          },
+          "1600437006245": {
+            "type": "button",
+            "settings": {
+              "title": "Donate",
+              "link": "https:\/\/www.thebirthdaypartyproject.org\/get-involved\/#donate",
+              "is_target_blank": true
+            }
+          }
+        },
+        "block_order": [
+          "1600437002373",
+          "1600437006245"
+        ],
+        "settings": {
+          "title": "BELGIAN BOYS x THE BIRTHDAY PARTY PROJECT",
+          "image_additional": "shopify:\/\/shop_images\/the-birthday-party-project.png",
+          "text": "<p><a href=\"https:\/\/www.thebirthdaypartyproject.org\/\" target=\"_blank\">The Birthday Party Project<\/a> believes that joy can change lives, and that a joyful community can change the world—that’s why they’re on a mission to deliver fun birthday celebrations to children experiencing homelessness. Whether it’s through in-person parties at homeless and transitional living facilities (during normal times), or via Birthday in a Bag packages (during distanced times), every child is fully fêted!<\/p><p>We have partnered with the Birthday Party Project to add an essential birthday element to every celebration: CAKE! No birthday is complete without it, so we send our beloved Belgian Boys <a href=\"\/products\/almond-butter-cakes\">Almond Butter Cakes<\/a> to every birthday party or Birthday in a Bag, for individual indulging or for sharing with friends! It’s our way of adding a touch of sweetness to young lives.<\/p>",
+          "image": "shopify:\/\/shop_images\/How_We_Give_Back_Assets-07.gif"
+        }
+      },
+      "social-mission-outro": {
+        "type": "social-mission-outro",
+        "settings": {
+          "title": "Community Giving + You",
+          "text": "<p>Every year, we partner with dozens of schools, charities and nonprofits to make the world sweeter, one treat at a time. If your charitable event or fundraiser could use some dressing up with Belgian Boys treats, please reach out to us at <a href=\"mailto:hello@belgianboys.com\">hello@belgianboys.com<\/a>!<\/p>",
+          "image": "shopify:\/\/shop_images\/How_We_Give_Back_Assets-09_1.png"
+        }
+      },
+      "page-about-contact": {
+        "type": "page-about-contact",
+        "blocks": {
+          "1602842989739": {
+            "type": "form",
+            "settings": {
+              "title": "Orders",
+              "email": "hello@belgianboys.com"
+            }
+          },
+          "1602843001992": {
+            "type": "form",
+            "settings": {
+              "title": "Shipping",
+              "email": "hello@belgianboys.com"
+            }
+          },
+          "1602843011037": {
+            "type": "form",
+            "settings": {
+              "title": "Product Details",
+              "email": "hello@belgianboys.com"
+            }
+          },
+          "1602843016415": {
+            "type": "form",
+            "settings": {
+              "title": "Compliment",
+              "email": "hello@belgianboys.com"
+            }
+          },
+          "1602843024964": {
+            "type": "form",
+            "settings": {
+              "title": "Marketing",
+              "email": "marketing@belgianboys.com"
+            }
+          },
+          "1602843031254": {
+            "type": "form",
+            "settings": {
+              "title": "Partnerships",
+              "email": "marketing@belgianboys.com"
+            }
+          },
+          "1602843036878": {
+            "type": "form",
+            "settings": {
+              "title": "Sales",
+              "email": "info@belgianboys.com"
+            }
+          },
+          "1602843041052": {
+            "type": "form",
+            "settings": {
+              "title": "Other",
+              "email": "hello@belgianboys.com"
+            }
+          }
+        },
+        "block_order": [
+          "1602842989739",
+          "1602843001992",
+          "1602843011037",
+          "1602843016415",
+          "1602843024964",
+          "1602843031254",
+          "1602843036878",
+          "1602843041052"
+        ],
+        "settings": {
+          "title": "Drop Us A Line",
+          "text": "<p>We&#x27;d love to hear from you. We welcome new product ideas, recommendations, requests, concerns, waffle-inspired haikus or anything else you&#x27;ve got rolling around.<\/p>"
+        }
+      },
+      "cart": {
+        "type": "cart",
+        "settings": {
+          "continue_shopping_url": "shopify:\/\/collections\/shop",
+          "free_shipping_enable": true
+        }
+      },
+      "blog-banner": {
+        "type": "blog-banner",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/2_Blog_HomeBanner.jpg",
+          "blog_title": "The Belgian Boys World",
+          "title_color": "#ffffff"
+        }
+      },
+      "blog-content": {
+        "type": "blog-content",
+        "settings": {
+          "bg_color": "#ffffff"
+        }
+      },
+      "blog-promo": {
+        "type": "blog-promo",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Home_Page_Banner_Desktop_1_70fbf43e-7e2a-4235-82dd-1e7c079270b4.png",
+          "title": "FREE SHIPPING OVER $50",
+          "text": "",
+          "button_text": "SHOP NOW",
+          "button_link": "https:\/\/www.belgianboys.com\/collections\/shop"
+        }
+      },
+      "blog-featured-products": {
+        "type": "blog-featured-products",
+        "blocks": {
+          "dec1cc81-b0b3-4467-9864-e9446ca19095": {
+            "type": "product",
+            "settings": {
+              "product": "raspberry-cookie-tarts"
+            }
+          },
+          "68ab2ab6-7020-4f27-afd6-4a77b4e0f58c": {
+            "type": "product",
+            "settings": {
+              "product": "single-stroopwafel"
+            }
+          },
+          "abc8f0a5-cbc9-4a32-ba47-96ab0c338e95": {
+            "type": "product",
+            "settings": {
+              "product": "frozen-desserts"
+            }
+          },
+          "276ba2f2-94cd-46d2-8c1f-4824452e320b": {
+            "type": "product",
+            "settings": {
+              "product": "almond-butter-cakes"
+            }
+          },
+          "056d09ed-ed1a-4e72-92c4-abcc221398ca": {
+            "type": "product",
+            "settings": {
+              "product": "choco-caramel-cookie-tarts"
+            }
+          },
+          "2a1baad5-f234-415e-9cd7-dd1dd329680a": {
+            "type": "product",
+            "settings": {
+              "product": "original-belgian-waffle"
+            }
+          },
+          "5cda2146-1470-4383-8eba-0841672f7e61": {
+            "type": "product",
+            "settings": {
+              "product": "frozen-breakfast"
+            }
+          },
+          "e85dbfb8-e3ec-4421-8061-35615974f58e": {
+            "type": "product",
+            "settings": {
+              "product": "stroopwafel-tin"
+            }
+          },
+          "366fa7a3-e931-41ae-84f1-03566424b81d": {
+            "type": "product",
+            "settings": {
+              "product": "mini-choco-stroopwafels"
+            }
+          },
+          "85464af2-315a-44ce-9b81-55f3d4db29f1": {
+            "type": "product",
+            "settings": {
+              "product": "belgian-chocolate-cookie-bars"
+            }
+          },
+          "a13c80f3-d432-4cbd-81a2-2eb1aa331656": {
+            "type": "product",
+            "settings": {
+              "product": "chocolate-coated-belgian-waffle"
+            }
+          }
+        },
+        "block_order": [
+          "dec1cc81-b0b3-4467-9864-e9446ca19095",
+          "68ab2ab6-7020-4f27-afd6-4a77b4e0f58c",
+          "abc8f0a5-cbc9-4a32-ba47-96ab0c338e95",
+          "276ba2f2-94cd-46d2-8c1f-4824452e320b",
+          "056d09ed-ed1a-4e72-92c4-abcc221398ca",
+          "2a1baad5-f234-415e-9cd7-dd1dd329680a",
+          "5cda2146-1470-4383-8eba-0841672f7e61",
+          "e85dbfb8-e3ec-4421-8061-35615974f58e",
+          "366fa7a3-e931-41ae-84f1-03566424b81d",
+          "85464af2-315a-44ce-9b81-55f3d4db29f1",
+          "a13c80f3-d432-4cbd-81a2-2eb1aa331656"
+        ],
+        "settings": {
+          "title": "Featured Products",
+          "subtitle": "FREE SHIPPING ON ORDERS OVER $50"
+        }
+      },
+      "newsletter-klaviyo-popup": {
+        "type": "newsletter-klaviyo-popup",
+        "settings": {
+          "enable_popup": false,
+          "embed_code": "<div class=\"klaviyo-form-TyBAiV\"><\/div>",
+          "popup_frequency": "always",
+          "popup_delay": 4,
+          "background_color": "#ffeddc"
+        }
+      },
+      "lemon-favorite-pairs": {
+        "type": "lemon-favorite-pairs",
+        "blocks": {
+          "3e675b72-22b8-4837-b755-62e71eb1d72a": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Lemon_Cookie_Tart_Landing_Page_PDP_Icons-02_0d8eccf8-5c66-4f9e-a593-195c6826e2ec.png",
+              "title": "Lemon Cookie Tart + Ice Cream"
+            }
+          },
+          "b9b3840a-252b-4546-91d6-f7a4e49479dd": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Lemon_Cookie_Tart_Landing_Page_PDP_Icons-03_580a171d-f62d-43a9-bbda-24ec1956fe64.png",
+              "title": "Lemon Cookie Tart + Coffee or Tea"
+            }
+          },
+          "e0b326eb-07a4-4038-9a48-b5ba4981eb97": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Lemon_Cookie_Tart_Landing_Page_PDP_Icons-04_abec2689-1c67-406c-937e-2766a02f119f.png",
+              "title": "Lemon Cookie Tart +  A Tall Glass of Lemonade"
+            }
+          }
+        },
+        "block_order": [
+          "3e675b72-22b8-4837-b755-62e71eb1d72a",
+          "b9b3840a-252b-4546-91d6-f7a4e49479dd",
+          "e0b326eb-07a4-4038-9a48-b5ba4981eb97"
+        ],
+        "settings": {
+          "bg_color": "#ffffff",
+          "title": "Our favorite pairs"
+        }
+      },
+      "lemon-fun-facts": {
+        "type": "lemon-fun-facts",
+        "blocks": {
+          "f434b6f4-5dab-49f8-9b8c-71ecea678cc4": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/lemon_cookie_tart_landing_page_pdp_icons-05_de405160-b7bf-46dc-a04a-281fdb667f91.png",
+              "title": "California and Arizona produce 95% of the United States’ lemon crop."
+            }
+          },
+          "fba8172d-ee96-44f5-a86e-eef8827b3b95": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/lemon_cookie_tart_landing_page_pdp_icons-06_00d57dbc-75cc-4e88-9ebb-1c0ef450cdd7.png",
+              "title": "Lemons used to be so rare that kings used to present them to each other as gifts."
+            }
+          },
+          "70d5641e-42a7-47ce-bc7b-af65da97b76e": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/lemon_cookie_tart_landing_page_pdp_icons-07_d5f0bf95-41f9-46e0-bbb6-731f522917c7.png",
+              "title": "To power a flashlight bulb, you need 500 wired lemons to conduct electricity."
+            }
+          }
+        },
+        "block_order": [
+          "f434b6f4-5dab-49f8-9b8c-71ecea678cc4",
+          "fba8172d-ee96-44f5-a86e-eef8827b3b95",
+          "70d5641e-42a7-47ce-bc7b-af65da97b76e"
+        ],
+        "settings": {
+          "bg_color": "#ffffff",
+          "title": "Lemon Fun facts!",
+          "btn_text": "Shop lemon tarts",
+          "btn_link": "\/products\/lemon-cookie-tarts"
+        }
+      },
+      "lemon-tart": {
+        "type": "lemon-tart",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Lemon-Tart_PDP_Banner_Top_GIF-Update.gif",
+          "title": "#TARTBUTSWEET",
+          "text": "It's finally here! We've taken everyone's favorite tart-but-sweet citrus and paired it with our buttery, crisp cookie for a summer combo that'll brighten up any snacking occasion. Our Lemon Cookie tart features a fruity lemon jam with just the right amount of sugar, dabbed atop an irresistibly decadent shortbread base. Pair with the beverage of your choice and it's the treat you won't put down until fall rolls around.",
+          "btn_link": "\/products\/lemon-cookie-tarts",
+          "btn_text": "SHOP NOW"
+        }
+      },
+      "lemon-hero": {
+        "type": "lemon-hero",
+        "settings": {
+          "desktop_image": "shopify:\/\/shop_images\/Group_111111.png",
+          "tablet_image": "shopify:\/\/shop_images\/Group_150_2d7a1b16-3d8e-436a-8928-2cdf63860a63.png",
+          "mobile_image": "shopify:\/\/shop_images\/Group_151_295822df-6c74-4308-b966-f61e52c7988f.png"
+        }
+      },
+      "lemon-review": {
+        "type": "lemon-review",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Lemon_Tart_PDP_Banner_Bottom_7f2931b6-0905-4ad0-a89d-53fb610e8d94.png",
+          "image_tablet": "shopify:\/\/shop_images\/Lemon_Tart_PDP_Banner_Bottom-2.png",
+          "image_mobile": "shopify:\/\/shop_images\/Lemon_Tart_PDP_Banner_Bottom-3.png",
+          "stars": "5",
+          "review": "\"Yummy lemon cookie and conveniently wrapped for a snack on the go. You will want to eat more than one!\"",
+          "author": "-Roxy, a happy Lemon Cookie Tart customer"
+        }
+      },
+      "lemon-hero-second": {
+        "type": "lemon-hero-second",
+        "blocks": {
+          "4223dd1d-88b8-4ae7-99b9-f03a6f0c1727": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/doughp-logo.png"
+            }
+          },
+          "f7b1a902-2ba7-4b48-8538-ffd45dde3170": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/bb-logo.png"
+            }
+          }
+        },
+        "block_order": [
+          "4223dd1d-88b8-4ae7-99b9-f03a6f0c1727",
+          "f7b1a902-2ba7-4b48-8538-ffd45dde3170"
+        ],
+        "settings": {
+          "section_bg": "shopify:\/\/shop_images\/hero-bg.png",
+          "title_desk": "shopify:\/\/shop_images\/hero-title.png",
+          "title_mob": "shopify:\/\/shop_images\/hero-title-mob.png"
+        }
+      },
+      "lemon-tart-second": {
+        "type": "lemon-tart-second",
+        "settings": {
+          "section_bg": "shopify:\/\/shop_images\/descr-section-bg.png",
+          "section_bg_mob": "shopify:\/\/shop_images\/descr-section-bg-mob.png",
+          "section_text": "<p>We partnered with the edible cookie dough masters at Doughp to bring you the most decadent version of a true Dutch treat: Belgian Boys Stroopwafel pieces are mixed into caramel and cinnamon cookie dough, for the limited-time only flavor 'Stroop to My Level'. Bake it into cookies, or eat it by the spoonful... either way, you won't be able to stop after just one bite.<\/p>",
+          "btn_text": "SHOP NOW",
+          "btn_link": "https:\/\/www.doughp.com\/pages\/build-your-own-pack"
+        }
+      },
+      "lemon-favorite-pairs-second": {
+        "type": "lemon-favorite-pairs-second",
+        "settings": {
+          "section_bg": "shopify:\/\/shop_images\/descr-section-mini-bg.png",
+          "section_bg_mob": "shopify:\/\/shop_images\/descr-section-mini-bg-mob.png",
+          "section_title": "About doughp",
+          "section_text": "Doughp crafts yummy, nostalgic cookie dough as part of its mission to reduce the stigmas around mental health & addiction recovery. In their words: \"Serving up nostalgia with every scoop and curating moments of self-love, Doughp burst onto the dessert scene in 2017 and has since served more than 250,000 cookie dough lovers!\"",
+          "btn_text": "Meet the brand",
+          "btn_link": "https:\/\/www.doughp.com\/pages\/meet-us"
+        }
+      },
+      "lemon-review-second": {
+        "type": "lemon-review-second",
+        "settings": {
+          "section_bg": "shopify:\/\/shop_images\/descr-section-mini-bg-two.png",
+          "section_bg_mob": "shopify:\/\/shop_images\/descr-section-mini-bg-two-mob.png",
+          "section_title": "WHAT IS A STROOPWAFEL?",
+          "section_text": "A what? Stroopwafel translates to “syrup waffle” in Dutch, and it's made with two thin, crispy, waffle-like cookies sandwiching a layer of gooey cinnamon-y caramel. Traditionally, a stroopwafel is placed atop a cup of hot tea or coffee to allow the inner caramel to soften, and once the preferred level of melty-ness is achieved, it's removed and eaten. Haven't tried one? Get your first taste today!",
+          "btn_text": "SHOP NOW",
+          "btn_link": "https:\/\/www.belgianboys.com\/products\/stroopwafel-duo]"
+        }
+      },
+      "wafel-hero": {
+        "type": "wafel-hero",
+        "blocks": {
+          "d2afbd68-7c7b-4eb4-a03b-17cc82247e42": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/misfits.png"
+            }
+          },
+          "4719b06d-1645-4b43-8bc6-24f4c349d930": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/belgians.png"
+            }
+          }
+        },
+        "block_order": [
+          "d2afbd68-7c7b-4eb4-a03b-17cc82247e42",
+          "4719b06d-1645-4b43-8bc6-24f4c349d930"
+        ],
+        "settings": {
+          "section_bg": "#fff2d8",
+          "section_image_desktop": "shopify:\/\/shop_images\/Top_Header_Banner_Image.png",
+          "section_image_mobile": "shopify:\/\/shop_images\/hero_no_backg_mob.png",
+          "title": "UPCYCLED STROOPWAFEL",
+          "text": "*MADE WITH REPURPOSED WAFFLE BITS*"
+        }
+      },
+      "wafel-whatis": {
+        "type": "wafel-whatis",
+        "settings": {
+          "bg_color": "#ffcd50",
+          "image": "shopify:\/\/shop_images\/Mask_Group_38.png",
+          "title": "What is an “upcycled stroopwafel”?",
+          "text": "A <a href=\"https:\/\/www.belgianboys.com\/blogs\/home\/stroopwafel-101\">stroopwafel is one of our favorite Dutch treats<\/a>, where a thin layer of caramel is sandwiched in between two cinnamon-y waffle cookies. But when we make these delectable treats, the round cookie shapes are cut out of a larger cookie sheet, and so much tasty waffle goodness gets left behind.<br><br>  An UPCYCLED STROOPWAFEL means we've taken those delicious leftover bits and mixed them into the batter to make brand new cookies. Every bite you take contains 12.5% repurposed cookies—but 100% of the same YUM!",
+          "btn_text": "Shop Now",
+          "button_link": "https:\/\/www.misfitsmarket.com\/sign-up"
+        }
+      },
+      "wafel-misfits": {
+        "type": "wafel-misfits",
+        "settings": {
+          "bg_color": "#ffecd9",
+          "image_desktop": "shopify:\/\/shop_images\/main_1.png",
+          "image_mob": "shopify:\/\/shop_images\/Mask_Group_39.png",
+          "title": "About Misfits Market",
+          "text": "In their own words, Misfits Market is dedicated to \"helping break the cycle of food waste\". They work directly with farmers and makers to rescue organic produce and other grocery items that might otherwise go to waste, and they deliver it directly to your doorstep. <br><br>\n\nWe are proud to partner with a company dedicated to eliminating inefficiencies in the food supply chain. Get the full scoop on their work and mission on their website, and grab your own delicious box of \"misfits\".",
+          "btn_text": "Learn More",
+          "btn_url": "https:\/\/www.misfitsmarket.com\/about-us"
+        }
+      },
+      "wafel-stroop": {
+        "type": "wafel-stroop",
+        "blocks": {
+          "81b69795-f94e-4218-a1da-c9961a728173": {
+            "type": "block",
+            "settings": {
+              "img_item": "shopify:\/\/shop_images\/stroop-img-1.png",
+              "number_block": "1",
+              "text_block": "Unwrap a Belgian Boys x Misfits Market Upcycled Stroopwafel"
+            }
+          },
+          "e3792ad9-2327-4ec9-a0c6-4354cca47524": {
+            "type": "block",
+            "settings": {
+              "img_item": "shopify:\/\/shop_images\/stroop-img-2.png",
+              "number_block": "2",
+              "text_block": "Pour yourself a hot cup of coffee or tea"
+            }
+          },
+          "86e42db8-9273-4dbe-9593-249b07a23e94": {
+            "type": "block",
+            "settings": {
+              "img_item": "shopify:\/\/shop_images\/stroop-img-3.png",
+              "number_block": "3",
+              "text_block": "Place the stroopwafel on top of your cup (or pop out the stroopwafel holder in this box for extra fun!)"
+            }
+          },
+          "8d67c0f2-a26b-42e4-90e0-8f323438f64a": {
+            "type": "block",
+            "settings": {
+              "img_item": "shopify:\/\/shop_images\/stroop-img-4.png",
+              "number_block": "4",
+              "text_block": "Wait for the perfectly melty caramel texture"
+            }
+          }
+        },
+        "block_order": [
+          "81b69795-f94e-4218-a1da-c9961a728173",
+          "e3792ad9-2327-4ec9-a0c6-4354cca47524",
+          "86e42db8-9273-4dbe-9593-249b07a23e94",
+          "8d67c0f2-a26b-42e4-90e0-8f323438f64a"
+        ],
+        "settings": {
+          "section_title": "HOW TO STROOP"
+        }
+      },
+      "wafel-ingredients": {
+        "type": "wafel-ingredients",
+        "blocks": {
+          "c25ac614-f596-4b4b-a4e0-c022d81c5c83": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ingrediens-icon-1.png"
+            }
+          },
+          "6b6032de-e62d-4081-8d02-a407cbde49fd": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ingrediens-icon-2.png"
+            }
+          },
+          "3293c41f-aee1-4e5b-9ddf-e796da9dd775": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ingrediens-icon-3.png"
+            }
+          },
+          "0c66597d-f9d6-4a9f-ac93-da7816ae4f2e": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ingrediens-icon-4.png"
+            }
+          }
+        },
+        "block_order": [
+          "c25ac614-f596-4b4b-a4e0-c022d81c5c83",
+          "6b6032de-e62d-4081-8d02-a407cbde49fd",
+          "3293c41f-aee1-4e5b-9ddf-e796da9dd775",
+          "0c66597d-f9d6-4a9f-ac93-da7816ae4f2e"
+        ],
+        "settings": {
+          "section_title": "INGREDIENTS",
+          "text": "UPCYCLED STROOPWAFEL: WHEAT FLOUR, GLUCOSE SYRUP, BUTTER (MILK), CANE SUGAR, PALM OIL, BROWN SUGAR, WHEY POWDER (MILK), SOY FLOUR, WHOLE LIQUID EGG, SEA SALT, WHEY PROTEIN CONCENTRATE (MILK), SOY LECITHIN, OAT FIBER, NONFAT DRY MILK, VANILLA EXTRACT, BAKING SODA, CINNAMON.",
+          "second_text": "CONTAINS: WHEAT, SOY, MILK, EGG. STORE IN A COOL AND DRY PLACE."
+        }
+      },
+      "free-waffles--hero": {
+        "type": "free-waffles--hero",
+        "settings": {
+          "first_text": "We're celebrating National Waffle DAY By giving you a chance to win",
+          "second_text": "free waffles FOR A YEAR!",
+          "third_text": "august 24th 2021",
+          "image": "shopify:\/\/shop_images\/1_1250.png"
+        }
+      },
+      "free-waffles--how-to-enter": {
+        "type": "free-waffles--how-to-enter",
+        "blocks": {
+          "f2b2b214-c3d8-4531-8542-c70bca9c4f4c": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Misfits_Stroop_Landing_Page-06.png",
+              "title": "STEP 1",
+              "text": "<p>BUY any two (2) boxes of <a href=\"https:\/\/www.belgianboys.com\/products\/original-belgian-waffle\" title=\"https:\/\/www.belgianboys.com\/products\/original-belgian-waffle\">Belgian Boys Original Belgian Waffles<\/a> or <a href=\"https:\/\/www.belgianboys.com\/products\/chocolate-coated-belgian-waffle\" title=\"https:\/\/www.belgianboys.com\/products\/chocolate-coated-belgian-waffle\">Chocolate Coated Belgian Waffles<\/a> at your local retailer (in the same purchase)<\/p>"
+            }
+          },
+          "413621c6-e5b1-4d45-a27b-d48667a213db": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Misfits_Stroop_Landing_Page-07.png",
+              "title": "Step 2",
+              "text": "<p>SNAP a photo of your receipt and upload it to the contest site<\/p>"
+            }
+          },
+          "e535fc56-2492-41f6-a2db-51c4465cb356": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Misfits_Stroop_Landing_Page-08.png",
+              "title": "Step 3",
+              "text": "<p>ENTER to win through the \"Enter Now\" button below, and cross your fingers! A year's worth of waffles could be yours!<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "f2b2b214-c3d8-4531-8542-c70bca9c4f4c",
+          "413621c6-e5b1-4d45-a27b-d48667a213db",
+          "e535fc56-2492-41f6-a2db-51c4465cb356"
+        ],
+        "settings": {
+          "title": "HOW TO ENTER",
+          "btn_text": "eNTER NOW",
+          "btn_url": "https:\/\/woobox.com\/uummiw"
+        }
+      },
+      "free-waffles--image": {
+        "type": "free-waffles--image",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/3_1.png"
+        }
+      },
+      "free-waffles--retailers": {
+        "type": "free-waffles--retailers",
+        "blocks": {
+          "792f4c84-1f4b-4d83-8286-8c91ebc0f441": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Frame_4.png"
+            }
+          },
+          "a61d765e-f3cb-4bd7-8fbc-9b273971c4cf": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Frame_5.png"
+            }
+          },
+          "8ce4392d-6992-46fb-a456-e8af38225dc9": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Frame_6.png"
+            }
+          },
+          "dd1855f9-ca16-43b8-bfef-0d36c185101e": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Frame_7.png"
+            }
+          },
+          "b0688913-7af5-4cea-a94e-73b2b087d32f": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Frame_8.png"
+            }
+          },
+          "6515115e-3870-4806-9674-97f651aee2eb": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Frame_9_693ae3ed-3d13-40e8-8f70-7a9e8772c143.png"
+            }
+          },
+          "23c74d24-2591-4185-a383-65f86cbd7a61": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Frame_14.png"
+            }
+          },
+          "4eabfdcf-4202-459b-81d5-9e6de0e956b6": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Frame_15.png"
+            }
+          },
+          "4581e58f-f332-41ea-a51c-eea98070c674": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Frame_10_6b3021b8-9b85-4b4a-9e77-f355184f7f2f.png"
+            }
+          },
+          "c46c1606-943e-4f93-bf40-bd616c278168": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Frame_11.png"
+            }
+          },
+          "6ecc1856-b0aa-49a1-97e4-27d51d33b54e": {
+            "type": "Block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Frame_12.png"
+            }
+          }
+        },
+        "block_order": [
+          "792f4c84-1f4b-4d83-8286-8c91ebc0f441",
+          "a61d765e-f3cb-4bd7-8fbc-9b273971c4cf",
+          "8ce4392d-6992-46fb-a456-e8af38225dc9",
+          "dd1855f9-ca16-43b8-bfef-0d36c185101e",
+          "b0688913-7af5-4cea-a94e-73b2b087d32f",
+          "6515115e-3870-4806-9674-97f651aee2eb",
+          "23c74d24-2591-4185-a383-65f86cbd7a61",
+          "4eabfdcf-4202-459b-81d5-9e6de0e956b6",
+          "4581e58f-f332-41ea-a51c-eea98070c674",
+          "c46c1606-943e-4f93-bf40-bd616c278168",
+          "6ecc1856-b0aa-49a1-97e4-27d51d33b54e"
+        ],
+        "settings": {
+          "title": "FIND us AT YOUR LOCAL RETAILER",
+          "btn_text": "STORE LOCATOR",
+          "btn_url": "https:\/\/www.belgianboys.com\/pages\/store-locator"
+        }
+      },
+      "free-waffles--text": {
+        "type": "free-waffles--text",
+        "settings": {
+          "title": "CONTEST DETAILS",
+          "text": "Contest opens on August 24, 2021 at 12:01 a.m. ET and closes on September 14, 2021 at 12:01 a.m. ET. To participate, visit any retail location that carries Belgian Boys Original Belgian Waffles or Chocolate Coated Belgian Waffles and purchase two (2) or more units. Take a photo of the receipt, and upload the photo to the contest site.\n<br><br>\nOne winner will be selected at random and notified via email on September 14, 2021 to receive a year's worth of waffles, which is defined as two (2) boxes of Belgian Boys waffles per week for a full calendar year (52 weeks), for a maximum total of 104 boxes of Belgian Boys Original Belgian Waffles or Chocolate Coated Belgian Waffles. If the winner does not respond to the email notification within one calendar week, a new winner will be chosen. Winner will be responsible for redeeming the product via www.belgianboys.com; any product unclaimed by September 14, 2022 will not be redeemable after this date."
+        }
+      },
+      "lp4-hero": {
+        "type": "lp4-hero",
+        "blocks": {
+          "2dad654f-842d-4d60-83d7-f945235e91d2": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/logo-de53f6db55214444f18b7d5a52c86a2a_5.png"
+            }
+          },
+          "ef913c0a-aa9d-4e81-8bdb-ea4c930e388a": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Misfits_Stroop_Landing_Page_Logo_MM.png"
+            }
+          }
+        },
+        "block_order": [
+          "2dad654f-842d-4d60-83d7-f945235e91d2",
+          "ef913c0a-aa9d-4e81-8bdb-ea4c930e388a"
+        ],
+        "settings": {
+          "section_bg": "#ffecdc",
+          "title_image": "shopify:\/\/shop_images\/Aerie_x_Stroop_Landing_Page-09_1.png",
+          "right_image": "shopify:\/\/shop_images\/Aerie_x_Stroop_Landing_Page-10_1.png"
+        }
+      },
+      "lp4-whatis": {
+        "type": "lp4-whatis",
+        "settings": {
+          "bg_color": "#e67325",
+          "image": "shopify:\/\/shop_images\/Aeire_x_Banner_2_1.png",
+          "title": "The Aerie Waffle Truck is rolling through... <br> Catch it in a city near you!",
+          "text": "Belgian Boys is helping Aerie kick off cozy season! Join the wafflicious party and celebrate with FREE Belgian Boys Stroopwafels, Aerie giveaways & other treats you’ll have to see to believe.\n<br><br><br>\nFIRST COME, FIRST SERVE. SO JOIN THE PARTY EARLY!",
+          "btn_text": "",
+          "button_link": ""
+        }
+      },
+      "lp4-stroop": {
+        "type": "lp4-stroop",
+        "blocks": {
+          "4e6a9589-1949-40cf-9fae-026d9f48f355": {
+            "type": "block",
+            "settings": {
+              "img_item": "shopify:\/\/shop_images\/stroop-img-1.png",
+              "number_block": "1",
+              "text_block": "Unwrap a Belgian Boys x Aerie Stroopwafel"
+            }
+          },
+          "a32d83e4-b550-464e-a565-14e0c9557ff4": {
+            "type": "block",
+            "settings": {
+              "img_item": "shopify:\/\/shop_images\/stroop-img-2.png",
+              "number_block": "2",
+              "text_block": "Pour yourself a hot cup of coffee or tea"
+            }
+          },
+          "3e25f220-8985-451d-9c57-8c5021e5132d": {
+            "type": "block",
+            "settings": {
+              "img_item": "shopify:\/\/shop_images\/Misfits_Stroop_Landing_Page-08_f52b6a0b-bff1-44f0-a285-4884466f19f3.png",
+              "number_block": "3",
+              "text_block": "Place the stroopwafel on top and \nwait for the perfect melty caramel"
+            }
+          },
+          "242fe98b-617b-46a7-948c-e53a3a6e9fee": {
+            "type": "block",
+            "settings": {
+              "img_item": "shopify:\/\/shop_images\/stroop-img-4.png",
+              "number_block": "4",
+              "text_block": "Enjoy your escape from the everyday!"
+            }
+          }
+        },
+        "block_order": [
+          "4e6a9589-1949-40cf-9fae-026d9f48f355",
+          "a32d83e4-b550-464e-a565-14e0c9557ff4",
+          "3e25f220-8985-451d-9c57-8c5021e5132d",
+          "242fe98b-617b-46a7-948c-e53a3a6e9fee"
+        ],
+        "settings": {
+          "section_title": "HOW TO STROOP"
+        }
+      },
+      "lp4-ingredients": {
+        "type": "lp4-ingredients",
+        "blocks": {
+          "38bfa2c2-7cfa-4327-8ca7-4b3f00d1a2aa": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ingrediens-icon-1.png"
+            }
+          },
+          "9e269e3f-fe76-40df-a66e-281e532765f2": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ingrediens-icon-2.png"
+            }
+          },
+          "8a28bef4-ae90-401a-994f-922f5a2bf5b0": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ingrediens-icon-3.png"
+            }
+          },
+          "feef3f0d-603e-4dd2-a945-1f47a4444840": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/ingrediens-icon-4.png"
+            }
+          }
+        },
+        "block_order": [
+          "38bfa2c2-7cfa-4327-8ca7-4b3f00d1a2aa",
+          "9e269e3f-fe76-40df-a66e-281e532765f2",
+          "8a28bef4-ae90-401a-994f-922f5a2bf5b0",
+          "feef3f0d-603e-4dd2-a945-1f47a4444840"
+        ],
+        "settings": {
+          "section_title": "INGREDIENTS",
+          "text": "WHEAT FLOUR, GLUCOSE- FRUCTOSE SYRUP, SHORTENING BLEND (PALM FAT, RAPESEED OIL, MONO- AND DIGLYCERIDES OF FATTY ACIDS), SUGAR, BUTTER (MILK), CARAMELIZED SUGAR, SOY FLOUR, WHEY POWDER (MILK), WHEAT STARCH, RAPESEED OIL, SODIUM BICARBONATE (LEAVENING AGENT), SALT, EMULSIFIER BLEND (SOY LECITHIN, MONO- AND DIGLYCERIDES OF FATTY ACIDS), SKIM MILK POWDER, EGGS, CINNAMON, NATURAL FLAVOR, ACIDITY REGULATOR (CITRIC ACID), NATURAL BOURBON VANILLA.",
+          "second_text": "CONTAINS: MILK, EGG, SOY, WHEAT. MAY CONTAIN TRACES OF TREE NUTS."
+        }
+      },
+      "lp4-when-where": {
+        "type": "lp4-when-where",
+        "blocks": {
+          "a88c83ea-9a63-44bc-bec4-81757d96a7a1": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Aerie_x_Stroop_Landing_Page-08_1.png",
+              "title": "CHICAGO",
+              "text": "October 16, 2021<br><br> 113 East Oak Street<br><br> Chicago, IL 60611"
+            }
+          },
+          "80b4e7cb-b1d2-4e03-9075-27b0fe233d9f": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Aerie_x_Stroop_Landing_Page-08_1.png",
+              "title": "NASHVILLE",
+              "text": "October 17, 2021<br><br> 2306 12th Avenue South<br><br> Nashville, TN 37204"
+            }
+          },
+          "899d4b1c-5c13-4b76-87c0-22eab6c18bf9": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Aerie_x_Stroop_Landing_Page-08_1.png",
+              "title": "BOSTON",
+              "text": "October 23, 2021<br><br> 179 Newbury Street<br><br> Boston, MA 02116"
+            }
+          },
+          "f4f80956-1ca3-4e31-815a-eddab75a5b39": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Aerie_x_Stroop_Landing_Page-08_1.png",
+              "title": "NEW YORK CITY",
+              "text": "October 29, 2021<br><br> 75 Crosby Street<br><br> New York, NY 10012"
+            }
+          },
+          "1ad2fbe4-f7b4-49d1-8a42-dd68f2f2b5d4": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Aerie_x_Stroop_Landing_Page-08_1.png",
+              "title": "WASHINGTON DC",
+              "text": "November 6, 2021<br><br> 3235 M Street NW<br><br>Washington, DC 20007"
+            }
+          }
+        },
+        "block_order": [
+          "a88c83ea-9a63-44bc-bec4-81757d96a7a1",
+          "80b4e7cb-b1d2-4e03-9075-27b0fe233d9f",
+          "899d4b1c-5c13-4b76-87c0-22eab6c18bf9",
+          "f4f80956-1ca3-4e31-815a-eddab75a5b39",
+          "1ad2fbe4-f7b4-49d1-8a42-dd68f2f2b5d4"
+        ],
+        "settings": {
+          "section_title": "WHEN & WHERE",
+          "btn_text": "Learn More",
+          "btn_link": "https:\/\/www.ae.com\/aerie-real-life\/events\/"
+        }
+      },
+      "lp6-hero": {
+        "type": "lp6-hero",
+        "settings": {
+          "title": "<p>LOOKIE, LOOKIE,<\/p><p>WE'VE GOT A<\/p><p>BROOKIE!<\/p>",
+          "bg_img": "shopify:\/\/shop_images\/1-Brookie_Landing_Page_-_Header_Banner_1.png",
+          "bg_img_mob": "shopify:\/\/shop_images\/Group_162.png"
+        }
+      },
+      "lp6-say": {
+        "type": "lp6-say",
+        "settings": {
+          "bg_color": "#ffedd9",
+          "image": "shopify:\/\/shop_images\/Aeire_x_Banner_2_1_1.png",
+          "title": "A BROOKIE, YOU SAY?",
+          "text": "You heard it right. A brookie is a yummy mashup of two of dessert's greatest hits: The brownie and the cookie. These sweeth-tooth favorites join forces in one decadent treat, where a homestyle chocolate chunk cookie is mixed with a real Belgian chocolate brownie, and filled with a gooey chocolate center. Sound irresistible? Life changing? A must have? You already know, and you haven't even taken a bite.",
+          "btn_text": "SHOP NOW",
+          "button_link": "https:\/\/www.belgianboys.com\/products\/brookie-bundle"
+        }
+      },
+      "lp6-image": {
+        "type": "lp6-image",
+        "settings": {
+          "title": "",
+          "bg_img": "shopify:\/\/shop_images\/3-Brookie_Landing_Page_-_Banner_3_-Ramekins_1.png"
+        }
+      },
+      "lp6-many": {
+        "type": "lp6-many",
+        "blocks": {
+          "57c2e58f-5da7-47ee-b4d5-0f7862f5a534": {
+            "type": "block",
+            "settings": {
+              "text": "Rich and chewy, with an irresistible homemade taste and texture"
+            }
+          },
+          "0a474236-2c72-4596-bf29-6da1a100622e": {
+            "type": "block",
+            "settings": {
+              "text": "Two individually-sized portions in reusable glass ramekins."
+            }
+          },
+          "1422995a-002c-47e9-8dbb-1619f58bd7db": {
+            "type": "block",
+            "settings": {
+              "text": "Convenient, quick and simple to prepare: heat and eat!"
+            }
+          },
+          "51740a6f-0f7f-46ae-9a61-b96ef3d2b3fc": {
+            "type": "block",
+            "settings": {
+              "text": "Made with premium, non-GMO ingredients, and does not contain artificial flavors or preservatives."
+            }
+          }
+        },
+        "block_order": [
+          "57c2e58f-5da7-47ee-b4d5-0f7862f5a534",
+          "0a474236-2c72-4596-bf29-6da1a100622e",
+          "1422995a-002c-47e9-8dbb-1619f58bd7db",
+          "51740a6f-0f7f-46ae-9a61-b96ef3d2b3fc"
+        ],
+        "settings": {
+          "title": "SO MANY REASONS TO INDULGE",
+          "bg_img": "shopify:\/\/shop_images\/4-Brookie_Landing_Page_-_Banner_4_-_Highlights_4.png",
+          "bg_img_mob": "shopify:\/\/shop_images\/Group_183_1.png"
+        }
+      },
+      "lp6-cactus": {
+        "type": "lp6-cactus",
+        "settings": {
+          "title": "UPCYCLE YOUR RAMEKIN!",
+          "description": "SOME IDEAS FOR AFTER YOU'VE LICKED THE JAR CLEAN",
+          "image": "shopify:\/\/shop_images\/4-Brookie_Landing_Page_-_GIF_-_Upcycle_Your_Ramekin.gif",
+          "bg_img": "shopify:\/\/shop_images\/5-Brookie_Landing_Page_-_GIF_Background_-_Upcycle_Your_Ramekin_1.png"
+        }
+      },
+      "lp6-ingredients": {
+        "type": "lp6-ingredients",
+        "blocks": {
+          "64d9626b-3b92-4830-aea6-aa8fa1fa93f9": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Misfits_Stroop_Landing_Page-02_1.png"
+            }
+          },
+          "f5188e7b-ac1e-4c76-93f7-e44859c69c6e": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Misfits_Stroop_Landing_Page-03_ca355788-147f-4e9d-a2cd-42a24a9811f5.png"
+            }
+          },
+          "76d128ea-df90-489a-96f9-8a0f714912d9": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Misfits_Stroop_Landing_Page-04_1310b162-4fc1-433e-aa44-44c2a33feb70.png"
+            }
+          },
+          "46e4b57c-7387-413f-8e92-6516792b1eaa": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Misfits_Stroop_Landing_Page-05_22a9dab5-f1cd-408b-b662-324e843ac093.png"
+            }
+          }
+        },
+        "block_order": [
+          "64d9626b-3b92-4830-aea6-aa8fa1fa93f9",
+          "f5188e7b-ac1e-4c76-93f7-e44859c69c6e",
+          "76d128ea-df90-489a-96f9-8a0f714912d9",
+          "46e4b57c-7387-413f-8e92-6516792b1eaa"
+        ],
+        "settings": {
+          "bg_image": "shopify:\/\/shop_images\/6-Brookie_Landing_Page_-_Banner_6_-_Ingredients_1_1.png",
+          "section_title": "INGREDIENTS",
+          "text": "Sugar, Dark Chocolate (Cocoa Paste, Sugar, Cocoa Powder, Emulsifier: Soy Lecithin, Natural Vanilla Flavoring), Whole Pasteurized Egg, Margarine (Vegetable Oil And Fat: Palm Rspo, Coco, Rapeseed - Water - Emulsifier (Mono And Diglycerides Of Fatty Acids) - Acidity Regulator (Citric Acid)), Milk Chocolate Pieces (Sugar, Whole Milk Powder, Cocoa Butter, Cocoa Paste, Lactoserum Powder, Skimmed Milk Powder, Emulsifier (Soy Lecithin), Natural Vanilla Flavoring), Wheat Flour (Enriched With Calcium Carbonate, Iron, Niacin, Thiamine), Wheat Flour, Salted Butter (Milk) (Butter (Milk), Salt), Brown Sugar, Water, Chocolate (Cocoa Paste, Sugar, Cocoa Powder, Cocoa Butter, Emulsifier (Soy Lecithin)), Inverted Sugar Syrup, Egg Powder, Salt, Baking Powder, Natural Vanilla Flavoring, Natural Flavoring.",
+          "second_text": "Allergens & Warnings:<br>\nCONTAINS: WHEAT, MILK, EGG, SOY. May contain traces of nuts."
+        }
+      },
+      "lp7-hero": {
+        "type": "lp7-hero",
+        "settings": {
+          "title": "<p>SANTA'S SNACK BOX<\/p><p>Say Hello to the Nice List<\/p>",
+          "subtitle_color": "#ffffff",
+          "bg_img": "shopify:\/\/shop_images\/Hero_Banner_1.jpg",
+          "bg_img_mob": "shopify:\/\/shop_images\/01_SANTAS_BOX_BANNER_Mobile.jpg"
+        }
+      },
+      "lp7-say": {
+        "type": "lp7-say",
+        "settings": {
+          "bg_color": "#fba2c9",
+          "image": "shopify:\/\/shop_images\/Gif-Banner_3.gif",
+          "title": "Afraid you may have<br>slipped off the nice list?",
+          "text": "It's been a long year. We get it! But the days of sending Santa a letter with crossed fingers have come and gone. This year, you need to step up your groveling game.\n<br><br>\nServe Santa his favorite cookies and milk with this grab-and-go box of treats. It's an easy peace offering to the big guy in red (and we won't tell if \na few go missing). Let's make this his (and your) best holiday yet.",
+          "btn_text": "grab a snack for santa",
+          "button_link": "http:\/\/www.belgianboys.com\/products\/santas-snack-box"
+        }
+      },
+      "lp7-say--reversed": {
+        "type": "lp7-say--reversed",
+        "settings": {
+          "bg_color": "#feedcf",
+          "image": "shopify:\/\/shop_images\/05-SANTAS_BOX_LAYDOWN.jpg",
+          "title": "what's in the box?",
+          "text": "If Santa has to eat one more dry sugar cookie, he’ll cross your name \noff his list all together. \n<br><br>\nThis box of our most decadent treats will have him surprised and delighted throughout the Christmas season, and sure to bump you to the top of the nice list! Santa can expect:\n\n<ul>\n<div class=\"ul-left\">\n<li>Choco Caramel Cookie Tarts<\/li>\n<li>Lemon Cookie Tarts<\/li>\n<li>Belgian Chocolate Cookie Bars<\/li>\n<\/div>\n<div class=\"ul-right\">\n<li>Chocolate Chip Mini Cookie Stash<\/li>\n<li>Stroopwafel Tin<\/li>\n<li>A bottle of milk to wash it all down\n<br><span>(we provide the bottle, you add the milk!)<\/span>\n<\/li>\n<\/div>\n<\/ul>",
+          "btn_text": "shop now",
+          "button_link": "http:\/\/www.belgianboys.com\/products\/santas-snack-box"
+        }
+      },
+      "lp7-image": {
+        "type": "lp7-image",
+        "settings": {
+          "title": "",
+          "bg_img": "shopify:\/\/shop_images\/04-COOKIES_REINDEER.jpg"
+        }
+      },
+      "lp7-ingredients": {
+        "type": "lp7-ingredients",
+        "settings": {
+          "section_title": "IMPORTANT SHIPPING INFORMATION",
+          "section_color": "#21472e",
+          "text": "The elves are working round the clock to deliver Santa's favorite treats! Please be aware that this box will ship separately from the rest of your order, and will take up to 10 business days to process. Guaranteed delivery by December 21st or your money back."
+        }
+      },
+      "lp8-hero": {
+        "type": "lp8-hero",
+        "settings": {
+          "title": "The French (Toast) Revolution is Here!",
+          "title_mob": "The French (Toast) Revolution is Here!",
+          "btn": "shopify:\/\/shop_images\/New_only_at_Target_logo_1.png",
+          "btn_mob": "shopify:\/\/shop_images\/Only_at_Target_Logo_1.png",
+          "btn_url": "https:\/\/www.target.com\/p\/belgian-boys-french-toast-10-6oz-4ct\/-\/A-84252339",
+          "subtitle_color": "#ffffff",
+          "bg_img": "shopify:\/\/shop_images\/Hero_Banner_1_e154e3a2-5427-4373-9c24-6911380784e1.jpg",
+          "bg_img_mob": "shopify:\/\/shop_images\/Hero_Banner_Mobile_1.png"
+        }
+      },
+      "lp8-say": {
+        "type": "lp8-say",
+        "settings": {
+          "bg_color": "#68e5f7",
+          "image": "shopify:\/\/shop_images\/Toaster.jpg",
+          "image_mob": "shopify:\/\/shop_images\/Toaster_Mobile.jpg",
+          "title": "Homemade Taste  in Minutes",
+          "text": "With our new Brioche French Toast, we've done all the messy work so that you can have the joy of weekend French toast, anytime. Slices of fluffy brioche bread are soaked in egg and milk (with just a touch of sugar), then baked to golden perfection. <br> <br>\n\nYour part? Pop it in the toaster or heat it in a frying pan for the happiest possible start to any day.",
+          "btn_text": "FIND YOUR TARGET STORE",
+          "button_link": "https:\/\/www.belgianboys.com\/pages\/store-locator"
+        }
+      },
+      "lp8-say--reversed": {
+        "type": "lp8-say--reversed",
+        "settings": {
+          "bg_color": "#fe9ec5",
+          "image": "shopify:\/\/shop_images\/3-Stack-GIF.gif",
+          "image_mob": "shopify:\/\/shop_images\/3-Stack-GIF_Mobile.gif",
+          "title": "Top-Tier Toppings",
+          "text": "Our Brioche French Toast is just perfect plain, but who said there's no improving on perfection?<br><br>\n \nAdd a little color with a sprinkle of berries (or go all the way with whipped cream). Sweeten it up with a smear of Nutella and an obligatory dollop of ice cream. More of a purist? A pat of good ol' fashioned butter and a drizzle of maple syrup are still our favorites.<br><br>\n\nWhatever you add on top is just, as they say, the icing on the French toast.",
+          "btn_text": "",
+          "button_link": ""
+        }
+      },
+      "lp8-ingredients": {
+        "type": "lp8-ingredients",
+        "blocks": {
+          "09f3bce0-66cd-49e0-b033-33f348a9373d": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Igredient_Callouts-03_1.png"
+            }
+          },
+          "f2406d58-5cc5-438d-bc44-59a87665cb2b": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Igredient_Callouts-02_1.png"
+            }
+          },
+          "b6a0265f-d1d9-472b-8754-fce998076c4e": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Igredient_Callouts-04_1.png"
+            }
+          },
+          "5d0ea36e-3745-423c-b6a5-fdc0febd3e1d": {
+            "type": "block",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Igredient_Callouts-05_2.png"
+            }
+          }
+        },
+        "block_order": [
+          "09f3bce0-66cd-49e0-b033-33f348a9373d",
+          "f2406d58-5cc5-438d-bc44-59a87665cb2b",
+          "b6a0265f-d1d9-472b-8754-fce998076c4e",
+          "5d0ea36e-3745-423c-b6a5-fdc0febd3e1d"
+        ],
+        "settings": {
+          "section_title": "BRIOCHE FRENCH TOAST INGREDIENTS",
+          "section_title_mob": "Top-Tier Toppings",
+          "text": "milk, brioche bread (wheat flour (gluten), eggs, sugar, butter (milk), water, yeast, sunflower oil, salt, wheat gluten, vegetable fiber), eggs, sugar.\n\nContains: Egg, milk, WHEAT."
+        }
+      },
+      "lp8-info": {
+        "type": "lp8-info",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Frame.png",
+          "btn": "FIND YOUR TARGET STORE",
+          "btn_mob": "find your store on target",
+          "btn_url": "https:\/\/www.target.com\/p\/belgian-boys-french-toast-10-6oz-4ct\/-\/A-84252339"
+        }
+      }
+    },
+    "content_for_index": [
+      "1599143225289",
+      "1599129878257",
+      "1599575735716",
+      "1599143243357",
+      "1599465188663",
+      "1599462958506",
+      "1599473592263",
+      "1599214042260",
+      "1599228076175"
+    ]
+  }
+}

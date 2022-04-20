@@ -1,0 +1,70 @@
+{% assign bg_color 	= section.settings.bg_color %}
+{% assign image 	= section.settings.image | img_url: 'master' %}
+{% assign title 	= section.settings.title %}
+{% assign text 		= section.settings.text %}
+{% assign btn_text 	= section.settings.btn_text %}
+{% assign button_link = section.settings.button_link %}
+
+<style>
+	#wafel-whatis {
+		background: {{ bg_color }};
+	}
+</style>
+
+<section id="wafel-whatis">
+	<div class="lp-hero__container">
+		<div class="lp-hero__left">
+			<h2>{{ title }}</h2>
+			<p>{{ text }}</p>
+
+			{% if btn_text != blank %}
+				<a href="{{ button_link }}">{{ btn_text }}</a>
+			{% endif %}
+		</div>
+
+		<div class="lp-hero__right">
+			<img src="{{ image }}" alt="wafels">
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Wafel Whatis",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button text"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ]
+}
+{% endschema %}
+
+
+

@@ -1,0 +1,70 @@
+{% assign bg_image     		= section.settings.bg_img %}
+{% assign bg_image_mob 		= section.settings.bg_img_mob %}
+{% assign subtitle_color    = section.settings.subtitle_color %}
+{% assign title        		= section.settings.title %}
+
+<style>
+	#lp-seven--hero {
+		min-height: 497px;
+		background-image: url("{{ bg_image | img_url: 'master' }}");
+		background-color: #21472E;
+	}
+
+	@media(max-width: 992px) {
+		#lp-seven--hero {
+			min-height: 390px;
+		}
+	}
+
+	@media(max-width: 520px) {
+		#lp-seven--hero {
+			min-height: 607px;
+			background-image: url("{{ bg_image_mob | img_url: 'master' }}");
+		}
+	}
+
+	#lp-seven--hero .lp-six__container .lp-six__title p:last-child {
+		color: {{ subtitle_color }};
+	}
+</style>
+
+<section id="lp-seven--hero" class="lp7">
+	<div class="lp-six__container">
+		<h2 class="lp-six__title">{{ title }}</h2>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Section #1",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+	  "default": "#21472E"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_img",
+      "label": "Background image for desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_img_mob",
+      "label": "Background image for mobile"
+    }
+  ],
+  "presets": [
+    {
+      "category": "LP section hero",
+      "name":"LP section hero"
+    }
+  ]
+}
+{% endschema %}

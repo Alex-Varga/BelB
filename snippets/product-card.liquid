@@ -1,0 +1,226 @@
+{% comment %}
+	@params
+	product - product object *required
+{% endcomment %}
+
+{% if product != blank %}
+	{% assign product_image 			= product.featured_image %}
+	{% assign show_options 				= false %}
+
+	{% assign short_description 		= product.metafields.accentuate.product_short_description %}
+	{% assign product_hint 				= product.metafields.accentuate.product_hint %}
+
+	{% assign first_variant 				= product.variants.first %}
+	{% assign first_variant_quantity 	= first_variant.inventory_quantity %}
+
+	{% assign is_bundle 				= false %}
+	{% assign is_customizable_bundle 	= false %}
+
+	{% if product.options.size == 1 %}
+		{% for product_option in product.options_with_values %}
+			{% if product_option.values.size == 2 %}
+				{% assign show_options = true %}
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+
+	{% if product.tags contains 'bundles' %}
+		{% assign is_bundle = true %}
+
+		{% if product.tags contains 'bundles-customizable' %}
+			{% assign is_customizable_bundle = true %}
+		{% endif %}
+	{% endif %}
+
+	{% assign is_giftcard 				= false %}
+	{% assign product_title_downcased 	= product.title | downcase %}
+
+	{% if product_title_downcased contains 'gift' or product_title_downcased contains 'gift card' %}
+		{% assign is_giftcard = true %}
+	{% endif %}
+
+	<div class="product-card js-product-card" data-product-card data-product-handle="{{ product.handle }}" {% if is_customizable_bundle %} data-bundle{% endif %}>
+		<div class="product-card__images-wrapper{% if is_bundle or is_giftcard %} product-card__images-wrapper--no-hover{% endif %}">
+			<a href="{{ product.url }}">
+				<div class="product-card__image-wrapper product-card__image-wrapper--first">
+					<picture>
+						<img srcset="{{ product_image | img_url: '200x' }} 1x, {{ product_image | img_url: '400x' }} 2x"
+							 src="{{ product_image | img_url: '200x' }}"  alt="{{ product_image.alt }}"
+							 class="product-card__image"
+							 loading="lazy"
+						>
+					</picture>
+				</div>
+
+				{% if product.images.size > 1 %}
+					<div class="product-card__image-wrapper product-card__image-wrapper--second">
+						<picture>
+							<img srcset="{{ product.images[1] | img_url: '200x' }} 1x, {{ product.images[1] | img_url: '400x' }} 2x"
+								 src="{{ product.images[1] | img_url: '200x' }}" alt="{{ product.images[1].alt }}"
+								 class="product-card__image"
+								 loading="lazy"
+							>
+						</picture>
+					</div>
+				{% endif %}
+			</a>
+
+			{%- assign tags = product.tags -%}
+
+			{%- for tag in tags -%}
+				{%- assign current_tag = tag | downcase | replace: ' ', '-' | strip -%}
+
+				{%- if tag contains 'badge-' -%}
+					{%- capture badge -%}
+						{%- assign image_file = tag | append: '.png' -%}
+
+						<div class="product-card__badge">
+							<picture>
+								<img class="product-card__badge-image"
+									 srcset="{{ image_file | file_img_url: 'master' }} 1x, {{ image_file | file_img_url: 'master' }} 2x"
+									 src="{{ image_file | file_img_url: 'master' }}" alt="{{ image_file.alt }}"
+									 loading="lazy"
+								>
+							</picture>
+						</div>
+					{%- endcapture -%}
+
+					{%- break -%}
+				{%- endif -%}
+			{%- endfor -%}
+
+			{% if badge != '' %}
+				{{- badge -}}
+			{% endif %}
+
+			{% assign badge = '' %}
+		</div>
+
+		<a class="product-card__title" href="{{ product.url }}">
+			{{- product.title -}}
+		</a>
+
+		{% if show_options %}
+			<div class="product-swatcher product-card__swatcher">
+				{% for option in product.options_with_values limit: 1 %}
+					{% assign option_name = option.name | lower %}
+
+					{% for value in option.values limit: 2 %}
+						{% assign option_value = value | lower %}
+						{% assign option_quantity = option_value | split: ' - ' | first | split: ' ' | first %}
+
+						<div class="product-swatcher__option">
+							<input type="radio"
+								   id="option-{{ product.id }}-{{ name | handleize }}-{{ value | handleize }}-{{ section.id }}"
+								   class="js-product-card-option"
+								   name="option-{{ product.id }}"
+								   {% if forloop.first %}checked{% endif %}
+								   value="{{ value }}"
+								   data-index="{{ forloop.index }}"
+								   data-checked="{% if forloop.first %}false{% else %}true{% endif %}"
+							>
+
+							<label for="option-{{ product.id }}-{{ name | handleize }}-{{ value | handleize }}-{{ section.id }}">
+								PACK <b>{{ option_quantity }}</b>
+							</label>
+						</div>
+					{% endfor %}
+
+					<div class="product-swatcher__swatch">
+						<input type="checkbox"
+							   id="option-{{ product.id }}-{{ name | handleize }}-{{ value | handleize }}-{{ section.id }}-2"
+							   class="js-product-card-swatch">
+
+						<label for="option-{{ product.id }}-{{ name | handleize }}-{{ value | handleize }}-{{ section.id }}-2">
+							<span class="product-swatcher__swatch-button"></span>
+						</label>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		{% if short_description != blank %}
+			<div class="product-card__short-description">
+				{{ short_description }}
+			</div>
+		{% endif %}
+
+		{% if product_hint != blank %}
+			<div class="product-card__hint">
+				{{ product_hint }}
+			</div>
+		{% endif %}
+
+		<div class="product-card__hr"></div>
+
+		<div class="product-card__price js-product-card-price">
+			{{- product.price | money -}}
+		</div>
+
+		<div class="product-card__button-wrapper js-product-card-atc">
+			{% if is_customizable_bundle == true %}
+				<button class="555 button button--secondary product-card__button js-product-card-atc-button"
+						type="button"
+				>
+					<span class="product-card__button-icon">
+						{%- render 'icon-customize' -%}
+
+						{%- render 'icon-check' -%}
+					</span>
+
+					<span class="product-card__button-text">
+						{{- 'products.product.customize' | t -}}
+					</span>
+				</button>
+			{% elsif is_giftcard == true %}
+				<a href="{{ product.url }}" class="button button--secondary product-card__button">
+					<span class="product-card__button-icon">
+						{%- render 'icon-cart' -%}
+					</span>
+
+					<span class="product-card__button-text">
+						{{- 'products.product.shop_now' | t -}}
+					</span>
+				</a>
+			{% else %}
+				<button class="button button--secondary product-card__button js-product-card-atc-button"
+						type="button"{% if first_variant_quantity <= 0 %} disabled{% endif %}
+				>
+					<span class="product-card__button-icon">
+						{%- render 'icon-cart' -%}
+
+						{%- render 'icon-check' -%}
+					</span>
+
+					<span class="product-card__button-text">
+						{% if first_variant_quantity <= 0 %}
+							{{- 'products.product.sold_out' | t -}}
+						{% else %}
+							{{- 'products.product.add_to_cart' | t -}}
+						{% endif %}
+					</span>
+				</button>
+			{% endif %}
+		</div>
+
+		{% if is_customizable_bundle %}
+			{%- render 'bundle-customizer-popup' -%}
+		{% endif %}
+
+		{% if product.variants.size > 0 %}
+			<select id="product-{{ product.id }}"
+					class="js-product-card-select{% if show_options %} js-has-one-option-with-two-values{% endif %}"
+					style="display: none;"
+			>
+				{% for variant in product.variants %}
+					<option value="{{ variant.title }}"
+							data-variant-id="{{ variant.id }}"
+							data-variant-quantity="{{ variant.inventory_quantity }}"
+							data-variant-price="{{ variant.price | money }}" {% if forloop.first %}selected{% endif %}>
+						{{- variant.title -}}
+					</option>
+				{% endfor %}
+			</select>
+		{% endif %}
+	</div>
+{% endif %}

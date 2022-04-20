@@ -1,0 +1,138 @@
+{% assign title 	= article.title %}
+{% assign image 	= article.image %}
+{% assign content 	= article.content %}
+{% assign excerpt 	= article.excerpt | strip_html | default: article.content | truncatewords: 30 %}
+
+{% assign custom_image 		= article.metafields.article.custom_banner_image | first %}
+{% assign text_color		= article.metafields.article.custom_banner_content_color | default: '#ffffff' %}
+{% assign headline 			= article.metafields.article.article_headline %}
+{% assign button_text 		= article.metafields.article.button_text %}
+{% assign button_link 		= article.metafields.article.button_link %}
+{% assign button_external 	= article.metafields.article.is_button_external %}
+{% assign slides 			= article.metafields.article.slides %}
+
+<article class="article">
+	<div class="article__banner" style="--text-color: {{ text_color }};">
+		{% if custom_image != blank %}
+			<picture>
+				<source srcset="{{ custom_image.cloudinary_src | append: 'w_480' }} 1x, {{ custom_image.cloudinary_src | append: 'w_960' }} 2x" media="(max-width: 480px)">
+				<source srcset="{{ custom_image.cloudinary_src | append: 'w_767' }} 1x, {{ custom_image.cloudinary_src | append: 'w_1534' }} 2x" media="(max-width: 767px)">
+				<source srcset="{{ custom_image.cloudinary_src | append: 'w_991' }} 1x, {{ custom_image.cloudinary_src | append: 'w_1982' }} 2x" media="(max-width: 991px)">
+
+				<img srcset="{{ custom_image.cloudinary_src | append: 'w_1920' }} 1x, {{ custom_image.cloudinary_src | append: 'w_3840' }} 2x"
+					 src="{{ custom_image.cloudinary_src | append: 'w_1920' }}"
+					 class="article__banner-image"
+					 alt="{{ title }}"
+				>
+			</picture>
+		{% elsif image != blank %}
+			<picture>
+				<source srcset="{{ image | img_url: '480x' }} 1x, {{ image | img_url: '960x' }} 2x" media="(max-width: 480px)">
+				<source srcset="{{ image | img_url: '767x' }} 1x, {{ image | img_url: '1534x' }} 2x" media="(max-width: 767px)">
+				<source srcset="{{ image | img_url: '991x' }} 1x, {{ image | img_url: '1982x' }} 2x" media="(max-width: 991px)">
+
+				<img srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x"
+					 src="{{ image | img_url: '1920x' }}"
+					 class="article__banner-image"
+					 alt="{{ title }}"
+				>
+			</picture>
+		{% endif %}
+
+		<div class="article__container">
+			<div class="article__banner-content">
+				{% if headline != blank %}
+					<h3 class="title article__headline">
+						{{- headline -}}
+					</h3>
+				{% endif %}
+
+				<h1 class="title article__title">
+					{{- title -}}
+				</h1>
+
+				<div class="article__excerpt">
+					{{- excerpt | strip_html -}}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="article__content">
+		<div class="article__container article__container--content">
+			<div class="rte">
+				{{- content | strip -}}
+			</div>
+
+			{% if article.metafields.article.button_text and article.metafields.article.button_link %}
+				<a href="{{ button_link }}" class="button button--secondary article__button"
+				   {% if button_external %} target="_blank" rel="noopener noreferrer"{% endif %}
+				>
+					{{- button_text -}}
+				</a>
+			{% endif %}
+		</div>
+	</div>
+
+	{% if slides.size > 0 %}
+		<div class="article__slider-wrapper{% if slides.size <= 3 %} article__slider-wrapper--static{% endif %}">
+			<div class="article__slider-arrow article__slider-arrow--left"
+				 {% if slides.size > 3 %} data-article-slider-arrow-prev{% endif %}
+			>
+				{% include 'icon-arrow-left' %}
+			</div>
+
+			<div class="article__slider"
+				 {% if slides.size > 3 %} data-article-slider{% endif %}
+			>
+				{% for slide in slides %}
+					{% assign image = slide %}
+
+					<div class="article__slider-item">
+						<div class="article__slider-image-wrapper">
+							<picture>
+								<img class="article__slider-image"
+									 srcset="{{ image.src }} 1x, {{ image.src }} 2x"
+									 src="{{ image.src }}"
+									 alt="{{ image.alt }}"
+								>
+							</picture>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+			<div class="article__slider-arrow article__slider-arrow--right"
+					{% if slides.size > 3 %} data-article-slider-arrow-next{% endif %}
+			>
+				{% include 'icon-arrow-left' %}
+			</div>
+		</div>
+	{% endif %}
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ canonical_url }}"
+  },
+  "headline": "{{- title -}}",
+  "image": "{{ image | img_url: '960x' }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Belgian Boys"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Belgian Boys",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cdn.shopify.com/s/files/1/0276/3748/1545/files/logo_02a58132-7710-4617-9c72-aa39173d89c7_x60.png?v=1599211643"
+    }
+  },
+  "datePublished": ""
+}
+</script>

@@ -1,0 +1,51 @@
+{% assign title 		= section.settings.title %}
+{% assign collection 	= collections[section.settings.collection] %}
+{% assign max_blocks	= 3 %}
+
+<section class="featured-bundles">
+	<div class="featured-bundles__container">
+		{% if title != blank %}
+			<h2 class="title featured-bundles__title">
+				{{- title -}}
+			</h2>
+		{% endif %}
+
+		{% if collection != blank and collection.all_products_count > 0 %}
+			<div class="featured-bundles__wrapper">
+				{% for bundle in collection.products limit: max_blocks %}
+					{% assign custom_image = bundle.metafields.accentuate.custom_product_image | first %}
+
+					<div class="featured-bundles__card">
+						{% render 'bundle-card', bundle: bundle, custom_image: custom_image %}
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Best Selling Bundles",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Best Selling Bundles"
+		},
+		{
+			"type": "collection",
+			"id": "collection",
+			"label": "Collection",
+			"info": "Only three first products from the collection are displayed in the section"
+		}
+	],
+	"presets": [
+		{
+			"name": "Best Selling Bundles",
+			"category": "Home"
+		}
+	]
+}
+{% endschema %}

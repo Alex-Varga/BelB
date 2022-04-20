@@ -1,0 +1,39 @@
+{%- assign suffix = template.suffix -%}
+
+{%- if suffix == 'json' -%}
+	<script id="customizer-data" type="application/json">
+		{
+			"customizer": {
+				"continue_shopping_url": {%- if section.settings.continue_shopping_url -%}{{- section.settings.continue_shopping_url | json -}}{%- else -%}"#"{%- endif -%},
+				"free_shipping_enable": {{- section.settings.free_shipping_enable | json -}}
+			}
+		}
+	</script>
+{%- else -%}
+	<div
+		id="cart"
+		data-section-id="{{- section.id -}}"
+		data-section-type="cart"
+	>
+		<div id="cart"></div>
+	</div>
+{%- endif -%}
+
+{%- schema -%}
+	{
+		"name": "Cart",
+		"settings": [
+			{
+				"type": "url",
+				"id": "continue_shopping_url",
+				"label": "Continue shopping url"
+			},
+			{
+				"type": "checkbox",
+				"id": "free_shipping_enable",
+				"label": "Enable free shipping bar",
+				"default": true
+			}
+		]
+	}
+{%- endschema -%}

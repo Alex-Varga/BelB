@@ -1,0 +1,68 @@
+{% assign section_bg 	 = section.settings.section_bg | img_url: 'master' %}
+{% assign title_desk 	 = section.settings.title_desk | img_url: 'master' %}
+{% assign title_mob 	 = section.settings.title_mob | img_url: 'master' %}
+
+<style>
+	#lp-hero {
+		background-image: url({{ section_bg }});
+	}
+</style>
+
+
+<section id="lp-hero">
+	<div class="lp-hero__container">
+		<div class="lp-hero__title">
+			<img class="desk" src="{{ title_desk }}" alt="">
+			<img class="mob" src="{{ title_mob }}" alt="">
+		</div>
+
+		<div class="lp-hero__icon-list">
+			{% for block in section.blocks %}
+				{% assign icon = block.settings.icon | img_url: 'master' %}
+
+				<div class="lp-hero__icon">
+					<img src="{{ icon }}" alt="">
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Lemon Hero New",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "section_bg",
+      "label": "Background IMG of Section"
+    },
+    {
+      "type": "image_picker",
+      "id": "title_desk",
+      "label": "Title IMG Desk"
+    },
+    {
+      "type": "image_picker",
+      "id": "title_mob",
+      "label": "Title IMG Mob"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+

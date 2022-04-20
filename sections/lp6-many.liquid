@@ -1,0 +1,71 @@
+{% assign title      = section.settings.title %}
+{% assign bg_img     = section.settings.bg_img %}
+{% assign bg_img_mob = section.settings.bg_img_mob %}
+{% assign blocks     = section.blocks %}
+
+<style>
+	#lp-six--reasons {
+		background-image: url("{{ bg_img | img_url: 'master' }}");
+	}
+
+	@media(max-width: 766px) {
+		#lp-six--reasons {
+			background-image: url("{{ bg_img_mob | img_url: 'master' }}");
+		}
+	}
+</style>
+
+<section id="lp-six--reasons">
+	<div class="lp-six--reasons__container">
+		<div class="lp-six--reasons__content">
+			<h3 class="lp-six--reasons__title">{{ title }}</h3>
+			<ul class="lp-six--reasons__list">
+				{% for block in blocks %}
+					<li class="lp-six--reasons__item">{{ block.settings.text }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "LP #6 many",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_img",
+      "label": "Background image for desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_img_mob",
+      "label": "Background image for mobile"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "list item",
+      "type": "block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "LP reasons",
+      "name":"LP reasons"
+    }
+  ]
+}
+{% endschema %}

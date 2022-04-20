@@ -1,0 +1,42 @@
+{% assign bg_image   	  = section.settings.bg_image %}
+{% assign section_title   = section.settings.section_title %}
+{% assign section_color   = section.settings.section_color %}
+{% assign text 	          = section.settings.text %}
+
+<section id="lp7-ingredients" style="background: {% if bg_image != blank %}url('{{ bg_image | img_url: 'master' }}'){% endif %} {{ section_color }} no-repeat center center / cover;">
+	<div class="wafel-ingrediens__container">
+		<h3 class="wafel-ingrediens__title">{{ section_title }}</h3>
+		<div class="wafel-ingrediens__text">
+			{{ text }}
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Section #5",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Title of Section"
+    },
+    {
+      "type": "color",
+      "id": "section_color",
+      "label": "Background color",
+	  "default": "#21472E"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text of Section"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,86 @@
+{% assign bg_color 		= section.settings.bg_color %}
+{% assign image_desktop = section.settings.image_desktop | img_url: 'master' %}
+{% assign image_mob 	= section.settings.image_mob | img_url: 'master' %}
+{% assign title 		= section.settings.title %}
+{% assign text 			= section.settings.text %}
+{% assign btn_text 		= section.settings.btn_text %}
+{% assign btn_url 		= section.settings.btn_url %}
+
+<style>
+	#wafel-misfits {
+		background: {{ bg_color }};
+	}
+</style>
+
+<section id="wafel-misfits">
+	<div class="lp-hero__container">
+		<div class="lp-hero__left">
+			<h2>{{ title }}</h2>
+			<p>{{ text }}</p>
+
+			<a href="{{ btn_url }}">
+				{{ btn_text }}
+			</a>
+		</div>
+
+		<div class="lp-hero__right">
+			<picture class="desktop">
+				<source media="(max-width: 1100px)" srcset="https://cdn.shopify.com/s/files/1/0276/3748/1545/files/main_2.png?v=1628171036">
+				<source media="(max-width: 900px)" srcset="https://cdn.shopify.com/s/files/1/0276/3748/1545/files/main_3.png?v=1628171036">
+				<source media="(max-width: 800px)" srcset="https://cdn.shopify.com/s/files/1/0276/3748/1545/files/main_4.png?v=1628171036">
+
+				<img srcset="{{ image_desktop }}"
+					 src="{{ image_desktop }}"
+					 alt="Banner">
+			</picture>
+
+			<img src="{{ image_mob }}" class="mobile" alt="misfits text">
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Wafel Misfits",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Image desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mob",
+      "label": "Image mobile"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button link"
+    }
+  ]
+}
+{% endschema %}
+
+
+

@@ -1,0 +1,61 @@
+{% assign title 		= section.settings.title %}
+{% assign button_text 	= section.settings.btn_text %}
+{% assign button_link 	= section.settings.btn_url %}
+{% assign logos 		= section.blocks %}
+
+<section id="free-waffles--retailers">
+	<div class="free-waffles--retailers--container">
+		<div class="free-waffles--retailers__title">
+			{{ title }}
+		</div>
+		<div class="free-waffles--retailers__logos">
+			{% for logo in logos %}
+				<div class="logos__logo">
+					<img src="{{ logo.settings.image | img_url: "master" }}" alt="{{ logo.settings.image.alt }}">
+				</div>
+			{% endfor %}
+		</div>
+		<a href="{{ button_link }}" class="free-waffles--retailers__button">
+			{{ button_text }}
+		</a>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Retailers",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Title"
+		},
+		{
+			"type": "text",
+			"id": "btn_text",
+			"label": "Button text"
+		},
+		{
+			"type": "url",
+			"id": "btn_url",
+			"label": "Button link"
+		}
+	],
+	"blocks": [
+		{
+			"type": "Block",
+			"name": "Block",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				}
+			]
+		}
+	]
+}
+{% endschema %}
+
+
+

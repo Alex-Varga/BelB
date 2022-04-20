@@ -1,0 +1,323 @@
+{% assign bg_color = section.settings.background_color %}
+
+{% assign categories = "" %}
+
+{% for block in section.blocks %}
+	{% assign categories_array = categories | split: '||' %}
+	{% assign block_category = block.settings.category %}
+
+	{% unless categories_array contains block_category %}
+	{% assign categories = categories | append: block_category | append: '||' %}
+	{% endunless %}
+{% endfor %}
+
+{% assign categories = categories | split: '||' %}
+
+{% if section.blocks.size > 0 %}
+	<section class="faq-page" style="--bg-color: {{ bg_color }}">
+		<div class="faq-page__container">
+			<h1 class="title faq-page__title">
+				{{ page.title }}
+			</h1>
+
+			{% for category in categories %}
+				<div class="faq-page__section">
+					<h3 class="title faq-page__section-title">
+						{{ category }}
+					</h3>
+
+
+					<div class="faq-page__questions">
+						{% for block in section.blocks %}
+							{% unless block.settings.category == category %}
+							{% continue %}
+							{% endunless %}
+
+							{% assign question = block.settings.title %}
+							{% assign answer = block.settings.answer %}
+
+							{% if question != blank and answer != blank %}
+								<div class="faq-item js-accordion">
+									<h4 class="faq-item__question js-accordion-toggler">
+										{{ question }}
+
+										<div class="faq-item__close">
+											{% include 'icon-faq-arrow' %}
+										</div>
+									</h4>
+
+									<div class="faq-item__answer js-accordion-content">
+										{{ answer }}
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [{
+			"@type": "Question",
+			"name": "I just placed an order! When will it ship?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Woohoo! Processing times vary depending on product availability; generally your order will ship in 1-3 business days. (Note that we do not ship on weekends.)"
+			}
+		},{
+			"@type": "Question",
+			"name": "How long after leaving your warehouse will my order take to arrive?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "If your order includes frozen items, it will ship via FedEx to arrive in one or two business days. All non-frozen orders ship via UPS Ground, originating in New York state."
+			}
+		},{
+			"@type": "Question",
+			"name": "What shipping service do you use?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "All frozen orders ship with FedEx; all non-frozen orders ship with UPS."
+			}
+		},{
+			"@type": "Question",
+			"name": "Where can I find my tracking number?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "A tracking number will be sent automatically via email (or text, if selected) when your order is shipped, and when it is delivered."
+			}
+		},{
+			"@type": "Question",
+			"name": "I didn't receive a tracking number. What now?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Usually a good dig through your Spam folder will turn up a missing tracking number! But if that doesn’t work, email us at hello@belgianboys.com with your order number in the subject line, and we will happily send it over."
+			}
+		},{
+			"@type": "Question",
+			"name": "My tracking number shows my order has been delivered, but I did not receive it.",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Uh oh! Please contact hello@belgianboys.com with your order number and tracking number and we’ll look into it."
+			}
+		},{
+			"@type": "Question",
+			"name": "Do you ship to Canada?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "We’re in the process of looking for a Canadian home! Join our mailing list or follow us on social media for news on when we expand Northward."
+			}
+		},{
+			"@type": "Question",
+			"name": "Where can I find my order status?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "After placing your order, you will receive an order confirmation email. You can click on the button “View My Order” at any time for your current order status."
+			}
+		},{
+			"@type": "Question",
+			"name": "Can I cancel or edit an order?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "If the order has not yet been shipped, please email us at hello@belgianboys.com with the order number in the subject line, and we will do our best!"
+			}
+		},{
+			"@type": "Question",
+			"name": "Why did my order arrive in two separate shipments?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "We have partnered with the fulfillment centers best aligned with the specific needs of our perishable products. For that reason, we ship frozen items from one location and dry items from another."
+			}
+		},{
+			"@type": "Question",
+			"name": "I have received my order, but there is a missing or incorrect item in my shipment. What should I do?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "We’re on the case! Please email hello@belgianboys.com with your order number and the products that are missing or incorrect."
+			}
+		},{
+			"@type": "Question",
+			"name": "My frozen order arrived melted. Is it ok to eat?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "If your frozen bundle was unfrozen on arrival, please discard the product and contact us at hello@belgianboys.com with your order number in the subject line. Have no fear, we’ll make things right!"
+			}
+		},{
+			"@type": "Question",
+			"name": "How do I apply a discount code to my order?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "During the checkout process, click on “Add a discount code or gift card” to enter any discounts or credits."
+			}
+		},{
+			"@type": "Question",
+			"name": "Why are Belgian Boys products made in Europe?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Belgian Boys was born out of nostalgia for European treats, so we make real European treats, simple as that! EU ingredient standards also make it easier to source the premium, clean ingredients that go into the snacks we love."
+			}
+		},{
+			"@type": "Question",
+			"name": "Is it all made in Belgium?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Nope! Our founders are Belgian, but they’ve snacked their way across Europe to find the tastiest treats from Belgium’s neighboring countries."
+			}
+		},{
+			"@type": "Question",
+			"name": "Are Belgian Boys products gluten-free, dairy-free or vegan?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "At the moment, many of our treats are made with traditional recipes that still rely on wheat and dairy ingredients, but our Original Belgian Waffle, Chocolate Coated Belgian Waffle and Original Crêpes are all dairy-free."
+			}
+		},{
+			"@type": "Question",
+			"name": "Do Belgian Boys products contain GMOs?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "All of our products are certified non-GMO."
+			}
+		},{
+			"@type": "Question",
+			"name": "Are Belgian Boys products Kosher?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "All of our products are Kosher certified by Triangle K."
+			}
+		},{
+			"@type": "Question",
+			"name": "What does it mean “may contain” or “made in a facility” with allergens?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "This indicates that while the product does not contain the allergen as an ingredient, it is produced in a facility where this ingredient is used. Such products may contain trace amounts of allergens that can still be harmful to those who are allergic."
+			}
+		},{
+			"@type": "Question",
+			"name": "Are Belgian Boys products nut-free?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "We do have several products that are nut-free: The Original Crêpes, Bite-Sized Pancakes, Original Belgian Waffles, Choco Belgian Waffles and both flavors of our Mini Cookie Stashes are all nut-free, and an icon indicating such is listed on the product pages. Other products without the nut-free indicator may not contain nuts as an ingredient, but may be produced at facilities that process nuts."
+			}
+		},{
+			"@type": "Question",
+			"name": "Where do you get your chocolate?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "The chocolate in all of our products comes from the renowned Belgian chocolate supplier Callebaut®. They make traceable chocolate, with the goal that all of their chocolate and ingredients will be 100% sustainable by 2025. You can read more about their Forever Chocolate initiative here."
+			}
+		},{
+			"@type": "Question",
+			"name": "How do you eat a stroopwafel?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "However it tastes best to you! But traditionally, a stroopwafel is placed over a piping hot cup of coffee until the caramel melts to the perfect ooey-gooey consistency, and then enjoyed."
+			}
+		},{
+			"@type": "Question",
+			"name": "I am an independent store. Can I buy your products?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Absolutely! We are happy to get you into our wholesaler program. Please email us at info@belgianboys.com for more info."
+			}
+		},{
+			"@type": "Question",
+			"name": "I am a buyer at a grocery chain. Do you sell to retail stores?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Yes! We would love to chat. Please email us at info@belgianboys.com and we’ll have our sales team reach out."
+			}
+		},{
+			"@type": "Question",
+			"name": "What stores carry Belgian Boys products?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "The best and easiest way to find stores near you is to enter an address or zip code into our store locator. You will be shown the Belgian Boys stockists nearest to you, along with the products they carry."
+			}
+		},{
+			"@type": "Question",
+			"name": "There is a store near me, but it doesn’t carry the product I want. What can I do?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "As we continue expanding our product offerings, we love to hear what products are needed (and where) from our customers. You can use our store locator to fill out a form requesting that a stockist near you carry additional Belgian Boys products, or email us at hello@belgianboys.com."
+			}
+		},{
+			"@type": "Question",
+			"name": "Do you sell gift cards?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Not yet, but they’re coming soon!"
+			}
+		},{
+			"@type": "Question",
+			"name": "I am an influencer. How can I collaborate with Belgian Boys?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "We love to work with stand-out personalities and voices in the industry! We accept influencer requests directly via Instagram DM, and proposals are reviewed on a weekly basis."
+			}
+		},{
+			"@type": "Question",
+			"name": "What is #rockthatstash?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Rock that Stash is our way of giving back! You can read all about it here, but in short: To win money for the charity of your choice, just snap a pic with one of our Mini Cookie Stashes, post it to social media with the hashtag #rockthatstash, and we’ll notify you if you’ve won!"
+			}
+		},{
+			"@type": "Question",
+			"name": "Where can I get a discount code?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "We offer periodic sales discounts to our customers; join our email list or follow us on social media to stay up-to-date on the latest promos. If you are an existing customer, you can also earn a discount on your next purchase by reviewing the products you received."
+			}
+		},{
+			"@type": "Question",
+			"name": "How do I review a product?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "You will automatically receive an email inviting you to leave a review 14 days after your purchase!"
+			}
+		}]
+	}
+	</script>
+{% endif %}
+
+{% schema %}
+{
+	"name": "FAQs",
+	"settings": [
+		{
+			"type": "color",
+			"id": "background_color",
+			"label": "Background Color",
+			"default": "#ffeddb"
+		}
+	],
+	"blocks": [
+		{
+			"type": "question",
+			"name": "Question",
+			"settings": [
+				{
+					"label": "Question",
+					"id": "title",
+					"type": "text"
+				},
+				{
+					"label": "Answer",
+					"id": "answer",
+					"type": "richtext"
+				},
+				{
+					"label": "Category",
+					"id": "category",
+					"type": "text",
+					"info": "Use to group questions"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

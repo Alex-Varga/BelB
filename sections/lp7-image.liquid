@@ -1,0 +1,59 @@
+{% assign title    = section.settings.title %}
+{% assign bg_image = section.settings.bg_img %}
+
+<style>
+	#lp-seven--media {
+		min-height: 700px;
+		background: url("{{ bg_image | img_url: 'master' }}") #E7004C no-repeat center center / contain;
+	}
+
+	@media(max-width: 1500px) {
+		#lp-seven--media {
+			min-height: 525px;
+		}
+	}
+
+	@media(max-width: 992px) {
+		#lp-seven--media {
+			min-height: 300px;
+		}
+	}
+
+	@media(max-width: 520px) {
+		#lp-seven--media {
+			min-height: 171px;
+		}
+	}
+</style>
+
+<section id="lp-seven--media">
+	{% if title != blank %}
+		<div class="lp-six__container">
+			<h2 class="lp-six__title">{{ title }}</h2>
+		</div>
+	{% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Section #4",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_img",
+      "label": "Background image"
+    }
+  ],
+  "presets": [
+    {
+      "category": "LP media section",
+      "name":"LP media section"
+    }
+  ]
+}
+{% endschema %}

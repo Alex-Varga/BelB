@@ -1,0 +1,207 @@
+{% assign background_color        = section.settings.background_color %}
+{% assign image                = section.settings.image %}
+{% assign image_mobile            = section.settings.image_mobile %}
+{% assign title                = section.settings.title %}
+{% assign title_color               = section.settings.title_color %}
+{% assign subtitle                = section.settings.subtitle %}
+{% assign subtitle_color                = section.settings.subtitle_color %}
+{% assign text_align            = section.settings.text_align %}
+
+{% if text_align == 'left' %}
+	{% assign text_position = 'flex-start' %}
+	{% elsif text_align == 'right' %}
+	{% assign text_position = 'flex-end' %}
+{% else %}
+	{% assign text_position = 'center' %}
+{% endif %}
+
+{% assign button_text                    = section.settings.button_text %}
+{% assign button_link                    = section.settings.button_link %}
+{% assign button_background_color        = section.settings.button_background_color %}
+{% assign button_text_color            = section.settings.button_text_color %}
+{% assign button_hover_background_color = section.settings.button_hover_background_color %}
+{% assign button_hover_text_color        = section.settings.button_hover_text_color %}
+
+{% if image %}
+	<section class="main-banner"
+			 style="--background-color: {{ background_color }};">
+		<div class="main-banner__wrapper">
+			<picture>
+				{% if image_mobile != blank %}
+					<source
+						srcset="{{ image_mobile | img_url: '480x' }} 1x, {{ image_mobile | img_url: '960x' }} 2x"
+						media="(max-width: 480px)">
+					<source
+						srcset="{{ image_mobile | img_url: '575x' }} 1x, {{ image_mobile | img_url: '1150x' }} 2x"
+						media="(max-width: 575px)">
+				{% else %}
+					<source
+						srcset="{{ image | img_url: '480x' }} 1x, {{ image | img_url: '960x' }} 2x"
+						media="(max-width: 480px)">
+					<source
+						srcset="{{ image | img_url: '575x' }} 1x, {{ image | img_url: '1150x' }} 2x"
+						media="(max-width: 575px)">
+				{% endif %}
+
+				<source
+					srcset="{{ image | img_url: '767x' }} 1x, {{ image | img_url: '1534x' }} 2x"
+					media="(max-width: 767px)">
+				<source
+					srcset="{{ image | img_url: '991x' }} 1x, {{ image | img_url: '1982x' }} 2x"
+					media="(max-width: 991px)">
+				<source
+					srcset="{{ image | img_url: '1199x' }} 1x, {{ image | img_url: '2398x' }} 2x"
+					media="(max-width: 1199px)">
+
+				<img
+					srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x"
+					src="{{ image | img_url: '1920x' }}"
+					class="main-banner__image"
+					alt="{{ image.alt }}"
+				>
+			</picture>
+
+			<div class="main-banner__content-wrapper"
+				 style="--text-align: {{ text_align }}; --text-position: {{ text_position }};">
+				<div class="main-banner__content">
+					{% if title != blank %}
+						<h1 class="main-banner__title" {% if title_color != blank %}style="color: {{ title_color }};"{% endif %}>
+							{{ title }}
+						</h1>
+					{% endif %}
+
+					{% if subtitle != blank %}
+						<h3 class="main-banner__subtitle" {% if subtitle_color != blank %}style="color: {{ subtitle_color }};"{% endif %}>
+							{{ subtitle }}
+						</h3>
+					{% endif %}
+
+					{% if button_text != blank and button_link != blank %}
+						{%- capture styles -%}
+							--button-background-color: {{- button_background_color -}};
+							--button-hover-background-color: {{- button_hover_background_color -}};
+							--button-text-color: {{- button_text_color -}};
+							--button-hover-text-color: {{- button_hover_text_color -}};
+						{%- endcapture -%}
+
+						<a class="button button--primary main-banner__button"
+						   style="{{ styles }}" href="{{ button_link }}">
+							{{ button_text }}
+						</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Banner",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#E81F76"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Background Mobile"
+    },
+    {
+      "type": "radio",
+      "id": "text_align",
+      "label": "Horizontal text position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "TASTE WHAT’S NEW"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "We make the world sweeter"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subheading color"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Button settings"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Background Color",
+      "default": "#E81F76"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background_color",
+      "label": "Hover Background Color",
+      "default": "#FFF"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text Color",
+      "default": "#FFF"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Hover Text Color",
+      "default": "#E81F76"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner",
+      "category": "Home"
+    }
+  ]
+}
+{% endschema %}

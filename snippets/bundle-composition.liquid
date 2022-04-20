@@ -1,0 +1,65 @@
+{% assign ingredient_products = product.metafields.bundle.ingredient_product %}
+{% assign ingredient_images = product.metafields.accentuate.ingredient_image %}
+
+{% if ingredient_products.size > 0 %}
+	<div class="bundle-composition">
+		<h4 class="bundle-composition__title">
+			{{ 'products.bundle.items_in_the_bundle' | t }}
+		</h4>
+
+		<div class="bundle-composition__wrapper">
+			{% for ingredient in ingredient_products %}
+				{% assign index 				= forloop.index0 %}
+				{% assign product_handle		= ingredient_products[index] %}
+				{% assign ingredient_image      = ingredient_images[index] %}
+				{% assign product 				= all_products[product_handle] %}
+
+				{% assign product_title 		= product.title %}
+				{% assign product_image 		= product.featured_image %}
+				{% assign product_description 	= product.description %}
+
+				{% if product != blank %}
+					<div class="bundle-composition__item js-accordion">
+						{% if product_title != blank %}
+							<h5 class="bundle-composition__item-toggle js-accordion-toggler">
+								{% render 'icon-plus' %}
+
+								{{- product.title -}} {% if product.variants[0].available == false %} <span style="opacity: .7">(out of stock)</span>{% endif %}
+							</h5>
+						{% endif %}
+
+						<div class="bundle-composition__item-content js-accordion-content">
+							<div class="bundle-composition__item-wrapper">
+								{% if ingredient_image != blank %}
+									<div class="bundle-composition__item-image-wrapper">
+										{% for image in ingredient_image %}
+											<img class="bundle-composition__item-image"
+												 src="{{ image }}"
+												 alt="{{ image.alt }}"
+											>
+										{% endfor %}
+									</div>
+								{% else %}
+									{% if product_image != blank %}
+										<div class="bundle-composition__item-image-wrapper">
+											<img class="bundle-composition__item-image"
+												 src="{{ product_image | img_url: '140x' }}"
+												 alt="{{ product_image.alt }}"
+											>
+										</div>
+									{% endif %}
+								{% endif %}
+
+								{% if product_description != blank %}
+									<div class="bundle-composition__item-text">
+										{{- product_description -}}
+									</div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}

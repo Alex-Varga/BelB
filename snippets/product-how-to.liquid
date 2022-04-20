@@ -1,0 +1,162 @@
+{% assign instruction_sections 		= product.metafields.accentuate.instructions_title %}
+{% assign instruction_sections_size = 0 %}
+
+{% for section in instruction_sections %}
+	{% assign instruction_sections_size = instruction_sections_size | plus: 1 %}
+{% endfor %}
+
+{% if instruction_sections_size > 1 %}
+	{% for section in instruction_sections %}
+		{% assign index 		= forloop.index0 %}
+		{% assign section_id 	= product.metafields.accentuate.instruction_section_id[index] %}
+
+		{% assign bg_color		 	= product.metafields.accentuate.instruction_background_color[index] %}
+		{% assign primary_color 	= product.metafields.accentuate.instruction_primary_color[index] %}
+		{% assign mobile_gif 		= product.metafields.accentuate.instructions_mobile_gif[index] %}
+		{% assign title 			= product.metafields.accentuate.instructions_title[index] %}
+		{% assign enable_counting 	= product.metafields.accentuate.enable_counting[index] | default: false %}
+
+		{% assign all_cards = product.metafields.accentuate.card_image %}
+		{% assign cards 	= '' %}
+
+		{% for instruction_card in all_cards %}
+			{% assign index				= forloop.index0 %}
+			{% assign card_section_id 	= product.metafields.accentuate.instruction_card_section_id[index] %}
+
+			{% if card_section_id == section_id %}
+				{% capture card %}
+					{% assign card_title = product.metafields.accentuate.card_heading[index] %}
+					{% assign card_image = product.metafields.accentuate.card_image[index] | first %}
+
+					{% if card_title != '' or card_image != blank %}
+						<div class="instruction__item">
+							{% if card_image != blank %}
+								<div class="instruction__image-wrapper">
+									<img src="{{ card_image.src }}" alt="{{ card_image.alt }}">
+								</div>
+							{% endif %}
+
+							{% if card_title != '' %}
+								<h3 class="instruction__item-title">
+									{% if enable_counting %}
+										<span>
+											<span class="instruction__item-count">
+												{{- forloop.index -}}
+											</span>
+										</span>
+									{% endif %}
+
+									<span>
+										{{- card_title -}}
+									</span>
+								</h3>
+							{% endif %}
+						</div>
+					{% endif %}
+				{% endcapture %}
+
+				{% assign cards = cards | append: card %}
+
+				{% assign card 	= '' %}
+			{% else %}
+				{% continue %}
+			{% endif %}
+		{% endfor %}
+
+		{% if cards != '' and mobile_gif != blank %}
+			<section class="instruction" style="--bg-color: {{ bg_color }}; --primary-color: {{ primary_color }};">
+				<div class="instruction__container">
+					{% if title != '' %}
+						<h2 class="title instruction__title">
+							{{- title -}}
+						</h2>
+					{% endif %}
+
+					<div class="instruction__wrapper">
+						{% for card in cards %}
+							{{- card | strip -}}
+						{% endfor %}
+					</div>
+
+					{% assign cards = '' %}
+
+					<div class="instruction__wrapper instruction__wrapper--mobile">
+						<img src="{{ mobile_gif }}" alt="{{ mobile_gif.alt }}">
+					</div>
+				</div>
+			</section>
+		{% endif %}
+	{% endfor %}
+{% else %}
+	{% assign bg_color		 	= product.metafields.accentuate.instruction_background_color %}
+	{% assign primary_color 	= product.metafields.accentuate.instruction_primary_color %}
+	{% assign mobile_gif 		= product.metafields.accentuate.instructions_mobile_gif %}
+	{% assign title 			= product.metafields.accentuate.instructions_title %}
+	{% assign enable_counting 	= product.metafields.accentuate.enable_counting %}
+
+	{% assign all_cards = product.metafields.accentuate.card_image %}
+	{% assign cards 	= '' %}
+
+	{% for instruction_card in all_cards %}
+		{% assign index	= forloop.index0 %}
+
+		{% capture card %}
+			{% assign card_title = product.metafields.accentuate.card_heading[index] %}
+			{% assign card_image = product.metafields.accentuate.card_image[index] | first %}
+
+			{% if card_title != '' or card_image != blank %}
+				<div class="instruction__item">
+					{% if card_image != blank %}
+						<div class="instruction__image-wrapper">
+							<img src="{{ card_image.src }}" alt="{{ card_image.alt }}">
+						</div>
+					{% endif %}
+
+					{% if card_title != '' %}
+						<h3 class="instruction__item-title">
+							{% if enable_counting %}
+								<span>
+									<span class="instruction__item-count">
+										{{- forloop.index -}}
+									</span>
+								</span>
+							{% endif %}
+
+							<span>
+								{{- card_title -}}
+							</span>
+						</h3>
+					{% endif %}
+				</div>
+			{% endif %}
+		{% endcapture %}
+
+		{% assign cards = cards | append: card %}
+
+		{% assign card = '' %}
+	{% endfor %}
+
+	{% if cards != '' and mobile_gif != blank %}
+		<section class="instruction" style="--bg-color: {{ bg_color }}; --primary-color: {{ primary_color }};">
+			<div class="instruction__container">
+				{% if title != '' %}
+					<h2 class="title instruction__title">
+						{{- title -}}
+					</h2>
+				{% endif %}
+
+				<div class="instruction__wrapper">
+					{% for card in cards %}
+						{{- card | strip -}}
+					{% endfor %}
+				</div>
+
+				{% assign cards = '' %}
+
+				<div class="instruction__wrapper instruction__wrapper--mobile">
+					<img src="{{ mobile_gif }}" alt="{{ mobile_gif.alt }}">
+				</div>
+			</div>
+		</section>
+	{% endif %}
+{% endif %}

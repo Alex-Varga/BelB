@@ -1,0 +1,79 @@
+{% comment %}
+	@params
+	product - product object *required
+{% endcomment %}
+
+{% if product != blank %}
+	{% assign product_image = product.featured_image %}
+
+	<div class="product-card product-card--featured">
+		<div class="product-card__images-wrapper">
+			<a href="{{ product.url }}">
+				<div class="product-card__image-wrapper product-card__image-wrapper--first">
+					<picture>
+						<img srcset="{{ product_image | img_url: '200x' }} 1x, {{ product_image | img_url: '400x' }} 2x"
+							 src="{{ product_image | img_url: '200x' }}"
+							 class="product-card__image"
+							 alt="{{ product_image.alt }}"
+							 loading="lazy"
+						>
+					</picture>
+				</div>
+
+				{% if product.images.size > 1 %}
+					<div class="product-card__image-wrapper product-card__image-wrapper--second">
+						<picture>
+							<img srcset="{{ product.images[1] | img_url: '200x' }} 1x, {{ product.images[1] | img_url: '400x' }} 2x"
+								 src="{{ product.images[1] | img_url: '200x' }}"
+								 class="product-card__image"
+								 alt="{{ product.images[1].alt }}"
+								 loading="lazy"
+							>
+						</picture>
+					</div>
+				{% endif %}
+			</a>
+
+			{%- assign tags = product.tags -%}
+
+			{%- for tag in tags -%}
+				{%- assign current_tag = tag | downcase | replace: ' ', '-' | strip -%}
+
+				{%- if tag contains 'badge-' -%}
+					{%- capture badge -%}
+					{%- assign image_file = tag | append: '.png' -%}
+
+						<div class="product-card__badge">
+							<picture>
+								<img class="product-card__badge-image"
+									 src="{{ image_file | file_img_url: 'master' }}"
+									 alt="{{ image_file.alt }}"
+								>
+							</picture>
+						</div>
+					{%- endcapture -%}
+
+					{%- break -%}
+				{%- endif -%}
+			{%- endfor -%}
+
+			{% if badge != '' %}
+				{{- badge -}}
+			{% endif %}
+
+			{% assign badge = '' %}
+		</div>
+
+		<a class="product-card__title" href="{{ product.url }}">
+			{{- product.title -}}
+		</a>
+
+		<div class="product-card__price">
+			{{- product.price | money -}}
+		</div>
+
+		<a href="{{ product.url }}" class="button button--secondary product-card__button">
+			{{- 'products.product.shop_now' | t -}}
+		</a>
+	</div>
+{% endif %}

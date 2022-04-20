@@ -1,0 +1,25 @@
+{% assign image 		= section.settings.image %}
+
+<section id="free-waffles--image">
+	<div class="free-waffles--image--container">
+		<div class="free-waffles--image__image">
+			<img src="{{ image | img_url: "master" }}" alt="{{ image.alt }}">
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Image",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "image",
+			"label": "Image"
+		}
+	]
+}
+{% endschema %}
+
+
+

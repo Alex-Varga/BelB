@@ -1,0 +1,63 @@
+{% assign blog_title = section.settings.blog_title | default: blog.title %}
+{% assign image 		= section.settings.image %}
+{% assign custom_image 	= blog.metafields.blog.featured_image | first %}
+{% assign title_color = section.settings.title_color %}
+
+<section class="blog-banner">
+	{% if image != blank or custom_image != blank %}
+		<div class="blog-banner__image-wrapper">
+			{% if custom_image != blank %}
+				<picture>
+					<source srcset="{{ custom_image.cloudinary_src | append: 'w_480' }} 1x, {{ custom_image.cloudinary_src | append: 'w_960' }} 2x" media="(max-width: 480px)">
+					<source srcset="{{ custom_image.cloudinary_src | append: 'w_767' }} 1x, {{ custom_image.cloudinary_src | append: 'w_1534' }} 2x" media="(max-width: 767px)">
+					<source srcset="{{ custom_image.cloudinary_src | append: 'w_991' }} 1x, {{ custom_image.cloudinary_src | append: 'w_1982' }} 2x" media="(max-width: 991px)">
+
+					<img srcset="{{ custom_image.cloudinary_src | append: 'w_1920' }} 1x, {{ custom_image.cloudinary_src | append: 'w_3840' }} 2x"
+						 src="{{ custom_image.cloudinary_src | append: 'w_1920' }}"
+						 class="blog-banner__image"
+						 alt="{{ blog_title }}"
+					>
+				</picture>
+			{% else %}
+				<picture>
+					<source srcset="{{ image | img_url: '480x' }} 1x, {{ image | img_url: '960x' }} 2x" media="(max-width: 480px)">
+					<source srcset="{{ image | img_url: '767x' }} 1x, {{ image | img_url: '1534x' }} 2x" media="(max-width: 767px)">
+					<source srcset="{{ image | img_url: '991x' }} 1x, {{ image | img_url: '1982x' }} 2x" media="(max-width: 991px)">
+
+					<img srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x"
+						 src="{{ image | img_url: '1920x' }}"
+						 class="blog-banner__image"
+						 alt="{{ blog_title }}"
+					>
+				</picture>
+			{% endif %}
+		</div>
+	{% endif %}
+
+	<h1 class="title blog-banner__title" style="color: {{ title_color }}">
+		{{- blog_title -}}
+	</h1>
+</section>
+
+{% schema %}
+{
+	"name": "Hero banner",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "image",
+			"label": "Image"
+		},
+		{
+			"type": "text",
+			"id": "blog_title",
+			"label": "Blog Title"
+		},
+		{
+			"type": "color",
+			"id": "title_color",
+			"label": "Blog Title Color"
+		}
+	]
+}
+{% endschema %}

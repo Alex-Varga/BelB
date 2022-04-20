@@ -1,0 +1,58 @@
+{% assign bg_color = section.settings.bg_color %}
+{% assign heading = section.settings.heading %}
+
+{% if section.blocks.size > 0 %}
+    <section class="featured-products featured-products--grid" style="background-color: {{ bg_color }};">
+        <div class="featured-products__container">
+            {% if heading != blank %}
+                <h2 class="title featured-products__title">
+                    {{ heading }}
+                </h2>
+            {% endif %}
+
+            <div class="featured-products__products-wrapper">
+                {% for block in section.blocks %}
+                    {% assign product = all_products[block.settings.product] %}
+
+                    <div class="featured-products__product">
+                        {% render 'product-card', product: product %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+{% schema %}
+{
+    "name": "Featured products",
+    "max_blocks": 4,
+    "settings": [
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Section background color",
+            "default": "#FFEDDB"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Title",
+            "default": "Featured Products"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "product",
+            "name": "Product",
+            "settings": [
+                {
+                    "label": "Product",
+                    "id": "product",
+                    "type": "product"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

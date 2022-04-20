@@ -1,0 +1,68 @@
+{% include 'product' %}
+{% include 'product-ingredients' %}
+{% include 'product-how-to' %}
+{% include 'product-image-with-text' %}
+{% section 'product-reviews' %}
+{% section 'product-recommendations' %}
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign all_offers = product.variants | sort: "price" | map: "price" %}
+
+<script>
+	if (window.location.pathname === '/products/original-crepes') {
+		window.stop();
+		window.location.pathname = '/products/original-crepes-bundle';
+	}
+</script>
+
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org/",
+		"@type": "Product",
+		"sku": "{{ current_variant.sku }}",
+		"image": "{{ featured_image | img_url: '600x' }}",
+		"name": "{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}",
+		"description": "{{ product.description | strip_html | escape }}",
+		"brand": {
+			"@type": "Brand",
+			"name": "Belgian Boys"
+		},
+		"offers": {
+			"@type": "AggregateOffer",
+			"url": "{{ canonical_url }}",
+			"priceCurrency": "USD",
+			"lowPrice": "{{ all_offers | first | divided_by: 100.00 }}",
+			"highPrice": "{{ all_offers | last | divided_by: 100.00 }}",
+			"offerCount": "{{ product.variants.size }}",
+			"itemCondition": "http://schema.org/NewCondition",
+			"availability": "http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}"
+		}
+	}
+</script>
+
+<script type="text/javascript">
+  var _learnq = _learnq || [];
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+</script>

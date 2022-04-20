@@ -1,0 +1,24 @@
+{% assign image = settings.image_404 %}
+{% assign text 	= settings.text_404 %}
+
+<section class="page-404">
+	<div class="page-404__container">
+		{% if image != blank %}
+			<picture>
+				<img srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x"
+					 src="{{ image | img_url: '1920x' }}"
+					 class="page-404__image"
+					 alt="{{ image.alt }}"
+				>
+			</picture>
+		{% endif %}
+
+		<div class="rte page-404__title">
+			{% if text != blank %}
+				{{- text -}}
+			{% else %}
+				{{- 'general.404.subtext_html' | t -}}
+			{% endif %}
+		</div>
+	</div>
+</section>

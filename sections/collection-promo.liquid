@@ -1,0 +1,80 @@
+{% assign bg_color = section.settings.bg_color %}
+
+{% if section.blocks.size > 0 %}
+    <div class="collection-promo" style="--bg-color: {{ bg_color }};">
+        <div class="collection-promo__container">
+            <div class="collection-promo__items">
+                {% for block in section.blocks %}
+                    {% assign image = block.settings.image %}
+                    {% assign title = block.settings.title %}
+                    {% assign text = block.settings.text %}
+
+                    <div class="collection-promo__item-wrapper">
+                        <div class="collection-promo-item">
+                            {% if image != blank %}
+                                <div class="collection-promo-item__image-wrapper">
+                                    <picture>
+                                        <img srcset="{{ image | img_url: '300x' }} 1x, {{ image | img_url: '600x' }} 2x"
+                                             src="{{ image | img_url: '300x' }}"
+                                             class="collection-promo-item__image"
+                                             alt="{{ shop.name }}">
+                                    </picture>
+                                </div>
+                            {% endif %}
+
+                            {% if title != blank %}
+                                <h4 class="collection-promo-item__title">
+                                    {{- title -}}
+                                </h4>
+                            {% endif %}
+
+                            {% if text != blank %}
+                                <div class="collection-promo-item__text">
+                                    {{- text -}}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% schema %}
+{
+    "name": "Collection Promo",
+    "max_blocks": 3,
+    "settings": [
+        {
+            "label": "Background color",
+            "id": "bg_color",
+            "type": "color",
+            "default": "#FFEDDB"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "item",
+            "name": "Item",
+            "settings": [
+                {
+                    "label": "Image",
+                    "id": "image",
+                    "type": "image_picker"
+                },
+                {
+                    "label": "Title",
+                    "id": "title",
+                    "type": "text"
+                },
+                {
+                    "label": "Text",
+                    "id": "text",
+                    "type": "richtext"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

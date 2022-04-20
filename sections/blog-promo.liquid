@@ -1,0 +1,78 @@
+{% assign image = section.settings.image %}
+{% assign title = section.settings.title %}
+{% assign text 	= section.settings.text %}
+
+{% assign button_text = section.settings.button_text %}
+{% assign button_link = section.settings.button_link %}
+
+{% if title != blank or text != blank %}
+	<section class="blog-promo">
+		{% if image != blank %}
+			<picture>
+				<source srcset="{{ image | img_url: '480x' }} 1x, {{ image | img_url: '960x' }} 2x" media="(max-width: 480px)">
+				<source srcset="{{ image | img_url: '767x' }} 1x, {{ image | img_url: '1534x' }} 2x" media="(max-width: 767px)">
+				<source srcset="{{ image | img_url: '991x' }} 1x, {{ image | img_url: '1982x' }} 2x" media="(max-width: 991px)">
+
+				<img srcset="{{ image | img_url: '1920x' }} 1x, {{ image | img_url: '3840x' }} 2x"
+					 src="{{ image | img_url: '1920x' }}"
+					 class="blog-promo__bg-image"
+					 alt="{{ blog_title }}"
+				>
+			</picture>
+		{% endif %}
+
+		<div class="blog-promo__container">
+			{% if title != blank %}
+				<h2 class="title blog-promo__title">
+					{{- title -}}
+				</h2>
+			{% endif %}
+
+			{% if text != blank %}
+				<div class="blog-promo__text">
+					{{- text -}}
+				</div>
+			{% endif %}
+
+			{% if button_text != blank and button_link != blank %}
+				<a href="{{ button_link }}" class="button button--secondary blog-promo__button">
+					{{- button_text -}}
+				</a>
+			{% endif %}
+		</div>
+	</section>
+{% endif %}
+
+{% schema %}
+{
+	"name": "Promo banner",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "image",
+			"label": "Background image"
+		},
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading"
+		},
+		{
+			"type": "textarea",
+			"id": "text",
+			"label": "Text"
+		},
+		{
+			"type": "text",
+			"id": "button_text",
+			"label": "Button text",
+			"default": "Shop Now"
+		},
+		{
+			"type": "url",
+			"id": "button_link",
+			"label": "Button link"
+		}
+	]
+}
+{% endschema %}

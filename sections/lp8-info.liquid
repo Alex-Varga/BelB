@@ -1,0 +1,43 @@
+{% assign image     		= section.settings.image | img_url: 'master' %}
+{% assign btn 					= section.settings.btn %}
+{% assign btn_mob 			= section.settings.btn_mob %}
+{% assign btn_url 			= section.settings.btn_url %}
+
+
+<section id="lp-eight--info" class="lp8-info">
+	<div class="lp-six__container">
+		<div class="lp-eight--info__content">
+			<img src="{{ image }}" alt="">
+			<a href="{{ btn_url }}" class="info-btn">{{ btn }}</a>
+			<a href="{{ btn_url }}" class="info-btn-mob">{{ btn_mob }}</a>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Section #4",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Title"
+    },
+		{
+      "type": "text",
+      "id": "btn",
+      "label": "Btn title"
+    },
+		{
+      "type": "text",
+      "id": "btn_mob",
+      "label": "Btn title mob"
+    },
+		{
+      "type": "url",
+      "id": "btn_url",
+      "label": "Btn url"
+    }
+  ]
+}
+{% endschema %}

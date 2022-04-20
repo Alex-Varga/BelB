@@ -1,0 +1,142 @@
+{% assign blocks 	= section.blocks %}
+
+{% capture options %}
+	{% for block in blocks %}
+		{% assign title = block.settings.title %}
+		{% assign email = block.settings.email %}
+
+		{% if title != blank and email != blank %}
+			<li class="custom-select__item" data-value="{{- email -}}">
+				{{ title }}
+			</li>
+		{% endif %}
+	{% endfor %}
+{% endcapture %}
+
+{% assign title 	= section.settings.title %}
+{% assign text 		= section.settings.text %}
+
+{% if title != blank or text != blank %}
+	<section class="about-contact" id="about-contact-us">
+		<div class="about-contact__pattern">
+			{{- 'wave-white.svg' | asset_url | img_tag: '', 'about-contact__pattern-image' -}}
+		</div>
+
+		<div class="about-contact__container">
+			{% if title != blank %}
+				<h2 class="about-contact__title">
+					{{- title -}}
+				</h2>
+			{% endif %}
+
+			{% if text != blank %}
+				<div class="rte about-contact__content">
+					{{- text -}}
+				</div>
+			{% endif %}
+
+			<div class="about-contact__form-wrapper">
+				<div class="about-contact__form-head">
+					<h3 class="about-contact__form-title">
+						{{- 'contact.form.title' | t -}}
+					</h3>
+
+					{% if options != blank %}
+						<div class="custom-select about-contact__select js-custom-select js-contact-us-forms">
+							<div class="custom-select__default">
+								<span class="custom-select__default-value">
+									Select a Topic
+								</span>
+
+								{% include 'icon-arrow-left' %}
+							</div>
+
+							<ul class="custom-select__list">
+								{{- options -}}
+							</ul>
+						</div>
+					{% endif %}
+				</div>
+
+				<div class="about-contact__form-row">
+					<div class="about-contact__form-tab js-form-tab" data-tab-value="hello@belgianboys.com">
+						<div style="margin:0 auto;" class="pxFormGenerator" id="timQWSUmL0h1TXNQacdU0A"></div>
+					</div>
+
+					<div class="about-contact__form-tab js-form-tab" data-tab-value="marketing@belgianboys.com">
+						<div style="margin:0 auto;" class="pxFormGenerator" id="ztLZKyVlGgAvNgsLMo3UIA"></div>
+					</div>
+
+					<div class="about-contact__form-tab js-form-tab" data-tab-value="info@belgianboys.com">
+						<div style="margin:0 auto;" class="pxFormGenerator" id="1dU5h9f6v4-AMK54J9x8_Q"></div>
+					</div>
+
+					{% assign image = 'about-us-contact.png' %}
+
+					<div class="about-contact__form-col about-contact__form-col--image">
+						<picture>
+							<img srcset="{{ image | asset_img_url: '500x' }} 1x, {{ image | asset_img_url: '1000x' }} 2x"
+								 src="{{ image | asset_img_url: '500x' }}"
+								 class="about-contact__image"
+								 alt="{{- title -}}"
+							>
+						</picture>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}
+
+{% schema %}
+{
+	"name": "Drop Us A Line",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Where To Drop Us A Line"
+		},
+		{
+			"type": "richtext",
+			"id": "text",
+			"label": "Text",
+			"default": "<p>We'd love to hear from you. We welcome new product ideas, recommendations, requests, concerns, waffle-inspired haikus or anything else you've got rolling around.</p>"
+		}
+	],
+	"blocks": [
+		{
+			"type": "form",
+			"name": "Form",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Heading"
+				},
+				{
+					"type": "select",
+					"id": "email",
+					"label": "Email",
+					"options": [
+						{
+							"value": "hello@belgianboys.com",
+							"label": "hello@belgianboys.com"
+						},
+						{
+							"value": "marketing@belgianboys.com",
+							"label": "marketing@belgianboys.com"
+						},
+						{
+							"value": "info@belgianboys.com",
+							"label": "info@belgianboys.com"
+						}
+					],
+					"default": "hello@belgianboys.com"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

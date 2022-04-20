@@ -1,0 +1,134 @@
+{% assign title 	= section.settings.title %}
+{% assign subtitle 	= section.settings.subtitle %}
+{% assign highlight = section.settings.highlight %}
+{% assign text 		= section.settings.text %}
+{% assign image_01 	= section.settings.image_01 %}
+{% assign image_02 	= section.settings.image_02 %}
+{% assign separator = section.settings.separator %}
+
+<section class="social-mission-intro">
+	{% if title != blank or subtitle != blank %}
+		<div class="social-mission-intro__header">
+			<div class="social-mission-intro__pattern">
+				{{- 'wave-white.svg' | asset_url | img_tag: '', 'social-mission-intro__pattern-image' -}}
+			</div>
+
+			<div class="social-mission-intro__container">
+				{% if title != blank %}
+					<h1 class="social-mission-intro__title">
+						{{- title -}}
+					</h1>
+				{% endif %}
+
+				{% if subtitle != blank %}
+					<p class="social-mission-intro__text social-mission-intro__subtitle">
+						{{- subtitle -}}
+					</p>
+				{% endif %}
+			</div>
+		</div>
+	{% endif %}
+
+	<div class="social-mission-intro__container">
+		{% if image_01 != blank or highlight != blank or image_02 != blank %}
+			<div class="social-mission-intro__row">
+				{% if image_01 != blank %}
+					<div class="social-mission-intro__col social-mission-intro__col--image">
+						<picture>
+							<img srcset="{{ image_01 | img_url: '140x' }} 1x, {{ image_01 | img_url: '280x' }} 2x"
+								 src="{{ image_01 | img_url: '140x' }}"
+								 class="social-mission-intro__image"
+								 alt="{{ image_01.alt }}"
+							>
+						</picture>
+					</div>
+				{% endif %}
+
+				{% if highlight != blank %}
+					<div class="social-mission-intro__col">
+						<p class="social-mission-intro__highlight">
+							{{- highlight -}}
+						</p>
+					</div>
+				{% endif %}
+
+				{% if image_02 != blank %}
+					<div class="social-mission-intro__col social-mission-intro__col--image">
+						<picture>
+							<img srcset="{{ image_02 | img_url: '140x' }} 1x, {{ image_02 | img_url: '280x' }} 2x"
+								 src="{{ image_02 | img_url: '140x' }}"
+								 class="social-mission-intro__image"
+								 alt="{{ image_02.alt }}"
+							>
+						</picture>
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+
+		{% if text != blank %}
+			<div class="rte social-mission-intro__text">
+				{{- text -}}
+			</div>
+		{% endif %}
+
+		{% if separator != blank %}
+			<div class="social-mission-intro__separator-wrapper">
+				<picture>
+					<img srcset="{{ separator | img_url: 'x86' }} 1x, {{ separator | img_url: 'x172' }} 2x"
+						 src="{{ separator | img_url: 'x86' }}"
+						 class="social-mission-intro__separator"
+						 alt="{{ separator.alt }}"
+					>
+				</picture>
+			</div>
+		{% endif %}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Social Mission Intro",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "The Treat Making The World Sweeter"
+		},
+		{
+			"type": "textarea",
+			"id": "subtitle",
+			"label": "Subheading",
+			"default": "We are on a mission to make the world sweeter, one treat at a time! Here’s how we are giving back to our communities and our customers’ favorite causes — and how you can get involved! "
+		},
+		{
+			"type": "text",
+			"id": "highlight",
+			"label": "Highlight",
+			"default": "#ROCKTHATSTASH"
+		},
+		{
+			"type": "richtext",
+			"id": "text",
+			"label": "Text",
+			"default": "<p>Each month since the launch of our <a href=\"/products/speculoos-mini-cookie-stash\">Speculoos Mini Cookie Stash</a> and <a href=\"/products/chocolate-chip-mini-cookie-stash\">Chocolate Chip Mini Cookie Stash</a>, we’ve donated a portion of proceeds from those products to a customer’s favorite charity. We have supported small local non-profits and some of the largest in the world working on a diverse range of social causes, all thanks to our customers’ nominations using #RockThatStash. </p>"
+		},
+		{
+			"type": "image_picker",
+			"id": "image_01",
+			"label": "Image 1"
+		},
+		{
+			"type": "image_picker",
+			"id": "image_02",
+			"label": "Image 2"
+		},
+		{
+			"type": "image_picker",
+			"id": "separator",
+			"label": "Separator"
+		}
+	]
+}
+{% endschema %}

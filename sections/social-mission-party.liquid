@@ -1,0 +1,121 @@
+{% assign title 			= section.settings.title %}
+{% assign image_additional 	= section.settings.image_additional %}
+{% assign text 				= section.settings.text %}
+{% assign image 			= section.settings.image %}
+{% assign buttons 			= section.blocks %}
+
+<section class="social-mission-party">
+	<div class="social-mission-party__container">
+		{% if title != blank %}
+			<h2 class="social-mission-party__title">
+				{{- title -}}
+			</h2>
+		{% endif %}
+
+		{% if image_additional != blank %}
+			<picture>
+				<img srcset="{{ image_additional | img_url: '500x' }} 1x, {{ image_additional | img_url: '1000x' }} 2x"
+					 src="{{ image_additional | img_url: '500x' }}"
+					 class="social-mission-party__image social-mission-party__image--additional"
+					 alt="{{ image_additional.alt }}"
+				>
+			</picture>
+		{% endif %}
+
+		{% if text != blank %}
+			<div class="rte social-mission-party__text">
+				{{- text -}}
+			</div>
+		{% endif %}
+
+		{% if buttons.size > 0 %}
+			<div class="social-mission-party__buttons-wrapper">
+				{% for button in buttons %}
+					{% assign text 				= button.settings.title %}
+					{% assign link 				= button.settings.link %}
+					{% assign is_target_blank 	= button.settings.is_target_blank %}
+
+					{% if text != blank and link != blank %}
+						<div class="social-mission-party__button">
+							<a href="{{ link }}"
+							   class="button button--secondary"
+							   {% if is_target_blank == true %}target="_blank" rel="noopener noreferrer"{% endif %}
+							>
+								{{- text -}}
+							</a>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		{% if image != blank %}
+			<picture>
+				<img srcset="{{ image | img_url: '500x' }} 1x, {{ image | img_url: '1000x' }} 2x"
+					 src="{{ image | img_url: '500x' }}"
+					 class="social-mission-party__image"
+					 alt="{{ image.alt }}"
+				>
+			</picture>
+		{% endif %}
+	</div>
+
+	<div class="social-mission-party__pattern">
+		{{- 'wave-white.svg' | asset_url | img_tag: '', 'social-mission-party__pattern-image' -}}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Birthday Party Project",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "The Birthday Party Project"
+		},
+		{
+			"type": "image_picker",
+			"id": "image_additional",
+			"label": "Additional image"
+		},
+		{
+			"type": "richtext",
+			"id": "text",
+			"label": "Text",
+			"default": "<p><a href=\"https://www.thebirthdaypartyproject.org/\" target=\"_blank\" rel=\"noopener noreferrer\">The Birthday Party Project</a> believes that joy can change lives, and that a joyful community can change the world—that’s why they’re on a mission to deliver fun birthday celebrations to children experiencing homelessness. Whether it’s through in-person parties at homeless and transitional living facilities (during normal times), or via Birthday in a Bag packages (during distanced times), every child is fully fêted!</p><p>We have partnered with the Birthday Party Project to add an essential birthday element to every celebration: CAKE! No birthday is complete without it, so we send our beloved Belgian Boys <a href=\"/products/almond-butter-cakes\">Almond Butter Cakes</a> to every birthday party or Birthday in a Bag, for individual indulging or for sharing with friends! It’s our way of adding a touch of sweetness to young lives.</p>"
+		},
+		{
+			"type": "image_picker",
+			"id": "image",
+			"label": "Image"
+		}
+	],
+	"blocks": [
+		{
+			"type": "button",
+			"name": "Button",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Text",
+					"default": "Get Involved"
+				},
+				{
+					"type": "url",
+					"id": "link",
+					"label": "Link"
+				},
+				{
+					"type": "checkbox",
+					"id": "is_target_blank",
+					"label": "Open link in a new window",
+					"default": false
+				}
+			]
+		}
+	]
+}
+{% endschema %}

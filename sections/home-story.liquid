@@ -1,0 +1,118 @@
+{% assign background_color = section.settings.background_color %}
+{% assign title = section.settings.heading %}
+{% assign link = section.settings.link %}
+
+<section class="home-story" style="--bg-color: {{ background_color }}">
+	{% if link != blank %}
+		<a class="home-story__link" href="{{ link }}"></a>
+	{% endif %}
+
+	<div class="home-story__container">
+		{% if title != blank %}
+			<h2 class="title home-story__title">
+				{{- title -}}
+			</h2>
+		{% endif %}
+
+		{% if section.blocks.size > 0 %}
+			<div class="home-story__stories">
+				{% for story in section.blocks %}
+					{% assign image = story.settings.image %}
+					{% assign video = story.settings.video %}
+					{% assign text = story.settings.text %}
+					{% assign text_uppercase = story.settings.text_uppercase %}
+
+					<div class="home-story__story-wrapper">
+						<div class="home-story__story">
+							{% if image != blank %}
+								<picture>
+									<img srcset="{{ image | img_url: '350x' }} 1x, {{ image | img_url: '700x' }} 2x"
+										 src="{{ image | img_url: '350x' }}" alt="{{ image.alt }}"
+										 class="home-story__story-image"
+									>
+								</picture>
+							{% endif %}
+
+							{% if video != blank %}
+								<div class="gif-video-wrapper">
+									<video width="100%" loop muted autoplay>
+										<source src="{{ video }}" type="video/mp4">
+										Your browser does not support the video tag.
+									</video>
+
+									<div class="gif-shadow"></div>
+								</div>
+							{% endif %}
+
+							{% if text != blank %}
+								<div class="home-story__story-text{% if text_uppercase %} home-story__story-text--uppercase{% endif %}">
+									{{- text -}}
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Belgian Boys Story",
+	"settings": [
+		{
+			"type": "color",
+			"id": "background_color",
+			"label": "Background Color",
+			"default": "#ffeddb"
+		},
+		{
+			"type": "text",
+			"id": "heading",
+			"label": "Heading",
+			"default": "Belgian Boys Story"
+		},
+		{
+			"type": "url",
+			"id": "link",
+			"label": "Link"
+		}
+	],
+	"blocks": [
+		{
+			"type": "story",
+			"name": "Story",
+			"settings": [
+				{
+					"label": "Image",
+					"id": "image",
+					"type": "image_picker"
+				},
+				{
+					"label": "Video (MP4)",
+					"id": "video",
+					"type": "url"
+				},
+				{
+					"label": "Text",
+					"id": "text",
+					"type": "richtext"
+				},
+				{
+					"label": "Uppercase text",
+					"id": "text_uppercase",
+					"type": "checkbox",
+					"default": false
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Belgian Boys Story",
+			"category": "Home"
+		}
+	]
+}
+{% endschema %}

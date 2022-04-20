@@ -1,0 +1,63 @@
+{% assign section_title 	 = section.settings.section_title %}
+
+<section id="lp4-how-to-stroop" style="background-color: #3F873F;">
+	<div class="wafel-how-to-stroop__container">
+		<h3 class="wafel-how-to-stroop__title">{{ section_title }}</h3>
+		<div class="wafel-how-to-stroop__items">
+			{% for block in section.blocks %}
+				{% assign img_item       = block.settings.img_item | img_url: 'master' %}
+				{% assign number_block 	 = block.settings.number_block %}
+				{% assign text_block 	 = block.settings.text_block %}
+				<div class="wafel-how-to-stroop__item">
+					<div class="wafel-how-to-stroop__img">
+						<img src="{{ img_item }}" alt="">
+					</div>
+					<div class="wafel-how-to-stroop__content">
+						<div class="wafel-how-to-stroop__number">
+							<span>{{ number_block }}</span>
+						</div>
+						<div class="wafel-how-to-stroop__text">
+							{{ text_block }}
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Wafel stroop",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Title of Section"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img_item",
+          "label": "Img for Block"
+        },
+        {
+          "type": "text",
+          "id": "number_block",
+          "label": "Nubmer of Block"
+        },
+        {
+          "type": "textarea",
+          "id": "text_block",
+          "label": "Text of Block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

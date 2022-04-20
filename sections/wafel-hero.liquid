@@ -1,0 +1,91 @@
+{% assign section_bg 			= section.settings.section_bg %}
+{% assign section_image_desktop = section.settings.section_image_desktop | img_url: 'master' %}
+{% assign section_image_mobile  = section.settings.section_image_mobile | img_url: 'master' %}
+{% assign title 	 			= section.settings.title %}
+{% assign text 	 	 			= section.settings.text %}
+
+<style>
+	#wafel-hero {
+		background-color: {{ section_bg }};
+	}
+</style>
+
+
+<section id="wafel-hero">
+	<div class="lp-hero__container">
+		<div class="left">
+			<div class="lp-hero__title">
+				<h1>{{ title }}</h1>
+				<p>{{ text }}</p>
+			</div>
+
+			<div class="lp-hero__icon-list">
+				{% for block in section.blocks %}
+					{% assign icon = block.settings.icon | img_url: 'master' %}
+
+					<div class="lp-hero__icon">
+						<img src="{{ icon }}" alt="">
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="right">
+			<picture>
+				<source srcset="{{ section_image_desktop }}" media="(min-width: 769px)">
+				<source srcset="{{ section_image_mobile }}" media="(max-width: 768px)">
+
+				<img src="{{ section_image_desktop }}" alt="image">
+			</picture>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Wafel Hero",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_image_desktop",
+      "label": "Image desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_image_mobile",
+      "label": "Image mobile"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+

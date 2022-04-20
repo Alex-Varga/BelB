@@ -1,0 +1,97 @@
+{% assign top_title 	= section.settings.title %}
+{% assign bottom_title 	= section.settings.title_bottom %}
+{% assign button_text 	= section.settings.button_text %}
+{% assign button_link 	= section.settings.button_link %}
+{% assign blocks 		= section.blocks %}
+
+<section class="social-mission-charities">
+	<div class="social-mission-charities__container">
+		{% if top_title != blank %}
+			<h2 class="social-mission-charities__title">
+				{{- top_title -}}
+			</h2>
+		{% endif %}
+
+		{% if blocks.size > 0 %}
+			<div class="social-mission-charities__row">
+				{% for block in blocks %}
+					{% assign image = block.settings.logo %}
+
+					{% if image != blank %}
+						<div class="social-mission-charities__col">
+							<div class="social-mission-charities__image-wrapper">
+								<picture>
+									<img srcset="{{ image | img_url: '200x' }} 1x, {{ image | img_url: '400x' }} 2x"
+										 src="{{ image | img_url: '200x' }}"
+										 class="social-mission-charities__image"
+										 alt="{{ image.alt }}"
+									>
+								</picture>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+		
+		{% if bottom_title != blank %}
+			<p class="social-mission-charities__title">
+				{{- bottom_title -}}
+			</p>
+		{% endif %}
+
+		{% if button_text != blank and button_link != blank %}
+			<a href="{{- button_link -}}" class="button button--secondary social-mission-charities__button">
+				{{- button_text -}}
+			</a>
+		{% endif %}
+	</div>
+
+	<div class="social-mission-charities__pattern">
+		{{- 'wave-beige.svg' | asset_url | img_tag: '', 'social-mission-charities__pattern-image' -}}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Social Mission Charities",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Our Donations Have Gone to..."
+		},
+		{
+			"type": "text",
+			"id": "title_bottom",
+			"label": "Bottom text",
+			"default": "And dozens of others!"
+		},
+		{
+			"type": "text",
+			"id": "button_text",
+			"label": "Button text",
+			"default": "Nominate now"
+		},
+		{
+			"type": "url",
+			"id": "button_link",
+			"label": "Button link"
+		}
+	],
+	"blocks": [
+		{
+			"type": "charity",
+			"name": "Charity",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "logo",
+					"label": "Logo"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

@@ -1,0 +1,75 @@
+{% assign enable_popup 		= section.settings.enable_popup %}
+{% assign embed_code 		= section.settings.embed_code %}
+{% assign background_color 	= section.settings.background_color %}
+{% assign popup_frequency 	= section.settings.popup_frequency %}
+{% assign popup_delay 		= section.settings.popup_delay %}
+
+{% if enable_popup and embed_code != blank %}
+	<section class="popup newsletter-popup js-popup js-auto-show-popup"
+			 data-delay="{{- popup_delay -}}"
+			 data-show="{{- popup_frequency -}}"
+			 style="--bg-color: {{- background_color -}};"
+	>
+		<div class="popup__overlay js-close-popup"></div>
+
+		<div class="popup__container newsletter-popup__container">
+			<div class="popup__content newsletter-popup__content">
+				<button class="newsletter-popup__close-button js-close-popup">
+					{% include 'icon-close' %}
+				</button>
+
+				{{- embed_code -}}
+			</div>
+		</div>
+	</section>
+{% endif %}
+
+{% schema %}
+{
+	"name": "Newsletter Klaviyo Popup",
+	"settings": [
+		{
+			"type": "checkbox",
+			"id": "enable_popup",
+			"label": "Enable popup",
+			"default": true
+		},
+		{
+			"type": "textarea",
+			"id": "embed_code",
+			"label": "Embed Popup Code"
+		},
+		{
+			"type": "radio",
+			"id": "popup_frequency",
+			"label": "Popup display frequency",
+			"options": [
+				{
+					"value": "always",
+					"label": "Always"
+				},
+				{
+					"value": "once",
+					"label": "Once per session"
+				}
+			],
+			"default": "once"
+		},
+		{
+			"type": "range",
+			"id": "popup_delay",
+			"label": "Popup delay",
+			"min": 0,
+			"max": 10,
+			"default": 3,
+			"unit": "s"
+		},
+		{
+			"type": "color",
+			"id": "background_color",
+			"label": "Background Color",
+			"default": "#ffeddc"
+		}
+	]
+}
+{% endschema %}

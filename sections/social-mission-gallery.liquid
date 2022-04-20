@@ -1,0 +1,64 @@
+{% assign blocks = section.blocks %}
+
+{% if blocks.size > 0 %}
+	<section class="social-mission-gallery">
+		<div class="social-mission-gallery__container">
+			<div class="social-mission-gallery__row">
+				{% for block in blocks %}
+					{% assign image = block.settings.image %}
+					{% assign logo 	= block.settings.logo %}
+
+					{% if image != blank %}
+						<div class="social-mission-gallery__col">
+							<div class="social-mission-gallery__image-wrapper{% if logo != blank %} social-mission-gallery__image-wrapper--with-logo{% endif %}">
+								<picture>
+									<img srcset="{{ image | img_url: '270x' }} 1x, {{ image | img_url: '540x' }} 2x"
+										 src="{{ image | img_url: '270x' }}"
+										 class="social-mission-gallery__image"
+										 alt="{{ image.alt }}"
+									>
+								</picture>
+
+								{% if logo != blank %}
+									<picture>
+										<img srcset="{{ logo | img_url: '270x' }} 1x, {{ logo | img_url: '540x' }} 2x"
+											 src="{{ logo | img_url: '270x' }}"
+											 class="social-mission-gallery__logo"
+											 alt="{{ logo.alt }}"
+										>
+									</picture>
+								{% endif %}
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endif %}
+
+{% schema %}
+{
+	"name": "Social Gallery",
+	"settings": [],
+	"blocks": [
+		{
+			"type": "image",
+			"name": "Image",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				},
+				{
+					"type": "image_picker",
+					"id": "logo",
+					"label": "Charity image",
+					"info": "Optional. If set, shows up on main image hover"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

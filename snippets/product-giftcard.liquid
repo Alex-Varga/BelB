@@ -1,0 +1,355 @@
+{% assign current_variant 				= product.selected_or_first_available_variant %}
+{% assign featured_image 				= product.featured_image %}
+{% assign description 					= product.description | strip %}
+{% assign images		 				= product.images %}
+{% assign additional_information 		= product.metafields.accentuate.additional_information %}
+{% assign information_font_size 		= product.metafields.accentuate.information_font_size | plus: 0 %}
+
+<div
+		class="product-section product-section--giftcard"
+		data-section-id="{{ section.id }}"
+		data-section-type="product"
+		data-enable-history-state="true"
+		itemscope itemtype="http://schema.org/Product"
+>
+	<meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+	<meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+	<meta itemprop="brand" content="Belgian Boys">
+	<meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
+	<meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+
+	<div class="product-section__container">
+		<div class="product-section__row">
+			<div class="product-section__col product-section__col--media">
+				{% assign slider_images 	= '' %}
+				{% assign thumbnail_images 	= '' %}
+
+				{% for image in images %}
+					{% assign index = forloop.index0 %}
+
+					{%- capture product_slide -%}
+						<div data-product-slide>
+							<div class="product-slider__slide">
+								<picture>
+									<img class="product-slider__slide-image"
+										 srcset="{{ image | img_url: '500x' }} 1x, {{ image | img_url: '1000x' }} 2x"
+										 src="{{ image | img_url: '500x' }}"
+										 alt="{{ image.alt }}"
+									>
+								</picture>
+							</div>
+						</div>
+					{%- endcapture -%}
+
+					{%- capture product_thumbnail -%}
+						<div data-product-thumbnail
+							 data-slick-index="{{ index }}"
+						>
+							<div class="product-section__thumbnails-item">
+								<picture>
+									<img class="product-section__thumbnails-image"
+										 srcset="{{ image | img_url: '95x' }} 1x, {{ image | img_url: '190x' }} 2x"
+										 src="{{ image | img_url: '50x' }}"
+										 alt="{{ image.alt }}"
+									>
+								</picture>
+							</div>
+						</div>
+					{%- endcapture -%}
+
+					{% assign slider_images 	= slider_images 	| append: product_slide %}
+					{% assign thumbnail_images 	= thumbnail_images 	| append: product_thumbnail %}
+				{% endfor %}
+
+				<div class="product-section__slider-wrapper">
+					{% if slider_images != '' %}
+						<div class="product-slider" data-product-slider>
+							{{- slider_images -}}
+						</div>
+
+						{% if images.size > 1 %}
+							<div class="product-section__thumbnails-wrapper" data-product-thumbnails-wrapper>
+								<div class="product-section__thumbnails-arrow product-section__thumbnails-arrow--left" data-product-thumbnails-arrow-prev>
+									{% include 'icon-arrow-left' %}
+								</div>
+
+								<div class="product-section__thumbnails" data-product-thumbnails>
+									{{- thumbnail_images -}}
+								</div>
+
+								<div class="product-section__thumbnails-arrow product-section__thumbnails-arrow--right" data-product-thumbnails-arrow-next>
+									{% include 'icon-arrow-left' %}
+								</div>
+							</div>
+						{% endif %}
+					{% endif %}
+				</div>
+			</div>
+
+			<div class="product-section__col product-section__col--content">
+				<div class="product-section__content">
+					<div class="product-section__info">
+						<h1 class="product-section__title">
+							{{- product.title -}}
+						</h1>
+
+						<div class="product-section__rating">
+							{% render 'product-rating' %}
+						</div>
+
+						{% if description != blank %}
+							<div class="rte product-section__description">
+								{{- description -}}
+							</div>
+						{% endif %}
+
+						{% if product.metafields.accentuate.ingredients_popup != blank %}
+							<div class="product-section__ingredients-popup-button-wrapper">
+								<a href="#" class="product-section__ingredients-popup-button js-ingredients-popup-open">
+									{{ 'products.product.ingredients' | t }}
+								</a>
+							</div>
+						{% endif %}
+					</div>
+
+					<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+						<meta itemprop="priceCurrency" content="{{ shop.currency }}">
+						<meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+						<link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+
+						<form class="product-section__form js-product-card" data-product-form
+							  action="{{ routes.cart_add_url }}" method="post"
+							  enctype="multipart/form-data"
+						>
+							{% unless product.has_only_default_variant %}
+								<div class="product-section__desktop-labels">
+									{% for variant in product.variants %}
+										{%- capture variant_option -%}
+											{% assign pack_size_value 	= variant.title | split: ' ' | first %}
+											{% assign pack_title_value 	= variant.title | remove: pack_size_value %}
+
+											{%- capture pack_size -%}
+												<span class="product-section__variant-size">
+													{{- pack_size_value -}}
+												</span>
+											{%- endcapture -%}
+
+											{%- capture pack_title -%}
+												<span>
+													{{- pack_title_value -}} -
+												</span>
+											{%- endcapture -%}
+
+											{% assign on_sale = false %}
+
+											{% if variant.compare_at_price > variant.price %}
+												{% assign on_sale = true %}
+											{% endif %}
+
+											{% if on_sale == true %}
+												{% assign old_price_value = variant.compare_at_price %}
+
+												{%- capture old_price -%}
+													<span class="product-section__variant-price product-section__variant-price--old">
+														{{- old_price_value | money_without_trailing_zeros -}}
+													</span>
+												{%- endcapture -%}
+											{% endif %}
+
+											{% assign price_value = variant.price %}
+
+											{%- capture price -%}
+												<span class="product-section__variant-price">
+													{{- price_value | money_without_trailing_zeros -}}
+												</span>
+											{%- endcapture -%}
+
+											<p>
+												{{ price }}
+
+												{% if old_price != '' %}
+													{{ old_price }}
+												{% endif %}
+											</p>
+										{%- endcapture -%}
+
+										<div class="product-section__variant-label-wrapper">
+											<input type="radio"
+												   id="variant-{{ product.id }}-{{ variant.id }}"
+												   name="option-{{ product.id }}"
+												   {% if variant == current_variant %}checked{% endif %}
+												   value="{{ variant.id }}"
+												   data-index="{{ forloop.index }}"
+												   data-checked="{% if forloop.first %}false{% else %}true{% endif %}"
+												   data-product-switch-input
+												   data-product-variant
+												   class="product-section__variant-radio-button"
+											>
+
+											<label for="variant-{{ product.id }}-{{ variant.id }}"
+												   data-product-label
+												   data-product-label-id="{{ variant.id }}"
+												   class="product-section__variant-label {% if variant == current_variant %}checked{% endif %}">
+												{{ variant_option | strip }}
+
+												<span class="product-section__variant-label-button">
+													{% include 'icon-cookie-radio-button' %}
+												</span>
+											</label>
+										</div>
+									{% endfor %}
+								</div>
+							{% endunless %}
+
+							<select name="id" class="hidden no-js" data-product-select>
+								{% for variant in product.variants %}
+									<option
+											{% if variant == current_variant %}selected="selected"{% endif %}
+											{% unless variant.available %}disabled="disabled"{% endunless %}
+											value="{{ variant.id }}"
+									>
+										{{- variant.title -}}
+									</option>
+								{% endfor %}
+							</select>
+
+							<div class="product-section__line product-section__line--left product-section__line--mobile">
+								{% if current_variant.available %}
+									<div class="product-section__price" data-price-wrapper>
+										{% if product.compare_at_price_max > product.price %}
+											<span class="visually-hidden" data-compare-text>
+											{{- 'products.product.regular_price' | t -}}
+										</span>
+
+											<span class="product-section__price-value product-section__price-value--old" data-compare-price>
+											{% if current_variant.compare_at_price > current_variant.price %}
+												{{- current_variant.compare_at_price | money_without_trailing_zeros -}}
+											{% endif %}
+										</span>
+
+											<span class="product-section__price-value" data-product-price>
+											{{- current_variant.price | money_without_trailing_zeros -}}
+										</span>
+										{% else %}
+											<span class="product-section__price-value" data-product-price>
+											{{- current_variant.price | money_without_trailing_zeros -}}
+										</span>
+										{% endif %}
+									</div>
+								{% endif %}
+
+								{% if additional_information != blank %}
+									<div class="product-section__additional-information" {% if information_font_size > 0 %}style="font-size: {{ information_font_size }}px"{% endif %}>
+										{{- additional_information -}}
+									</div>
+								{% endif %}
+							</div>
+
+							<div class="product-section__line product-section__line--left">
+								{% if current_variant.available %}
+									<div class="product-section__quantity">
+										<span class="product-section__label">
+											{{- 'products.product.quantity_label' | t -}}
+										</span>
+
+										{%- include 'product-quantity-selector' -%}
+									</div>
+								{% endif %}
+
+								{% if additional_information != blank %}
+									<div class="product-section__additional-information product-section__additional-information--desktop" {% if information_font_size > 0 %}style="font-size: {{ information_font_size }}px"{% endif %}>
+										{{- additional_information -}}
+									</div>
+								{% endif %}
+
+								<div class="product-section__button-wrapper product-section__button-wrapper--mobile"
+									 data-add-to-cart-wrapper
+								>
+									<button
+											class="button button--secondary product-section__button"
+											type="submit"
+											name="add"
+											data-add-to-cart-ajax
+											data-add-to-cart
+											data-product-sticky-cta-threshold
+											{% unless current_variant.available %}disabled="disabled"{% endunless %}
+									>
+										<span data-add-to-cart-text>
+											{% if current_variant %}
+												{% if current_variant.available %}
+													{{- 'products.product.add_to_cart' | t -}}
+												{% else %}
+													{{- 'products.product.sold_out' | t -}}
+												{% endif %}
+											{% else %}
+												{{- 'products.product.unavailable' | t -}}
+											{% endif %}
+										</span>
+									</button>
+								</div>
+							</div>
+
+							<div class="product-section__line">
+								<div class="product-section__price product-section__price--desktop" data-price-wrapper>
+									{% if product.compare_at_price_max > product.price %}
+										<span class="visually-hidden" data-compare-text>
+											{{- 'products.product.regular_price' | t -}}
+										</span>
+
+										<span class="product-section__price-value product-section__price-value--old" data-compare-price>
+											{% if current_variant.compare_at_price > current_variant.price %}
+												{{- current_variant.compare_at_price | money_without_trailing_zeros -}}
+											{% endif %}
+										</span>
+
+										<span class="product-section__price-value" data-product-price>
+											{{- current_variant.price | money_without_trailing_zeros -}}
+										</span>
+									{% else %}
+										<span class="product-section__price-value" data-product-price>
+											{{- current_variant.price | money_without_trailing_zeros -}}
+										</span>
+									{% endif %}
+								</div>
+
+								<div class="product-section__button-wrapper"
+									 data-add-to-cart-wrapper
+								>
+									<button
+											class="button button--secondary product-section__button"
+											type="submit"
+											name="add"
+											data-add-to-cart-ajax
+											data-add-to-cart
+											data-product-sticky-cta-threshold
+											{% unless current_variant.available %}disabled="disabled"{% endunless %}
+									>
+										<span data-add-to-cart-text>
+											{% if current_variant %}
+												{% if current_variant.available %}
+													{{- 'products.product.add_to_cart' | t -}}
+												{% else %}
+													{{- 'products.product.sold_out' | t -}}
+												{% endif %}
+											{% else %}
+												{{- 'products.product.unavailable' | t -}}
+											{% endif %}
+										</span>
+									</button>
+								</div>
+
+								<div class="product-section__giftship-features">
+									<div id="gsAppContainer" class="gs__app-container"></div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{%- unless product == empty -%}
+		<script type="application/json" data-product-json>{{- product | json -}}</script>
+	{%- endunless -%}
+</div>

@@ -1,0 +1,82 @@
+{% assign section_bg 	     = section.settings.section_bg | img_url: 'master' %}
+{% assign section_bg_mob 	 = section.settings.section_bg_mob  | img_url: 'master' %}
+{% assign section_title 	 = section.settings.section_title %}
+{% assign section_text 	     = section.settings.section_text %}
+{% assign btn_bg 	         = section.settings.btn_bg %}
+{% assign btn_text 	         = section.settings.btn_text %}
+{% assign btn_link 	         = section.settings.btn_link %}
+
+<style>
+	#lp-description-section-mini-two {
+		background-image: url({{ section_bg }});
+	}
+
+	@media (max-width: 700px) {
+		#lp-description-section-mini-two {
+			background-image: none;
+		}
+	}
+
+	#lp-description-section-mini-two .lp-description__btn {
+		background-color: {{ btn_bg }} !important;
+	}
+</style>
+
+<section id="lp-description-section-mini-two">
+	<div class="lp-description__container">
+		<div class="lp-description__block">
+			<h3 class="lp-description__block-title">{{ section_title }}</h3>
+			<p class="lp-description__block-text">{{ section_text }}</p>
+
+			<a href="{{ btn_link }}" class="lp-description__btn">{{ btn_text }}</a>
+		</div>
+
+		<div class="lp-description__block-bg-mob">
+			<img src="{{ section_bg_mob }}" alt="">
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Section-Mini Reversed",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "section_bg",
+      "label": "Background IMG of Section"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_bg_mob",
+      "label": "Background IMG of Section Mob"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Title of Section"
+    },
+    {
+      "type": "textarea",
+      "id": "section_text",
+      "label": "Text of Section"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Button background"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Text of Button",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button link"
+    }
+  ]
+}
+{% endschema %}

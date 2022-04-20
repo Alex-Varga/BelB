@@ -1,0 +1,39 @@
+<div class="collection-banner">
+	{% assign collection_image = collection.image %}
+
+    {% if collection_image != blank %}
+        <div class="collection-banner__image-wrapper">
+            <picture>
+				<source srcset="{{ collection_image | img_url: '375x' }} 1x, {{ collection_image | img_url: '750x' }} 2x" media="(max-width: 375px)">
+				<source srcset="{{ collection_image | img_url: '480x' }} 1x, {{ collection_image | img_url: '960x' }} 2x" media="(max-width: 480px)">
+				<source srcset="{{ collection_image | img_url: '767x' }} 1x, {{ collection_image | img_url: '1534x' }} 2x" media="(max-width: 767px)">
+				<source srcset="{{ collection_image | img_url: '991x' }} 1x, {{ collection_image | img_url: '1982x' }} 2x" media="(max-width: 991px)">
+
+                <img srcset="{{ collection_image | img_url: '1920x' }} 1x, {{ collection_image | img_url: '3840x' }} 2x"
+                     src="{{ collection_image | img_url: '1920x' }}"
+                     class="collection-banner__image"
+                     alt="Banner of {{ collection.title }} collection">
+            </picture>
+        </div>
+    {% endif %}
+
+	{% if collection.title == 'Products' %}
+		<div class="collection-banner__image-wrapper">
+			<picture>
+				<source srcset="{{ 'BB_all_products.png' | asset_img_url: '375x' }} 1x, {{ 'BB_all_products.png' | asset_img_url: '750x' }} 2x" media="(max-width: 375px)">
+				<source srcset="{{ 'BB_all_products.png' | asset_img_url: '480x' }} 1x, {{ 'BB_all_products.png' | asset_img_url: '960x' }} 2x" media="(max-width: 480px)">
+				<source srcset="{{ 'BB_all_products.png' | asset_img_url: '767x' }} 1x, {{ 'BB_all_products.png' | asset_img_url: '1534x' }} 2x" media="(max-width: 767px)">
+				<source srcset="{{ 'BB_all_products.png' | asset_img_url: '991x' }} 1x, {{ 'BB_all_products.png' | asset_img_url: '1982x' }} 2x" media="(max-width: 991px)">
+
+				<img srcset="{{ 'BB_all_products.png' | asset_img_url: '1920x' }} 1x, {{ 'BB_all_products.png' | asset_img_url: '3840x' }} 2x"
+					 src="{{ 'BB_all_products.png' | asset_img_url: '1920x' }}"
+					 class="collection-banner__image"
+					 alt="Banner of {{ collection.title }} collection">
+			</picture>
+		</div>
+	{% endif %}
+
+    <h1 class="title collection-banner__title">
+        {{- collection.title -}}
+    </h1>
+</div>

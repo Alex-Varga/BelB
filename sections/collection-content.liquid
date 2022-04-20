@@ -1,0 +1,119 @@
+{% assign menu = section.settings.menu %}
+
+{% capture menu_markup %}
+    {% if menu != blank %}
+        {% assign linklist = linklists[menu] %}
+
+        {% if linklist.size > 0 %}
+            <div class="collection-sidebar">
+                {% for link in linklist.links %}
+                    <div class="collection-sidebar__menu-wrapper">
+                        <h3 class="collection-sidebar__menu-title">
+                            {{ link.title }}
+                        </h3>
+
+                        {% if link.links.size > 0 %}
+                            <ul class="collection-sidebar__menu">
+                                {% for childlink in link.links %}
+                                    {% assign is_active_link = false %}
+                                    {% assign collection_handle = collection.handle %}
+                                    {% assign link_title = childlink.title | lower | handleize %}
+                                    {% assign link_url = childlink.url %}
+                                    {% assign link_url_collection_name_only = childlink.url | replace: '/collections/', '' %}
+
+                                    {% if collection_handle == link_url_collection_name_only %}
+                                        {% assign is_active_link = true %}
+                                    {% endif %}
+
+                                    <li class="collection-sidebar__menu-item{% if is_active_link %} collection-sidebar__menu-item--active{% endif %}">
+                                        <a href="{{ childlink.url }}" class="collection-sidebar__menu-link">
+                                            {{- childlink.title -}}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endcapture %}
+
+{% paginate collection.products by 12 %}
+    <section class="collection-content">
+        <div class="collection-content__container">
+            <div class="collection-content__menu-wrapper">
+                {{- menu_markup -}}
+            </div>
+
+            <div class="collection-content__main-wrapper">
+                <div class="collection-content__sort">
+                    <a href="#" class="collection-content__filter-mobile js-open-popup" data-popup-id="collection-filter-mobile">Filters</a>
+
+                    {% assign sort_by = collection.sort_by | escape %}
+
+                    <div class="custom-select collection-content__select js-custom-select js-collection-sort">
+                        <div class="custom-select__default">
+                            <span class="custom-select__default-value">
+                                Sort by
+                            </span>
+
+                            {% include 'icon-arrow-left' %}
+                        </div>
+
+                        <ul class="custom-select__list">
+                            {% for option in collection.sort_options %}
+                                {% unless option.value contains 'title-' or option.value contains 'created-' %}
+                                    <li class="custom-select__item" data-value="{{ option.value }}"{% if option.value == collection.sort_by %} data-selected{% endif %}>
+                                        {{- option.name -}}
+                                    </li>
+                                {% endunless %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="collection-content__products">
+                    {% for product in collection.products %}
+                        <div class="collection-content__product">
+                            {% include 'product-card' %}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% if paginate.pages > 1 %}
+                    <div class="collection-content__pagination">
+                        {% include 'pagination' %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div id="collection-filter-mobile" class="popup collection-filter-popup js-popup">
+            <div class="popup__container collection-filter-popup__container">
+                <div class="popup__content collection-filter-popup__content">
+                    <button class="collection-filter-popup__close-button js-close-popup">
+                        {% include 'icon-close' %}
+                    </button>
+
+                    {{ menu_markup }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endpaginate %}
+
+{% schema %}
+{
+    "name": "Collection Content",
+    "settings": [
+        {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Filter Menu"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,252 @@
+{% assign background_color           = section.settings.background_color %}
+{% assign logo                       = section.settings.logo %}
+{% assign menu                       = section.settings.footer_menu %}
+
+{% assign social_instagram_link     = settings.social_instagram_link %}
+{% assign social_facebook_link      = settings.social_facebook_link %}
+{% assign social_pinterest_link     = settings.social_pinterest_link %}
+{% assign social_twitter_link       = settings.social_twitter_link %}
+{% assign social_tiktok_link        = settings.social_tiktok_link %}
+{% assign social_linkedin_link      = settings.social_linkedin_link %}
+
+{% assign newsletter_button_text    = section.settings.newsletter_button_text %}
+{% assign newsletter_text           = section.settings.newsletter_text %}
+{% assign newsletter_email          = section.settings.newsletter_email %}
+{% assign klaviyo_list_id           = section.settings.klaviyo_list_id %}
+{% assign klaviyo_form_code         = section.settings.klaviyo_form_code %}
+
+{% assign address                   = section.settings.address %}
+{% assign address_url               = section.settings.address_url %}
+{% assign copyright                 = section.settings.copyright %}
+
+<footer class="footer" style="background-color: {{ background_color }}">
+    <div class="footer__container">
+        <div class="footer__row footer__row--first">
+            <div class="footer__newsletter-wrapper">
+                {% if klaviyo_list_id != blank %}
+                    {%- include 'newsletter',
+                        list_id: klaviyo_list_id
+                    -%}
+                {% elsif klaviyo_form_code != blank %}
+                    {%- include 'newsletter',
+                        form_code: klaviyo_form_code
+                    -%}
+                {% endif %}
+            </div>
+
+            <div class="footer__menu-wrapper">
+                {% for link in linklists[menu].links %}
+                    <div class="footer-menu">
+                        <h4 class="footer-menu__heading">
+                            {{ link.title }}
+                        </h4>
+
+                        {% if link.links != blank %}
+                            <ul class="footer-menu__links">
+                                {% for childlink in link.links %}
+                                    <li class="footer-menu__item">
+                                        <a href="{{ childlink.url }}" class="footer-menu__link">
+                                            {{ childlink.title | escape }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="footer__row footer__row--second">
+            <div class="footer__column"></div>
+
+            <div class="footer__column footer__logo-wrapper">
+                {% if logo != blank %}
+                    <a href="/">
+                        <picture>
+                            <img srcset="{{ logo | img_url: '150x' }} 1x, {{ logo | img_url: '300x' }} 2x"
+                                 src="{{ logo | img_url: '150x' }}" alt="{{ logo.alt }}"
+                                 class="footer__logo"
+                            >
+                        </picture>
+                    </a>
+                {% endif %}
+            </div>
+
+            <div class="footer__column footer__socials-wrapper">
+                <ul class="footer-socials">
+                    {% if social_instagram_link != blank %}
+                        <li class="footer-socials__social">
+                            <a href="{{ social_instagram_link }}" target="_blank" rel="noopener noreferrer" class="footer-socials__social-link">
+                                {% include 'icon-instagram' %}
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% if social_facebook_link != blank %}
+                        <li class="footer-socials__social">
+                            <a href="{{ social_facebook_link }}" target="_blank" rel="noopener noreferrer" class="footer-socials__social-link">
+                                {% include 'icon-facebook' %}
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% if social_tiktok_link != blank %}
+                        <li class="footer-socials__social">
+                            <a href="{{ social_tiktok_link }}" target="_blank" rel="noopener noreferrer" class="footer-socials__social-link">
+                                {% include 'icon-tiktok' %}
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% if social_pinterest_link != blank %}
+                        <li class="footer-socials__social">
+                            <a href="{{ social_pinterest_link }}" target="_blank" rel="noopener noreferrer" class="footer-socials__social-link">
+                                {% include 'icon-pinterest' %}
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% if social_twitter_link != blank %}
+                        <li class="footer-socials__social">
+                            <a href="{{ social_twitter_link }}" target="_blank" rel="noopener noreferrer" class="footer-socials__social-link">
+                                {% include 'icon-twitter' %}
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% if social_linkedin_link != blank %}
+                        <li class="footer-socials__social">
+                            <a href="{{ social_linkedin_link }}" target="_blank" rel="noopener noreferrer" class="footer-socials__social-link">
+                                {% include 'icon-linkedin' %}
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__bottom-info">
+            {% if copyright != blank %}
+                <span class="footer__copyright">
+                    {{ copyright }}
+                </span>
+            {% endif %}
+
+            {% if address != blank %}
+                <span class="footer__address">
+                    {% if address_url != blank %}
+                        <a href="{{ address_url }}" class="footer__link" target="_blank" rel="noopener noreferrer">
+                            {{ address }}
+                        </a>
+                    {% else %}
+                        {{ address }}
+                    {% endif %}
+                </span>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="footer__payment-providers">
+        {% for type in shop.enabled_payment_types %}
+            <img src="{{ type | payment_type_img_url }}" alt="">
+        {% endfor %}
+    </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Belgian Boys",
+  "url": "https://www.belgianboys.com/",
+  "logo": "https://cdn.shopify.com/s/files/1/0276/3748/1545/files/logo_02a58132-7710-4617-9c72-aa39173d89c7_x60.png?v=1599211643",
+  "sameAs": [
+    "https://www.facebook.com/Belgianboys/",
+    "https://www.instagram.com/belgianboys/",
+    "https://www.linkedin.com/company/belgian-boys/"
+  ]
+}
+</script>
+
+{% schema %}
+{
+    "name": "Footer",
+    "settings": [
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Section background color",
+            "default": "#00A7E1"
+        },
+        {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo image"
+        },
+        {
+            "type": "link_list",
+            "id": "footer_menu",
+            "label": "Menu"
+        },
+        {
+            "type": "header",
+            "content": "Newsletter"
+        },
+        {
+            "type": "text",
+            "id": "newsletter_button_text",
+            "label": "Button text",
+            "default": "Subscribe"
+        },
+        {
+            "type": "text",
+            "id": "newsletter_text",
+            "label": "Bottom text",
+            "default": "For questions, feedback, and fan mail for skinny & chubby, please reach out to us at"
+        },
+        {
+            "type": "text",
+            "id": "newsletter_email",
+            "label": "Email",
+            "default": "hello@belgianboys.com"
+        },
+        {
+            "type": "text",
+            "id": "klaviyo_list_id",
+            "label": "Klaviyo List ID"
+        },
+        {
+            "type": "text",
+            "id": "klaviyo_form_code",
+            "label": "Klaviyo Form Embed Code"
+        },
+        {
+            "type": "paragraph",
+            "content": "Klaviyo list ID has higher priority over Klaviyo embed form code"
+        },
+        {
+            "type": "header",
+            "content": "Secondary info"
+        },
+        {
+            "type": "text",
+            "id": "address",
+            "label": "Address",
+            "default": "240 Kent Ave., Brooklyn, New York 11249"
+        },
+        {
+            "type": "url",
+            "id": "address_url",
+            "label": "Google Maps link",
+            "info": "Paste a link from Google Maps of address location"
+        },
+        {
+            "type": "text",
+            "id": "copyright",
+            "label": "Copyright",
+            "default": "B Boys LLC DBA Belgian Boys. All rights reserved."
+        }
+    ]
+}
+{% endschema %}

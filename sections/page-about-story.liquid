@@ -1,0 +1,103 @@
+{% assign title 	= section.settings.title | default: page.title %}
+{% assign blocks 	= section.blocks %}
+
+<section class="about-story">
+	<div class="about-story__container">
+		<h1 class="about-story__title">
+			{{- title -}}
+		</h1>
+
+		{% if blocks.size > 0 %}
+			{% for block in blocks %}
+				{% assign text	 = block.settings.title %}
+				{% assign image	 = block.settings.image %}
+				{% assign video  = block.settings.video %}
+				{% assign text_uppercase = block.settings.text_uppercase %}
+
+				{% if text != blank or image != blank %}
+					<div class="about-story__item{% cycle ' about-story__item--left', ' about-story__item--right' %}">
+						{% if text != blank %}
+							<div class="about-story__item-col">
+								<div class="about-story__item-text{% if text_uppercase %} about-story__item-text--uppercase{% endif %}">
+									{{- text -}}
+								</div>
+							</div>
+						{% endif %}
+
+						{% if image != blank %}
+							<div class="about-story__item-col">
+								<picture>
+									<img srcset="{{ image | img_url: '500x' }} 1x, {{ image | img_url: '1000x' }} 2x"
+										 src="{{ image | img_url: '500x' }}"
+										 class="about-story__item-image"
+										 alt="{{ image.alt }}"
+									>
+								</picture>
+							</div>
+						{% endif %}
+
+						{% if video != blank %}
+							<div class="about-story__item-col">
+								<div class="gif-video-wrapper">
+									<video width="100%" loop muted autoplay>
+										<source src="{{ video }}" type="video/mp4">
+										Your browser does not support the video tag.
+									</video>
+
+									<div class="gif-shadow"></div>
+								</div>
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	</div>
+
+	<div class="about-story__pattern">
+		{{- 'wave-beige.svg' | asset_url | img_tag: '', 'about-story__pattern-image' -}}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Our Story",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Our Story"
+		}
+	],
+	"blocks": [
+		{
+			"type": "story",
+			"name": "Story",
+			"settings": [
+				{
+					"type": "richtext",
+					"id": "title",
+					"label": "Text"
+				},
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				},
+				{
+					"label": "Video (MP4)",
+					"id": "video",
+					"type": "url"
+				},
+				{
+					"label": "Uppercase text",
+					"id": "text_uppercase",
+					"type": "checkbox",
+					"default": false
+				}
+			]
+		}
+	]
+}
+{% endschema %}

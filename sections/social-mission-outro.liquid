@@ -1,0 +1,54 @@
+{% assign title = section.settings.title %}
+{% assign text 	= section.settings.text %}
+{% assign image = section.settings.image %}
+
+<section class="social-mission-outro">
+	<div class="social-mission-outro__container">
+		{% if title != blank %}
+			<h2 class="social-mission-outro__title">
+				{{- title -}}
+			</h2>
+		{% endif %}
+
+		{% if text != blank %}
+			<div class="rte social-mission-outro__text">
+				{{- text -}}
+			</div>
+		{% endif %}
+
+		{% if image != blank %}
+			<picture>
+				<img srcset="{{ image | img_url: '560x' }} 1x, {{ image | img_url: '1120x' }} 2x"
+					 src="{{ image | img_url: '560x' }}"
+					 class="social-mission-outro__image"
+					 alt="{{ image.alt }}"
+				>
+			</picture>
+		{% endif %}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Community Giving + You",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Community Giving + You"
+		},
+		{
+			"type": "richtext",
+			"id": "text",
+			"label": "Text",
+			"default": "<p>Every year, we partner with dozens of schools, charities and nonprofits to make the world sweeter, one treat at a time. If your charitable event or fundraiser could use some dressing up with Belgian Boys treats, please reach out to us at <a href=\"mailto:hello@belgianboys.com\">hello@belgianboys.com</a>!</p>"
+		},
+		{
+			"type": "image_picker",
+			"id": "image",
+			"label": "Image"
+		}
+	]
+}
+{% endschema %}

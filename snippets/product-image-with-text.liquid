@@ -1,0 +1,59 @@
+{% assign s = r %}
+
+{% if product.metafields.accentuate.image_with_text_row_image.size > 0 %}
+	<section class="image-with-text">
+		<div class="image-with-text__wrapper">
+			{% for row in product.metafields.accentuate.image_with_text_row_image %}
+				{% assign index = forloop.index0 %}
+				{% assign image_with_text_row_image = product.metafields.accentuate.image_with_text_row_image[index] %}
+				{% assign image_with_text_row_image_mob = product.metafields.accentuate.image_with_text_row_image_mob[index] %}
+				{% assign image_with_text_content = product.metafields.accentuate.image_with_text_content[index] %}
+				{% assign image_with_text_content_color = product.metafields.accentuate.image_with_text_content_color[index] | default: '#111c4e' %}
+				{% assign mobile_text_overlay = product.metafields.accentuate.mobile_text_overlay[index] %}
+				{% assign image_with_text_stars = product.metafields.accentuate.image_with_text_stars[index] | plus: 0 %}
+
+				{% assign value_even = index | modulo:2 %}
+				{% if value_even == 0 %}
+					{% assign image_with_text_content_left = false %}
+				{% else %}
+					{% assign image_with_text_content_left = true %}
+				{% endif %}
+
+				<div class="image-with-text__row{% if image_with_text_content_left %} image-with-text__row--left{% endif %}{% if mobile_text_overlay %} image-with-text__row--mobile-text-overlay{% endif %}" style="--image-with-text-content-color: {{ image_with_text_content_color }};">
+					{% if image_with_text_row_image != blank %}
+						<picture class="image-with-text__row-wrapper">
+							{% for image_mobile in image_with_text_row_image_mob %}
+								<source srcset="{{ image_mobile.src }} 1x, {{ image_mobile.src }} 2x" media="(max-width: 575px)">
+							{% endfor %}
+
+							{% for image in image_with_text_row_image %}
+								<img srcset="{{ image.src }} 1x, {{ image.src }} 2x"
+									 src="{{ image.src }}"
+									 class="image-with-text__image"
+									 alt="{{ image.alt }}">
+							{% endfor %}
+						</picture>
+					{% endif %}
+
+					<div class="image-with-text__row-content">
+						{% if image_with_text_stars > 0 %}
+							<div class="image-with-text__stars">
+								{% for i in (1..5) %}
+									<div class="image-with-text__star-wrapper">
+										{%- if i <= image_with_text_stars -%}
+											{%- render 'icon-filled-star' -%}
+										{%- else -%}
+											{%- render 'icon-empty-star' -%}
+										{%- endif -%}
+									</div>
+								{% endfor %}
+							</div>
+						{% endif %}
+
+						{{ image_with_text_content.html }}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

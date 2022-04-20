@@ -1,0 +1,71 @@
+{% assign section_title   = section.settings.section_title %}
+{% assign btn_text 	      = section.settings.btn_text %}
+{% assign btn_link	  	  = section.settings.btn_link %}
+
+<section id="lp4-when-where">
+	<section class="locations">
+		<h2 class="locations__title">{{ section_title }}</h2>
+
+		<div class="locations-wrap">
+			{% for block in section.blocks %}
+				<div class="locations__item">
+					<div class="locations__img">
+						<img src="{{ block.settings.icon | img_url: 'master' }}" alt="icon">
+					</div>
+					<h4 class="locations__name">{{ block.settings.title }}</h4>
+					<p class="locations__address">{{ block.settings.text }}</p>
+				</div>
+			{% endfor %}
+		</div>
+
+		{% if btn_text != blank %}
+			<a href="{{ btn_link }}" class="locations__btn">{{ btn_text }}</a>
+		{% endif %}
+	</section>
+</section>
+
+{% schema %}
+{
+  "name": "When where",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Title of Section"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,54 @@
+{% assign first_text 	= section.settings.first_text %}
+{% assign second_text 	= section.settings.second_text %}
+{% assign third_text 	= section.settings.third_text %}
+{% assign image 		= section.settings.image %}
+
+<section id="free-waffles--hero">
+	<div class="free-waffles--hero--container">
+		<div class="free-waffles--hero__text-block">
+			<div class="text_block__first_text">
+				{{ first_text }}
+			</div>
+			<div class="text_block__second_text">
+				{{ second_text }}
+			</div>
+			<div class="text_block__third_text">
+				{{ third_text }}
+			</div>
+		</div>
+		<div class="free-waffles--hero__image-block">
+			<img src="{{ image | img_url: "master" }}" alt="{{ image.alt }}" class="image-block__image">
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "first_text",
+      "label": "First line text"
+    },
+	{
+		"type": "text",
+		"id": "second_text",
+		"label": "Second line text"
+	},
+	{
+		"type": "text",
+		"id": "third_text",
+		"label": "Third line text"
+	},
+	{
+		"type": "image_picker",
+		"id": "image",
+		"label": "Image"
+	}
+  ]
+}
+{% endschema %}
+
+
+

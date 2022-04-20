@@ -1,0 +1,34 @@
+{% assign benefits_icon = product.metafields.accentuate.benefits_icon %}
+{% assign benefits_text = product.metafields.accentuate.benefits_text %}
+{% assign length 		= benefits_icon.size %}
+
+{% if length > 0 %}
+	<section class="ingredients">
+		<div class="ingredients__container">
+			<div class="ingredients__wrapper">
+				{% for index in (0..length) %}
+					{% assign icon = benefits_icon[index] %}
+					{% assign text = benefits_text[index] %}
+
+					{% if icon != blank %}
+						<div class="ingredients__item">
+							<div class="ingredients__image-wrapper">
+								{% for image in icon %}
+									<img class="ingredients__image" src="{{ image.src }}" alt="{{ image.alt }}">
+								{% endfor %}
+							</div>
+
+							{% if text != blank %}
+								<p class="ingredients__text">
+									{{- text -}}
+								</p>
+							{% endif %}
+						</div>
+					{% endif %}
+				{% endfor %}
+
+			</div>
+		</div>
+	</section>
+{% endif %}
+

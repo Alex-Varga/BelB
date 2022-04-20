@@ -1,0 +1,43 @@
+{% comment %}
+	@params
+	article - 	article object *required
+{% endcomment %}
+
+{% assign link 			= article.url %}
+{% assign title 		= article.title %}
+{% assign image 		= article.image %}
+{% assign custom_image 	= article.metafields.article.article_card_image | first %}
+{% assign content 		= article.content | strip_html %}
+{% assign excerpt 		= article.excerpt | strip_html | default: article.content | truncatewords: 20 %}
+
+<article class="article-card">
+	{% if custom_image != blank %}
+		<a href="{{ link }}" class="article-card__image-wrapper">
+			<img class="article-card__image"
+				 src="{{ custom_image.cloudinary_src | append: 'w_900' }}"
+				 alt="{{ title }}"
+			>
+		</a>
+		{% elsif image != blank %}
+		<a href="{{ link }}" class="article-card__image-wrapper">
+			<img class="article-card__image"
+				 src="{{ image | img_url: '900x' }}"
+				 alt="{{ image.alt }}"
+			>
+		</a>
+	{% endif %}
+
+	<div class="article-card__info">
+		<a href="{{ link }}" class="article-card__title">
+			{{- title -}}
+		</a>
+
+		<div class="article-card__excerpt">
+			{{- excerpt | strip_html -}}
+		</div>
+
+		<a href="{{ link }}" class="article-card__link">
+			{{- 'blogs.article.read_more' | t -}}
+		</a>
+	</div>
+</article>

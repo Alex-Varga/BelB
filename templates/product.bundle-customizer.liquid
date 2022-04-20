@@ -1,0 +1,151 @@
+{% layout none %}
+
+{% comment %}
+	@params
+	product -    product object *required
+{% endcomment %}
+
+{% assign current_variant       = product.selected_or_first_available_variant %}
+{% assign bundle                = product %}
+{% assign bundle_size           = current_variant.title | split: ' ' | first | plus: 0 %}
+{% assign bundle_not_found      = false %}
+{% assign ingredient_products   = product.metafields.bundle.ingredient_product %}
+
+{% if ingredient_products.size == 0 or bundle_size == 0 %}
+	{% assign bundle_not_found = true %}
+{% endif %}
+
+{% if bundle != blank and bundle_not_found == false %}
+	<div class="bundle-customizer__wrapper">
+		<div class="bundle-customizer__background">
+			<div class="bundle-customizer__close" data-bundle-customizer-close>
+				{%- render 'icon-close' -%}
+			</div>
+
+			<div class="bundle-customizer__container">
+				<div class="bundle-customizer__header">
+					<h3 class="bundle-customizer__title">
+						{{- 'products.bundle.customizer_title' | t: size: bundle_size -}}
+					</h3>
+
+					<span class="bundle-customizer__price" data-bundle-customizer-price>
+						{{- current_variant.price | money_without_trailing_zeros -}}
+					</span>
+				</div>
+
+				{% if ingredient_products.size > 0 %}
+					<div
+						class="bundle-customizer__configurator"
+						data-bundle-customizer
+						data-bundle-variant-id="{{ current_variant.id }}"
+						data-bundle-size="{{ bundle_size }}"
+					>
+						{% for ingredient in ingredient_products %}
+							{% assign index                = forloop.index0 %}
+							{% assign product_handle       = ingredient_products[index] %}
+							{% assign product              = all_products[product_handle] %}
+
+							{% if product.variants[0].available != false %}
+								<div class="bundle-customizer__configurator-line" data-bundle-ingredient="{{ product_handle }}" data-ingredient-variant-id="{{ product.variants[0].id }}">
+									<h5 class="bundle-customizer__ingredient-title"
+										data-bundle-ingredient-title="{{ product.title }}">
+										{{- product.title -}}
+									</h5>
+
+									<div class="product-quantity-selector js-product-quantity" data-product-quantity-selector>
+										<button class="product-quantity-selector__button js-product-quantity-remove"
+												type="button"
+										>
+											-
+										</button>
+										<input type="number"
+											   id="quantity-{{ product_handle }}"
+											   name="quantity-{{ product_handle }}"
+											   class="product-quantity-selector__input js-only-positive js-product-quantity-input js-bundle-popup-quantity-input"
+											   value="0" min="0" data-min-val="0" data-max-val="99" data-disabled="false"
+											   data-bundle-ingredient-quantity
+											   readonly
+										>
+										<button class="product-quantity-selector__button js-product-quantity-add"
+												type="button"
+										>
+											+
+										</button>
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				{% endif %}
+
+				<div class="bundle-customizer__footer">
+					<div class="bundle-customizer__progress" data-bundle-customizer-progress>
+						{%- assign tags = bundle.tags -%}
+
+						{%- for tag in tags -%}
+							{%- assign current_tag = tag | downcase | replace: ' ', '-' | strip -%}
+
+							{%- if tag contains 'bundle-icon-' -%}
+								{%- capture bundle_icon -%}
+								{%- assign empty_image_file    = tag | append: '-empty.png' -%}
+								{%- assign filled_image_file    = tag | append: '-filled.png' -%}
+
+									<div class="bundle-customizer__progress-icon-wrapper">
+										<img class="bundle-customizer__progress-icon bundle-customizer__progress-icon--empty"
+											 srcset="{{ empty_image_file | file_img_url: '40x' }} 1x, {{ empty_image_file | file_img_url: '80x' }} 2x"
+											 src="{{ empty_image_file | file_img_url: '40x' }}"
+											 alt=""
+										>
+
+										<img class="bundle-customizer__progress-icon bundle-customizer__progress-icon--filled"
+											 srcset="{{ filled_image_file | file_img_url: '40x' }} 1x, {{ filled_image_file | file_img_url: '80x' }} 2x"
+											 src="{{ filled_image_file | file_img_url: '40x' }}"
+											 alt=""
+										>
+									</div>
+								{%- endcapture -%}
+
+								{%- break -%}
+							{%- endif -%}
+						{%- endfor -%}
+
+						{%- assign bundle_icon = bundle_icon | strip -%}
+
+						{%- for progress_item in (1..bundle_size) -%}
+							<div class="bundle-customizer__progress-item"
+								 data-bundle-customizer-progress-item
+							>
+								{%- if bundle_icon != '' -%}
+									{{- bundle_icon -}}
+								{%- else -%}
+									{%- render 'icon-cookie' -%}
+								{%- endif -%}
+							</div>
+						{%- endfor -%}
+					</div>
+
+					<button class="button button--secondary bundle-customizer__button"
+							type="submit"
+							name="add"
+							data-add-to-cart
+							{% unless current_variant.available %}disabled="disabled"{% endunless %}
+					>
+						{%- render 'icon-cart' -%}
+
+						<span data-add-to-cart-text>
+							{% if current_variant %}
+								{% if current_variant.available %}
+									{{- 'products.product.add_to_cart' | t -}}
+								{% else %}
+									{{- 'products.product.sold_out' | t -}}
+								{% endif %}
+							{% else %}
+								{{- 'products.product.unavailable' | t -}}
+							{% endif %}
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}

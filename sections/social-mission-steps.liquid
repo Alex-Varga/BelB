@@ -1,0 +1,73 @@
+{% assign title = section.settings.title %}
+{% assign steps = section.blocks %}
+
+<section class="social-mission-steps">
+	<div class="social-mission-steps__container">
+		{% if title != blank %}
+			<h2 class="social-mission-steps__title">
+				{{- title -}}
+			</h2>
+		{% endif %}
+
+		{% if steps.size > 0 %}
+			<div class="social-mission-steps__row">
+				{% for step in steps %}
+					{% assign text 	= step.settings.title %}
+					{% assign image = step.settings.image %}
+
+					{% if text != blank or image != blank %}
+						<div class="social-mission-steps__col" data-step="{{ forloop.index }}">
+							{% if text != blank %}
+								<p class="social-mission-steps__text">
+									{{- text -}}
+								</p>
+							{% endif %}
+
+							{% if image != blank %}
+								<picture>
+									<img srcset="{{ image | img_url: '182x' }} 1x, {{ image | img_url: '364x' }} 2x"
+										 src="{{ image | img_url: '182x' }}"
+										 class="social-mission-steps__image"
+										 alt="{{ image.alt }}"
+									>
+								</picture>
+							{% endif %}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Social Mission Steps",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "HERE’S HOW YOU CAN #ROCKTHATSTASH AND WIN A DONATION TO YOUR FAVORITE CHARITY!"
+		}
+	],
+	"blocks": [
+		{
+			"type": "step",
+			"name": "Step",
+			"settings": [
+				{
+					"type": "textarea",
+					"id": "title",
+					"label": "Text"
+				},
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

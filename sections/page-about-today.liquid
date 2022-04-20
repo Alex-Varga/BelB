@@ -1,0 +1,85 @@
+{% assign title 	= section.settings.title %}
+{% assign subtitle 	= section.settings.subtitle %}
+{% assign blocks 	= section.blocks %}
+
+<section class="about-today">
+	<div class="about-today__container">
+		{% if title != blank %}
+			<h2 class="about-today__title">
+				{{- title -}}
+			</h2>
+		{% endif %}
+
+		{% if subtitle != blank %}
+			<p class="about-today__subtitle">
+				{{- subtitle -}}
+			</p>
+		{% endif %}
+
+		{% if blocks.size > 0 %}
+			<div class="about-today__row">
+				{% for block in blocks %}
+					{% assign icon = block.settings.image %}
+					{% assign text = block.settings.title %}
+
+					{% if icon != blank or text != blank %}
+						<div class="about-today__col">
+							{% if icon != blank %}
+								<picture>
+									<img srcset="{{ icon | img_url: '300x' }} 1x, {{ icon | img_url: '600x' }} 2x"
+										 src="{{ icon | img_url: '300x' }}"
+										 class="about-today__icon"
+										 alt="{{ icon.alt }}"
+									>
+								</picture>
+							{% endif %}
+
+							{% if text != blank %}
+								<div class="rte about-today__text">
+									{{- text -}}
+								</div>
+							{% endif %}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Belgian Boys Today",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Belgian Boys Today"
+		},
+		{
+			"type": "textarea",
+			"id": "subtitle",
+			"label": "Subheading"
+		}
+	],
+	"blocks": [
+		{
+			"type": "item",
+			"name": "Item",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Icon"
+				},
+				{
+					"type": "richtext",
+					"id": "title",
+					"label": "Text"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

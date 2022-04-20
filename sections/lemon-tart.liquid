@@ -1,0 +1,64 @@
+{% assign title 	= section.settings.title %}
+{% assign text  	= section.settings.text %}
+{% assign image  	= section.settings.image | img_url: 'master' %}
+{% assign btn_text  = section.settings.btn_text %}
+{% assign btn_link  = section.settings.btn_link %}
+
+<div id="tart">
+	<div class="tart-container" style="background-image: url({{ image }});">
+		<div class="mobile-image">
+			<img src="{{ image }}" alt="tart">
+		</div>
+
+		<div class="tart-content">
+			<h2>
+				{{ title }}
+			</h2>
+
+			<p>
+				{{ text }}
+			</p>
+
+			<a href="{{ btn_link }}">
+				{{ btn_text }}
+			</a>
+		</div>
+
+		<div class="tart-offset">
+
+		</div>
+	</div>
+</div>
+
+{% schema %}
+{
+  "name": "Lemon tart",
+  "settings": [
+    {
+      "label": "Image",
+      "id": "image",
+      "type": "image_picker"
+    },
+    {
+      "label": "Title",
+      "id": "title",
+      "type": "text"
+    },
+    {
+      "label": "Text",
+      "id": "text",
+      "type": "textarea"
+    },
+    {
+      "label": "Button link",
+      "id": "btn_link",
+      "type": "url"
+    },
+    {
+      "label": "Button text",
+      "id": "btn_text",
+      "type": "text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,21 @@
+{% assign embed_code = section.settings.embed_code %}
+
+{% if embed_code != blank %}
+	<section class="store-locator">
+		{{ embed_code }}
+	</section>
+{% endif %}
+
+{% schema %}
+{
+	"name": "Store Locator",
+	"settings": [
+		{
+			"type": "textarea",
+			"id": "embed_code",
+			"label": "Embed Code",
+			"default": "<script src='//destinilocators.com/belgianboys/site/install/?MM=panel2'></script>"
+		}
+	]
+}
+{% endschema %}

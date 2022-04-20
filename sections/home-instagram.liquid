@@ -1,0 +1,75 @@
+{% assign instagram_text = section.settings.instagram_text %}
+{% assign instagram_link = section.settings.instagram_link %}
+
+<section class="home-instagram">
+	<div class="home-instagram__container">
+		{% if section.blocks.size > 0 %}
+			<div class="home-instagram__images">
+				{% for block in section.blocks %}
+					{% assign image = block.settings.image %}
+
+					<div class="home-instagram__image-wrapper">
+						<picture>
+							<img srcset="{{ image | img_url: '400x' }} 1x, {{ image | img_url: '800x' }} 2x"
+								 src="{{ image | img_url: '400x' }}" alt="{{ image.alt }}"
+								 class="home-instagram__image"
+							>
+						</picture>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		{% if instagram_text != blank and instagram_link != blank %}
+			<div class="home-instagram__bottom-wrapper">
+				<a href="{{ instagram_link }}" class="home-instagram__bottom-link" target="_blank" rel="noopener noreferrer">
+					<span class="home-instagram__bottom-icon">
+						{% include 'icon-instagram' %}
+					</span>
+
+					<span class="home-instagram__bottom-text">
+						{{- instagram_text -}}
+					</span>
+				</a>
+			</div>
+		{% endif %}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Instagram",
+	"max_blocks": 9,
+	"settings": [
+		{
+			"type": "textarea",
+			"id": "instagram_text",
+			"label": "Bottom text"
+		},
+		{
+			"type": "url",
+			"id": "instagram_link",
+			"label": "Bottom link"
+		}
+	],
+	"blocks": [
+		{
+			"type": "image",
+			"name": "Image",
+			"settings": [
+				{
+					"label": "Image",
+					"id": "image",
+					"type": "image_picker"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Instagram",
+			"category": "Home"
+		}
+	]
+}
+{% endschema %}

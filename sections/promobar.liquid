@@ -1,0 +1,65 @@
+{% assign enable_promobar = section.settings.enable_promobar %}
+
+{% if enable_promobar == true %}
+	{% assign bg_color 		= section.settings.bg_color %}
+	{% assign text_color 	= section.settings.text_color %}
+	{% assign text 			= section.settings.text %}
+	{% assign url 			= section.settings.url %}
+
+	{% if text != blank %}
+		<div class="promobar"
+			 data-section-id="{{ section.id }}" data-section-type="promobar"
+			 style="--bg-color: {{ bg_color }}; --text-color: {{ text_color }};"
+		>
+			<div class="promobar__container">
+				{% if url != blank %}
+					<a class="promobar__text" href="{{ url }}">
+						{{- text -}}
+					</a>
+				{% else %}
+					<p class="promobar__text">
+						{{- text -}}
+					</p>
+				{% endif %}
+			</div>
+		</div>
+	{% endif %}
+{% endif %}
+
+{% schema %}
+{
+	"name": "Promobar",
+	"settings": [
+		{
+			"type": "checkbox",
+			"id": "enable_promobar",
+			"label": "Show promobar",
+			"default": true
+		},
+		{
+			"type": "color",
+			"id": "bg_color",
+			"label": "Background color",
+			"default": "#00C1DE"
+		},
+		{
+			"type": "color",
+			"id": "text_color",
+			"label": "Text color",
+			"default": "#FFFFFF"
+		},
+		{
+			"type": "textarea",
+			"id": "text",
+			"label": "Promo text",
+			"default": "FREE SHIPPING ON ORDERS OVER 50$"
+		},
+		{
+			"type": "url",
+			"id": "url",
+			"label": "Promo link",
+			"info": "Leave empty if no link is needed"
+		}
+	]
+}
+{% endschema %}

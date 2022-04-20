@@ -1,0 +1,77 @@
+{% assign section_bg 			= section.settings.section_bg %}
+{% assign title_image 	 		= section.settings.title_image | img_url: 'master' %}
+{% assign right_image 	 		= section.settings.right_image | img_url: 'master' %}
+{% assign text 	 	 			= section.settings.text %}
+
+<style>
+	#lp4-hero {
+		background-color: {{ section_bg }};
+	}
+</style>
+
+<section id="lp4-hero">
+	<div class="lp-hero__container">
+		<div class="left">
+			<div class="lp-hero__title">
+				<img src="{{ title_image }}" alt="title">
+			</div>
+
+			<div class="lp-hero__icon-list">
+				{% for block in section.blocks %}
+					{% assign icon = block.settings.icon | img_url: 'master' %}
+
+					<div class="lp-hero__icon">
+						<img src="{{ icon }}" alt="">
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="right">
+			<picture>
+				<source srcset="{{ right_image }}">
+
+				<img src="{{ right_image }}" alt="image">
+			</picture>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Wafel Hero",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color"
+    },
+    {
+      "type": "image_picker",
+      "id": "title_image",
+      "label": "Title image"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+

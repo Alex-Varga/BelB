@@ -1,0 +1,38 @@
+{% assign bg_color 			= section.settings.bg_color %}
+{% assign articles_limit 	= 8 %}
+
+{% paginate blog.articles by articles_limit %}
+	<section class="blog-content" style="--bg-color: {{ bg_color }};">
+		<div class="blog-content__container">
+			<div class="blog-content__articles">
+				{% for article in blog.articles %}
+					{% assign is_featured = article.metafields.article.featured_article %}
+
+					<div class="blog-content__articles-item{% if is_featured and paginate.current_page <= 1 %} blog-content__articles-item--featured{% endif %}">
+						{% render 'article-card' with article: article %}
+					</div>
+				{% endfor %}
+			</div>
+
+			{% if paginate.pages > 1 %}
+				<div class="blog-content__pagination">
+					{% include 'pagination' %}
+				</div>
+			{% endif %}
+		</div>
+	</section>
+{% endpaginate %}
+
+{% schema %}
+{
+	"name": "Content",
+	"settings": [
+		{
+			"type": "color",
+			"id": "bg_color",
+			"label": "Background color",
+			"default": "#FFEDDB"
+		}
+	]
+}
+{% endschema %}
